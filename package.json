@@ -1,5 +1,5 @@
 {
-  "name": "joel_web",
+  "name": "node_server",
   "version": "0.0.1",
   "description": "Joel's Web Server package",
   "main": "main.js",
@@ -7,5 +7,13 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Joel Young",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JoelYoung01/node_server.git"
+  },
+  "bugs": {
+    "url": "https://github.com/JoelYoung01/node_server/issues"
+  },
+  "homepage": "https://github.com/JoelYoung01/node_server#readme"
 }
