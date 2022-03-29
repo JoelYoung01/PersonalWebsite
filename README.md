@@ -1,4 +1,5 @@
-## Welcome G
-### this is the readme for the server
+# Welcome G
+This is the readme for the server
 
-## General Help
+# General Help
+todo: add information
