@@ -1,19 +1,25 @@
 {
   "name": "node_server",
-  "version": "0.0.1",
-  "description": "Joel's Web Server package",
-  "main": "main.js",
+  "version": "1.0.0",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
   },
-  "author": "Joel Young",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/JoelYoung01/node_server.git"
+  "dependencies": {
+    "core-js": "^3.19.3",
+    "nuxt": "^2.15.8",
+    "vue": "^2.6.14",
+    "vue-server-renderer": "^2.6.14",
+    "vue-template-compiler": "^2.6.14",
+    "vuetify": "^2.6.1",
+    "webpack": "^4.46.0"
   },
-  "bugs": {
-    "url": "https://github.com/JoelYoung01/node_server/issues"
-  },
-  "homepage": "https://github.com/JoelYoung01/node_server#readme"
+  "devDependencies": {
+    "@nuxt/types": "^2.15.8",
+    "@nuxt/typescript-build": "^2.1.0",
+    "@nuxtjs/vuetify": "^1.12.3"
+  }
 }
