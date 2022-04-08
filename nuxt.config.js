@@ -79,6 +79,6 @@ export default {
 
    // Server Configuration
    server: {
-      host: "192.168.1.31"
+      host: "localhost"
    }
 }
