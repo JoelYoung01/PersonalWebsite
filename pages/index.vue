@@ -2,14 +2,10 @@
   <v-row>
     <v-col class="text-center">
       <img src="/v.png" alt="Vuetify.js" class="mb-5" />
-      <blockquote class="blockquote">
-        &#8220;My name is joel and this is pretty neat&#8221;
-        <footer>
-          <small>
-            <em>&mdash;Joel Young</em>
-          </small>
-        </footer>
-      </blockquote>
+      <CustomQuote
+        quote="My name is joel and this is pretty neat"
+        source="Joel Young"
+      />
     </v-col>
   </v-row>
 </template>
