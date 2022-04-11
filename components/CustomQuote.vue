@@ -11,7 +11,9 @@
 <script lang="ts">
 import { Component, Vue, Prop } from "nuxt-property-decorator";
 
-@Component({})
+@Component({
+  name: "CustomQuote",
+})
 export default class CustomQuote extends Vue {
   @Prop()
   readonly quote!: string;

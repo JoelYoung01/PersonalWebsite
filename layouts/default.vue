@@ -1,6 +1,8 @@
 <template>
   <v-app dark>
+    <NavBar v-if="showNavbar" />
     <v-main>
+      <MenuBar @toggleNavBar="showNavbar = !showNavbar" />
       <v-container>
         <Nuxt />
       </v-container>
@@ -9,29 +11,23 @@
 </template>
 
 <script lang="ts">
+import MenuBar from "../components/Main/MenuBar.vue";
+import NavBar from "../components/Main/NavBar.vue";
+
 export default {
   name: "DefaultLayout",
+  components: {
+    MenuBar,
+    NavBar,
+  },
   data() {
     return {
-      clipped: false,
-      drawer: false,
-      fixed: false,
-      items: [
-        {
-          icon: "mdi-apps",
-          title: "Welcome",
-          to: "/",
-        },
-        {
-          icon: "mdi-chart-bubble",
-          title: "Inspire",
-          to: "/inspire",
-        },
-      ],
-      miniVariant: false,
-      right: true,
-      rightDrawer: false,
-      title: "Vuetify.js",
+      showNavbar: false,
+    };
+  },
+  head() {
+    return {
+      title: "Joel's Node Server",
     };
   },
 };
