@@ -1,12 +1,25 @@
 <template>
-  <v-navigation-drawer permanent app>
-    <v-list-item>
+  <v-navigation-drawer permanent app :mini-variant="minimize">
+    <v-list-item v-if="!minimize">
       <v-list-item-content>
         <v-list-item-title class="text-h6"> Navigate </v-list-item-title>
         <v-list-item-subtitle>
           Choose a page to navigate to
         </v-list-item-subtitle>
       </v-list-item-content>
+    </v-list-item>
+    <v-list-item class="pl-2">
+      <v-tooltip right v-if="minimize">
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn icon @click.stop="minimize = false" v-bind="attrs" v-on="on">
+            <v-icon>mdi-chevron-right</v-icon>
+          </v-btn>
+        </template>
+        <span>Expand</span>
+      </v-tooltip>
+      <v-btn v-if="!minimize" text @click.stop="minimize = true">
+        <v-icon left>mdi-chevron-left</v-icon> Collapse
+      </v-btn>
     </v-list-item>
 
     <v-divider></v-divider>
@@ -43,5 +56,7 @@ export default class NavBar extends Vue {
       to: "/",
     },
   ];
+
+  minimize: boolean = false;
 }
 </script>

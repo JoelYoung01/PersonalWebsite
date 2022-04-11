@@ -11,7 +11,11 @@
 </template>
 
 <script>
+import CustomQuote from "~/components/Home/CustomQuote.vue";
 export default {
   name: "index",
+  components: {
+    CustomQuote,
+  },
 };
 </script>
