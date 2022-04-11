@@ -1,6 +1,6 @@
 <template>
   <v-app dark>
-    <NavBar v-if="showNavbar" />
+    <NavBar :show="showNavbar" />
     <v-main>
       <MenuBar @toggleNavBar="showNavbar = !showNavbar" />
       <v-container>

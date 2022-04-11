@@ -1,5 +1,5 @@
 <template>
-  <v-navigation-drawer permanent app :mini-variant="minimize">
+  <v-navigation-drawer permanent app :mini-variant="minimize" v-if="show">
     <v-list-item v-if="!minimize">
       <v-list-item-content>
         <v-list-item-title class="text-h6"> Navigate </v-list-item-title>
