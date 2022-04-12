@@ -1,4 +1,5 @@
 # Node Server
+Current Site URL: http://joel.lodegoat.com
 
 ## Build Setup
 
