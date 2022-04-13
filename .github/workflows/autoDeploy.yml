@@ -19,7 +19,7 @@ jobs:
         port: ${{ secrets.SERVER_PORT }}
         script: |
           cd /var/www/NodeServer
-          whoami
-          ls -al
           ${{ secrets.SERVER_DEPLOY_SCRIPT}}
-          pm2 restart 0
+          npm install
+          npm run build
+          pm2 restart NodeServer
