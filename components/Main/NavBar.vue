@@ -65,6 +65,16 @@ export default class NavBar extends Vue {
       title: "About Me",
       to: "/about",
     },
+    {
+      icon: "mdi-hammer",
+      title: "Projects",
+      to: "/projects",
+    },
+    {
+      icon: "mdi-pickaxe",
+      title: "Minecraft",
+      to: "/minecraft",
+    },
   ];
 
   minimize: boolean = true;

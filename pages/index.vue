@@ -9,14 +9,47 @@
       </v-col>
     </v-row>
     <v-row>
-      <v-col xs="12" sm="6" md="4" lg="3">
-        <NuxtLink to="/about" style="text-decoration: none">
+      <v-col cols="auto">
+        <nuxt-link to="/about" class="text-decoration-none">
           <v-card>
-            <v-card-title class="justify-center text-decoration-none">
-              About Me
+            <v-img
+              width="300px"
+              aspect-ratio="1"
+              position="bottom center"
+              src="/images/portrait1.jpeg"
+              alt="An image of joel"
+            />
+            <v-card-title class="justify-center"> About Me </v-card-title>
+          </v-card>
+        </nuxt-link>
+      </v-col>
+      <v-col cols="auto">
+        <nuxt-link to="/projects" class="text-decoration-none">
+          <v-card>
+            <v-img
+              width="300px"
+              aspect-ratio="1"
+              src="/images/banner_developer.jpg"
+              alt="Fancy coding background"
+            />
+            <v-card-title class="justify-center">
+              Personal Projects
             </v-card-title>
           </v-card>
-        </NuxtLink>
+        </nuxt-link>
+      </v-col>
+      <v-col cols="auto">
+        <nuxt-link to="/minecraft" class="text-decoration-none">
+          <v-card>
+            <v-img
+              width="300px"
+              aspect-ratio="1"
+              src="/images/minecraft1.png"
+              alt="Minecraft boo ya"
+            />
+            <v-card-title class="justify-center"> Minecraft </v-card-title>
+          </v-card>
+        </nuxt-link>
       </v-col>
     </v-row>
   </v-container>

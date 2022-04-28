@@ -10,6 +10,6 @@
 
 <script>
 export default {
-  name: "index",
+  name: "projects",
 };
 </script>

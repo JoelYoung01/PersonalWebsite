@@ -3,7 +3,7 @@
     <v-row>
       <v-col cols="auto">
         <v-img
-          class="rounded"
+          class="rounded-circle"
           height="350"
           width="350"
           src="/images/portrait2.jpg"
@@ -11,12 +11,40 @@
         />
       </v-col>
       <v-col>
-        <div class="text-h2">My Name is Joel Young</div>
+        <div class="text-h2 mb-4">My Name is Joel Young</div>
         <div class="text-h4">
           I am a Senior at UW-Stout, studying Applied Mathematics and Computer
           Science.
         </div>
-
+        <v-row class="align-center">
+          <v-col cols="auto" class="px-1">
+            <v-btn icon target="_blank" href="https://github.com/JoelYoung01">
+              <v-icon>mdi-github</v-icon>
+            </v-btn>
+          </v-col>
+          <v-col cols="auto" class="px-1">
+            <v-btn
+              icon
+              target="_blank"
+              href="https://www.linkedin.com/in/joel-young-049627196/"
+            >
+              <v-icon>mdi-linkedin</v-icon>
+            </v-btn>
+          </v-col>
+          <v-col cols="auto" class="px-1">
+            <v-btn
+              icon
+              target="_blank"
+              href="https://twitter.com/JoelYou39645359"
+            >
+              <v-icon>mdi-twitter</v-icon>
+            </v-btn>
+          </v-col>
+          <v-col cols="auto"> | </v-col>
+          <v-col cols="auto"> joeleyoung01@gmail.com </v-col>
+          <v-col cols="auto"> | </v-col>
+          <v-col cols="auto"> (612) 438 - 9418 </v-col>
+        </v-row>
         <div class="text-h6 mt-15">
           I enjoy writing software as a career with Sentry Insurance as well as
           in my free time. I am currently most interested in Machine Learning
@@ -76,7 +104,7 @@
               So far I have used many cutting-edge technologies, thanks to most
               companies offering free or reduced plans for students. Some
               notable softwares and tools that I have used are:
-              <ul>
+              <ul class="mb-5">
                 <li>Visual Studio (2019, 2022)</li>
                 <li>Visual Studio Code</li>
                 <li>Git, GitHub, BitBucket</li>
@@ -153,6 +181,6 @@
 
 <script>
 export default {
-  name: "index",
+  name: "about",
 };
 </script>
