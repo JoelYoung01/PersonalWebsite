@@ -5,11 +5,11 @@
         @click.stop="$emit('toggleNavBar')"
       ></v-app-bar-nav-icon>
 
-      <v-toolbar-title>Joel is neat</v-toolbar-title>
+      <v-toolbar-title>{{ title }}</v-toolbar-title>
 
       <v-spacer></v-spacer>
 
-      <v-btn icon>
+      <v-btn icon disabled>
         <v-icon>mdi-dots-vertical</v-icon>
       </v-btn>
     </v-app-bar>
@@ -22,5 +22,16 @@ import { Vue, Component } from "nuxt-property-decorator";
 @Component({
   name: "MenuBar",
 })
-export default class MenuBar extends Vue {}
+export default class MenuBar extends Vue {
+  get title() {
+    switch (this.$route.name) {
+      case "index":
+        return "Home Page";
+      case "about":
+        return "About Me";
+      default:
+        return "Joel is Neat";
+    }
+  }
+}
 </script>
