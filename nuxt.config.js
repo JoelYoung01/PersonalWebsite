@@ -1,4 +1,6 @@
 import colors from 'vuetify/es5/util/colors'
+import fs from 'fs'
+import path from 'path'
 
 export default {
    // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
@@ -79,6 +81,10 @@ export default {
 
    // Server Configuration
    server: {
-      host: "0.0.0.0"
+      host: "0.0.0.0",
+      https: {
+         key: fs.readFileSync(path.resolve('/etc/letsencrypt/live/joel.lodegoat.com/privkey.pem')),
+         cert: fs.readFileSync(path.resolve('/etc/letsencrypt/live/joel.lodegoat.com/fullchain.pem'))
+      }
    }
 }
