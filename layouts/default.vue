@@ -2,7 +2,10 @@
   <v-app dark>
     <NavBar :show="showNavbar" />
     <v-main>
-      <MenuBar @toggleNavBar="showNavbar = !showNavbar" />
+      <MenuBar
+        @toggleNavBar="showNavbar = !showNavbar"
+        :title="$route.meta.title"
+      />
       <v-container>
         <Nuxt />
       </v-container>
@@ -22,7 +25,7 @@ export default {
   },
   data() {
     return {
-      showNavbar: false,
+      showNavbar: true,
     };
   },
   head() {

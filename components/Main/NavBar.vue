@@ -18,14 +18,19 @@
         <span>Expand</span>
       </v-tooltip>
       <v-btn v-if="!minimize" text @click.stop="minimize = true">
-        <v-icon left>mdi-chevron-left</v-icon> Collapse
+        <v-icon left class="mt-n1">mdi-chevron-left</v-icon> Shrink
       </v-btn>
     </v-list-item>
 
     <v-divider></v-divider>
 
     <v-list dense nav>
-      <v-list-item v-for="navItem in navItems" :key="navItem.title" link>
+      <v-list-item
+        v-for="navItem in navItems"
+        :key="navItem.title"
+        link
+        :to="navItem.to"
+      >
         <v-list-item-icon>
           <v-icon>{{ navItem.icon }}</v-icon>
         </v-list-item-icon>
@@ -55,8 +60,23 @@ export default class NavBar extends Vue {
       title: "Home",
       to: "/",
     },
+    {
+      icon: "mdi-information",
+      title: "About Me",
+      to: "/about",
+    },
+    {
+      icon: "mdi-hammer",
+      title: "Projects",
+      to: "/projects",
+    },
+    {
+      icon: "mdi-pickaxe",
+      title: "Minecraft",
+      to: "/minecraft",
+    },
   ];
 
-  minimize: boolean = false;
+  minimize: boolean = true;
 }
 </script>
