@@ -20,7 +20,4 @@ jobs:
         script: |
           cd ~/containers/NodeWeb/node_server
           git pull
-          docker build . -t joelyoung01/nuxtweb
-          docker container stop nuxtwebcontainer
-          docker run -d -p 3000:3000 --name nuxtwebcontainer --restart unless-stopped joelyoung01/nuxtweb
-          docker container prune -f
+          ${{ secrets.BUILD_SCRIPT }}
