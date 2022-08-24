@@ -18,8 +18,9 @@ jobs:
         password: ${{ secrets.SERVER_PASS }}
         port: ${{ secrets.SERVER_PORT }}
         script: |
-          cd /var/www/NodeServer
-          ${{ secrets.SERVER_DEPLOY_SCRIPT}}
-          npm install
-          npm run build
-          pm2 restart NodeServer
+          cd ~/containers/NodeWeb/node_server
+          git pull
+          docker build . -t joelyoung01/nuxtweb
+          docker container stop nuxtwebcontainer
+          docker run -d -p 3000:3000 --name nuxtwebcontainer --restart unless-stopped joelyoung01/nuxtweb
+          docker container prune -f
