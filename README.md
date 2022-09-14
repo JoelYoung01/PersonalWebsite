@@ -18,6 +18,8 @@ $ yarn start
 $ yarn generate
 ```
 
+For the first-time run, be sure to set up .env file as well.
+
 For detailed explanation on how things work, check out the [documentation](https://nuxtjs.org). 
 
 ## Special Directories
