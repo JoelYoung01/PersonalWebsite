@@ -42,7 +42,10 @@ export default {
    css: [],
 
    // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-   plugins: [],
+   plugins: [
+      // Google Analytics plugin
+      '@/plugins/vue-gtag'
+   ],
 
    // Auto import components: https://go.nuxtjs.dev/config-components
    components: true,
@@ -77,11 +80,6 @@ export default {
             },
          },
       },
-   },
-
-   // Hardcoded google analytics ID
-   googleAnalytics: {
-      id: process.env.GOOGLE_ANALYTICS_ID, // Use as fallback if no runtime config is provided
    },
 
    // Build Configuration: https://go.nuxtjs.dev/config-build
