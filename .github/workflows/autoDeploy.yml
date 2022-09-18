@@ -1,23 +1,20 @@
 name: autoDeploy
-on: 
-  pull_request: 
-    branches: [ main ]
-  push:
-    branches: [ main ]
+on:
+   push:
+      branches: [main]
 jobs:
-
-  build:
-    name: Build
-    runs-on: ubuntu-latest
-    steps:
-    - name: SSH Remote Commands
-      uses: appleboy/ssh-action@v0.1.4
-      with:
-        host: ${{ secrets.SERVER_IP }}
-        username: ${{ secrets.SERVER_USER }}
-        password: ${{ secrets.SERVER_PASS }}
-        port: ${{ secrets.SERVER_PORT }}
-        script: |
-          cd ~/containers/NodeWeb/node_server
-          git pull
-          ${{ secrets.BUILD_SCRIPT }}
+   build:
+      name: Build
+      runs-on: ubuntu-latest
+      steps:
+         - name: SSH Remote Commands
+           uses: appleboy/ssh-action@v0.1.4
+           with:
+              host: ${{ secrets.SERVER_IP }}
+              username: ${{ secrets.SERVER_USER }}
+              password: ${{ secrets.SERVER_PASS }}
+              port: ${{ secrets.SERVER_PORT }}
+              script: |
+                 cd ~/containers/NodeWeb/node_server
+                 git pull
+                 ${{ secrets.BUILD_SCRIPT }}
