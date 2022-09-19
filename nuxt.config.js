@@ -61,6 +61,12 @@ export default {
    // Modules: https://go.nuxtjs.dev/config-modules
    modules: [],
 
+   publicRuntimeConfig: {
+      PythonApiBaseUrl: process.env.PYTHON_API_URL
+   },
+   
+   privateRuntimeConfig: {},
+
    // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
    vuetify: {
       customVariables: ["~/assets/variables.scss"],

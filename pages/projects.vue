@@ -7,19 +7,38 @@
     </v-row>
     <v-row>
       <v-col>
-        <v-btn @click="checkGoogleAnalytics">Test</v-btn>
+        <v-btn @click="testApi" :loading="loadingTest">
+          Test: {{ testApiResults }}
+        </v-btn>
       </v-col>
     </v-row>
   </v-container>
 </template>
 
-<script>
-export default {
-  name: "projects",
-  methods: {
-    checkGoogleAnalytics() {
-      this.$gtag.event("testClicked", { method: "Google" });
-    },
-  },
-};
+<script lang='ts'>
+import Vue from "vue";
+import { Component } from "nuxt-property-decorator";
+import PythonApiService from "@/services/PythonApiService";
+
+//@ts-ignore
+@Component
+export default class Projects extends Vue {
+  readonly pythonApiService = new PythonApiService(
+    this.$config.PythonApiBaseUrl
+  );
+
+  testApiResults: string = "Test Not Run";
+  loadingTest: boolean = false;
+
+  async testApi() {
+    this.loadingTest = true;
+    try {
+      this.testApiResults = await this.pythonApiService.testApi();
+    } catch (ex) {
+      console.error(ex);
+    } finally {
+      this.loadingTest = false;
+    }
+  }
+}
 </script>
