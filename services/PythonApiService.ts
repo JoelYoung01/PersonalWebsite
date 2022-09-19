@@ -14,7 +14,6 @@ export default class PythonApiService {
     * @returns Version of python api
     */
    async testApi(): Promise<string>{
-      console.log(process.env);
       let result = await this.client.get('/version')
       return result.data
    }
