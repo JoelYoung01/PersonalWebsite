@@ -91,6 +91,8 @@ sw.*
 
 # package-lock.json
 package-lock.json
+yarn.lock
+pnpm-lock.yaml
 
 # docker deploy script
 deployScript.sh
