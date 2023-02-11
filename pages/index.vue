@@ -1,5 +1,6 @@
 <script setup lang="ts">
-useHead({ title: "Joel's Website | Home" })
+const appConfig = useAppConfig();
+useHead({ title: appConfig.title + " | Home" });
 </script>
 
 <template>

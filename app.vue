@@ -1,10 +1,12 @@
 <script setup lang="ts">
-useHead({ title: "Joel's Website" })
+const appConfig = useAppConfig();
+useHead({ title: appConfig.title })
 </script>
 
 <template>
-  <h1>Sup biatch</h1>
-  <RouterView />
+  <NuxtLayout>
+    <NuxtPage />
+  </NuxtLayout>
 </template>
 
 <style>
