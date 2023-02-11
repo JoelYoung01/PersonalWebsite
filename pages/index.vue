@@ -1,0 +1,8 @@
+<script setup lang="ts">
+useHead({ title: "Joel's Website | Home" })
+</script>
+
+<template>
+    <h1>Home</h1>
+    <img src="https://media.tenor.com/-kZOB16tELEAAAAC/this-is-fine-fire.gif" />
+</template>
