@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const appConfig = useAppConfig();
-useHead({ title: appConfig.title })
+useHead({ title: appConfig.title });
 </script>
 
 <template>
@@ -9,6 +9,4 @@ useHead({ title: appConfig.title })
   </NuxtLayout>
 </template>
 
-<style>
-
-</style>
+<style></style>
