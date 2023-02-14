@@ -6,6 +6,9 @@ const el = ref<Window | null>(process.client ? window : null);
 // https://vueuse.org/core/useScroll/
 const { y } = useScroll(el, { behavior: "smooth" });
 
+/**
+ * Get the computed value for elevation for the menu bar
+ */
 const appBarElevation = computed(() => {
   return Math.min(15, y.value / 2);
 });
