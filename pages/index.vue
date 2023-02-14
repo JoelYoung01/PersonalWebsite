@@ -6,6 +6,6 @@ useHead({ title: appConfig.title + " | Home" });
 <template>
   <div>
     <h1>Home</h1>
-    <img src="https://media.tenor.com/-kZOB16tELEAAAAC/this-is-fine-fire.gif" />
+    <img src="https://media.tenor.com/-kZOB16tELEAAAAC/this-is-fine-fire.gif">
   </div>
 </template>

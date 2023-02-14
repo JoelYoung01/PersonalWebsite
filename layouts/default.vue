@@ -3,4 +3,4 @@
     <h1>Header</h1>
     <slot />
   </div>
-</template>
+</template>;
