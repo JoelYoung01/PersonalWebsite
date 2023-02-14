@@ -1,42 +1,15 @@
-# Nuxt 3 Minimal Starter
+# Joel's Personal Website
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+How to get started:
 
-## Setup
+1. Install [LTS Node](https://nodejs.org/en/download/)
 
-Make sure to install the dependencies:
+1. Install pnpm and nuxi globally: `npm i -g pnpm nuxi`
 
-```bash
-# yarn
-yarn install
+1. Clone the [site's repository](https://github.com/JoelYoung01/PersonalWebsite) to your machine
 
-# npm
-npm install
+1. (If using VSCode, which is ideal) Install the recommended extensions and enable [takeover mode](https://vuejs.org/guide/typescript/overview.html#volar-takeover-mode)
 
-# pnpm
-pnpm install
-```
+1. At the the root of the project, run `pnpm i` to install dependencies
 
-## Development Server
-
-Start the development server on http://localhost:3000
-
-```bash
-npm run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-npm run build
-```
-
-Locally preview production build:
-
-```bash
-npm run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+1. Run `nuxi dev` to start the site! If everything worked correctly, it should be hosting [here](http://localhost:3000)
