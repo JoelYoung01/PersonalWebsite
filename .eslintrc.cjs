@@ -14,6 +14,7 @@ module.exports = {
   rules: {
     quotes: ["warn", "double"],
     semi: ["warn", "always"],
+    "comma-dangle": ["warn"],
     "@typescript-eslint/no-unused-vars": "warn"
   }
 };

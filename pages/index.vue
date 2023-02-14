@@ -4,8 +4,10 @@ useHead({ title: appConfig.title + " | Home" });
 </script>
 
 <template>
-  <div>
-    <h1>Home</h1>
-    <img src="https://media.tenor.com/-kZOB16tELEAAAAC/this-is-fine-fire.gif">
-  </div>
+  <v-card height="5000">
+    <v-card-title><h2>Home</h2></v-card-title>
+    <v-card-item>
+      <v-img src="https://media.tenor.com/-kZOB16tELEAAAAC/this-is-fine-fire.gif" width="80%" />
+    </v-card-item>
+  </v-card>
 </template>
