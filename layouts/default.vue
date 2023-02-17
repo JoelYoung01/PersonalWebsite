@@ -1,40 +1,57 @@
-<script setup lang="ts">
-import { useScroll } from "@vueuse/core";
-
-const el = ref<Window | null>(process.client ? window : null);
-
-// https://vueuse.org/core/useScroll/
-const { y } = useScroll(el, { behavior: "smooth" });
-
-/**
- * Get the computed value for elevation for the menu bar
- */
-const appBarElevation = computed(() => {
-  return Math.min(15, y.value / 2);
-});
-</script>
-
 <template>
-  <v-container class="main-container">
-    <v-app-bar color="secondary" class="app-bar-styles" :elevation="appBarElevation">
+  <div class="base-container">
+    <v-app-bar color="secondary" class="app-bar-styles" :elevation="0">
       <template #prepend>
-        <v-img src="/img/SharpGoatTransparent_light.png" width="50" />
+        <v-img src="/img/SharpGoatTransparent_primary.png" width="50" />
       </template>
-      <v-app-bar-title><h1>Joel's Website</h1></v-app-bar-title>
+      <v-app-bar-title>
+        <NuxtLink to="/">
+          <h1 style="color: #C6AC8F">
+            Joel's Website
+          </h1>
+        </NuxtLink>
+      </v-app-bar-title>
+
+      <v-spacer />
+
+      <v-btn icon>
+        <nuxt-link to="/projects">
+          <v-icon color="primary" size="x-large" icon="mdi-tools" />
+        </nuxt-link>
+      </v-btn>
+
+      <v-btn icon class="nav-button">
+        <nuxt-link to="/about">
+          <v-icon color="primary" size="x-large" icon="mdi-account" />
+        </nuxt-link>
+      </v-btn>
     </v-app-bar>
-    <slot />
-  </v-container>
+    <v-container class="main-container">
+      <slot />
+    </v-container>
+  </div>
 </template>
 
 <style scoped>
+.base-container {
+  height: 100%;
+}
+
 .main-container {
   margin-top: 5rem;
-  background-color: "";
+  width: 70%;
 }
 
 .app-bar-styles {
   padding: 1rem;
-  border-radius: 1rem;
   width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+.nav-button {
+  margin-left: 1rem;
 }
 </style>
