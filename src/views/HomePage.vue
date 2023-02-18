@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { useWindowSize } from "@vueuse/core";
+import AboutMeCard from "@/components/home/AboutMeCard.vue";
 const windowSize = useWindowSize();
 
 const topBackgroundStyle = computed(() => {
@@ -11,24 +12,9 @@ const topBackgroundStyle = computed(() => {
 
 <template>
   <div>
-    <div
-      class="top-background"
-      :style="topBackgroundStyle"
-    />
-    <v-img
-      src="/img/joel-banner.png"
-      cover
-    />
-    <v-card>
-      <v-card-title><h2>Home</h2></v-card-title>
-      <v-card-item>
-        <RandomMeme />
-        <RandomMeme />
-        <RandomMeme />
-        <RandomMeme />
-        <RandomMeme />
-      </v-card-item>
-    </v-card>
+    <div class="top-background" :style="topBackgroundStyle" />
+    <v-img src="/img/joel-banner.png" cover />
+    <AboutMeCard />
   </div>
 </template>
 

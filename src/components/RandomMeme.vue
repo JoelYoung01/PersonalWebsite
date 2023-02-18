@@ -12,19 +12,47 @@ type memeResponse = {
   ups: number;
   preview: string[];
 }
-const { data: meme, isFetching } = await useFetch<memeResponse>("https://meme-api.com/gimme");
+
+const { data: meme, isFetching, execute } = useFetch<memeResponse>("https://meme-api.com/gimme").json();
+
 </script>
 
 <template>
-  <v-progress-circular
-    v-if="isFetching"
-    indeterminate
-  />
-  <template v-else>
-    <h3>{{ meme?.title }}</h3>
-    <v-img
-      :src="meme?.url"
-      width="500"
-    />
-  </template>
+  <v-card
+    width="500"
+    color="white"
+  >
+    <v-card-title>
+      <v-row class="mx-0">
+        <v-col cols="10">
+          {{ meme?.title }}
+        </v-col>
+
+        <v-spacer />
+
+        <v-col
+          cols="auto"
+        >
+          <v-btn
+            color="secondary"
+            variant="text"
+            icon
+            :loading="isFetching"
+            size="small"
+            @click="execute()"
+          >
+            <v-icon
+              icon="mdi-refresh"
+              size="large"
+            />
+          </v-btn>
+        </v-col>
+      </v-row>
+    </v-card-title>
+    <v-card-item>
+      <v-img
+        :src="meme?.url"
+      />
+    </v-card-item>
+  </v-card>
 </template>
