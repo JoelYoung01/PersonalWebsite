@@ -1,6 +1,6 @@
 <script setup lang="ts">
-const appConfig = useAppConfig();
-useHead({ title: appConfig.title + " | Home" });
+import { computed } from "vue";
+import { useWindowSize } from "@vueuse/core";
 const windowSize = useWindowSize();
 
 const topBackgroundStyle = computed(() => {
@@ -11,8 +11,14 @@ const topBackgroundStyle = computed(() => {
 
 <template>
   <div>
-    <div class="top-background" :style="topBackgroundStyle" />
-    <v-img src="/img/joel-banner.png" cover />
+    <div
+      class="top-background"
+      :style="topBackgroundStyle"
+    />
+    <v-img
+      src="/img/joel-banner.png"
+      cover
+    />
     <v-card>
       <v-card-title><h2>Home</h2></v-card-title>
       <v-card-item>

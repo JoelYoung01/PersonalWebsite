@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useFetch } from "@vueuse/core";
+
 type memeResponse = {
   postLink: string;
   subreddit: string;
@@ -10,13 +12,19 @@ type memeResponse = {
   ups: number;
   preview: string[];
 }
-const { data: meme, pending } = await useFetch<memeResponse>("https://meme-api.com/gimme");
+const { data: meme, isFetching } = await useFetch<memeResponse>("https://meme-api.com/gimme");
 </script>
 
 <template>
-  <v-progress-circular v-if="pending" indeterminate />
+  <v-progress-circular
+    v-if="isFetching"
+    indeterminate
+  />
   <template v-else>
     <h3>{{ meme?.title }}</h3>
-    <v-img :src="meme?.url" width="500" />
+    <v-img
+      :src="meme?.url"
+      width="500"
+    />
   </template>
 </template>
