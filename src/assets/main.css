@@ -1,0 +1,6 @@
+@import './j-directives.css';
+
+a {
+  text-decoration: none;
+  color: rgb(var(--v-theme-primary-darken-1))
+}

@@ -8,22 +8,18 @@ WORKDIR /app
 COPY . .
 
 # do an initial install
-RUN yarn install \
-   --prefer-offline \
+RUN pnpm i \
    --frozen-lockfile \
-   --non-interactive \
-   --production=false
+   --prefer-offline
 
 # build yarn project
-RUN yarn build
+RUN pnpm build
 
 # remove nonprod dependencies
 RUN rm -rf node_modules && \
-   NODE_ENV=production yarn install \
+   NODE_ENV=production pnpm i \
    --prefer-offline \
-   --pure-lockfile \
-   --non-interactive \
-   --production=true
+   --P
 
 # start node container
 FROM node:lts
@@ -39,4 +35,4 @@ ENV HOST 0.0.0.0
 EXPOSE 3000
 
 # start project
-CMD [ "yarn", "start" ]
+CMD [ "pnpm", "start" ]

@@ -1,0 +1,20 @@
+/* Rounded */
+.j-round {
+  border-radius: .5rem !important;
+}
+.j-rounder {
+  border-radius: 1rem !important;
+}
+.j-roundest {
+  border-radius: 2rem !important;
+}
+
+/* Hover */
+.j-hover {
+  box-shadow: 0 0 2px -1px;
+  transition: .05s;
+}
+.j-hover:hover {
+  box-shadow: 0 0 8px -1px;
+  transition: .05s;
+}
