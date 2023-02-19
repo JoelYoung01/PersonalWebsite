@@ -16,5 +16,4 @@ jobs:
               port: ${{ secrets.SERVER_PORT }}
               script: |
                  cd ~/containers/NodeWeb/node_server
-                 git pull
                  ${{ secrets.BUILD_SCRIPT }}
