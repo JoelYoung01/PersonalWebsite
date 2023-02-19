@@ -1,6 +1,6 @@
 <template>
-  <v-card class="px-8 py-10">
-    <v-row>
+  <v-card class="px-8 py-10 j-roundest">
+    <v-row align="center">
       <v-col cols="3">
         <v-img
           class="about-image"
@@ -18,7 +18,8 @@
           I graduated from UW-Stout in Dec 2022 with a bachelor's in Applied Mathematics and Computer Science.
         </div>
         <div class="text-body-1 mb-2">
-          I enjoy writing software as a career with Sentry Insurance as well as in my free time. I am currently most interested in Machine Learning and Web Applications, and have a couple <RouterLink to="/projects">
+          I enjoy writing software as a career with Sentry Insurance as well as in my free time. I am currently most interested in Machine Learning and Web Applications, and have a couple
+          <RouterLink to="/projects">
             personal projects
           </RouterLink> where I explore these ideas.
         </div>

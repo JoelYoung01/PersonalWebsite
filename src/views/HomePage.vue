@@ -2,6 +2,8 @@
 import { computed } from "vue";
 import { useWindowSize } from "@vueuse/core";
 import AboutMeCard from "@/components/home/AboutMeCard.vue";
+import ProjectsCard from "@/components/home/ProjectsCard.vue";
+import ContactsCard from "@/components/home/ContactsCard.vue";
 const windowSize = useWindowSize();
 
 const topBackgroundStyle = computed(() => {
@@ -14,7 +16,9 @@ const topBackgroundStyle = computed(() => {
   <div>
     <div class="top-background" :style="topBackgroundStyle" />
     <v-img src="/img/joel-banner.png" cover />
-    <AboutMeCard />
+    <AboutMeCard class="mb-14" />
+    <ProjectsCard class="mb-14" />
+    <ContactsCard />
   </div>
 </template>
 

@@ -1,9 +1,6 @@
-a {
-  color: rgb(var(--v-theme-primary));
-  text-decoration: none;
-}
+@import './j-directives.css';
 
-a:hover {
-  color: rgb(var(--v-theme-primary), .5);
+a {
   text-decoration: none;
+  color: rgb(var(--v-theme-primary-darken-1))
 }

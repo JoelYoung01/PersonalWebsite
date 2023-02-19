@@ -1,30 +1,90 @@
+<script setup lang="ts">
+
+interface projectItem {
+  title: string;
+  key: string;
+  imageSrc: string;
+  projectUri?: string;
+  gitUri: string;
+  description: string;
+}
+
+const projects: projectItem[] = [
+  {
+    title: "This Website",
+    key: "this-website",
+    imageSrc: "/img/websiteImage.png",
+    gitUri: "https://github.com/JoelYoung01/PersonalWebsite",
+    description: "This website is a node-based Vue.js Single-Page application, built with Vite and styled with Vuetify. I host it myself, using Ubuntu Server 20.04 and Docker containers."
+  },
+  {
+    title: "UW-Stout Capstone Project",
+    key: "scheduler-assistant",
+    imageSrc: "/img/scheduler-image.png",
+    projectUri:"https://schedulerapp.vercel.app",
+    gitUri: "https://github.com/Stout-2022-Capstone-Scheduler-Team/SchedulerApp",
+    description: "This website is a node-based React.js Single-page scheduling application hosted through Vercel. I built this application during my senior year at UW-Stout, and acted as the Product Owner for the project, along with providing technical guidance to my teammates."
+  }
+];
+</script>
+
 <template>
-  <v-card>
-    <v-row>
-      <v-col class="px-5 my-auto">
-        <div class="text-h3 mb-2">
-          My Name is Joel Young
-        </div>
-        <div class="text-h4 mb-3">
-          I graduated from UW-Stout in Dec 2022 with a bachelor's in Applied Mathematics and Computer Science.
-        </div>
-        <div class="text-body-1 mb-2">
-          I enjoy writing software as a career with Sentry Insurance as well as in my free time. I am currently most interested in Machine Learning and Web Applications, and have a couple <RouterLink to="/projects">
-            personal projects
-          </RouterLink> where I explore these ideas.
-        </div>
-        <div class="text-body-1">
-          I also enjoy spending time in Nature whether it be a backpacking trip or a picnic in the park, and am always happy with my friends around a campfire. I must admit I also enjoy video games quite a bit, including (but not limited to) Minecraft, Forza Horizon 4, Terraria, Battlefield 4, and really anything else you can play with the bros.
-        </div>
+  <v-card class="j-roundest pa-2">
+    <v-row align="center">
+      <v-col class="pa-5 my-auto d-flex flex-column">
+        <v-card
+          v-for="project in projects"
+          :key="project.key"
+          color="white"
+          class="d-flex j-hover j-rounder pa-3 ma-3"
+          :to="`/projects/${project.key}`"
+        >
+          <v-row>
+            <v-col cols="auto">
+              <v-img
+                :src="project.imageSrc"
+                cover
+                class="j-round"
+                width="100"
+                aspect-ratio="1"
+              />
+            </v-col>
+            <v-col>
+              <div class="text-h5">
+                {{ project.title }}
+                <v-tooltip 
+                  v-if="project.projectUri"
+                  text="Open project in a new page"
+                  location="top"
+                >
+                  <template #activator="{ props }">
+                    <v-btn
+                      v-bind="props"
+                      size="small"
+                      density="comfortable"
+                      variant="text"
+                      color="primary"
+                      icon
+                      :href="project.projectUri"
+                      target="_blank"
+                      @click.stop
+                    >
+                      <v-icon icon="mdi-open-in-new" />
+                    </v-btn>
+                  </template>
+                </v-tooltip>
+              </div>
+              <div class="text-body-1">
+                {{ project.description }}
+              </div>
+            </v-col>
+          </v-row>
+        </v-card>
       </v-col> 
-      <v-col cols="3">
-        <v-img
-          class="about-image"
-          src="/img/joel-in-da-woods.png"
-          alt="Joel in the woods"
-          aspect-ratio="1"
-          cover
-        />
+      <v-col cols="4">
+        <div class="text-h3 text-center">
+          Projects
+        </div>
       </v-col>
     </v-row>
   </v-card>

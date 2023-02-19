@@ -21,6 +21,14 @@ const routes = [
     // this generates a separate chunk (About.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import("../views/PersonalProjects.vue")
+  },
+  {
+    path: "/projects/:projectKey",
+    name: "project details",
+    // route level code-splitting
+    // this generates a separate chunk (About.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import("../views/ProjectDetails.vue")
   }
 ];
 
