@@ -19,12 +19,17 @@ const { data: meme, isFetching, execute } = useFetch<memeResponse>("https://meme
 
 <template>
   <v-card
-    width="500"
+    class="mx-auto pb-2"
     color="white"
+    width="300"
   >
     <v-card-title>
-      <v-row class="mx-0">
-        <v-col cols="10">
+      <v-row align="center">
+        <v-col
+          cols="11"
+          class="text-left d-inline-block text-truncate pa-0"
+          :title="meme?.title"
+        >
           {{ meme?.title }}
         </v-col>
 
@@ -32,10 +37,13 @@ const { data: meme, isFetching, execute } = useFetch<memeResponse>("https://meme
 
         <v-col
           cols="auto"
+          class="pa-0"
         >
           <v-btn
+            class="my-2"
             color="secondary"
             variant="text"
+            density="compact"
             icon
             :loading="isFetching"
             size="small"
@@ -49,10 +57,11 @@ const { data: meme, isFetching, execute } = useFetch<memeResponse>("https://meme
         </v-col>
       </v-row>
     </v-card-title>
-    <v-card-item>
-      <v-img
-        :src="meme?.url"
-      />
-    </v-card-item>
+    <v-img
+      :src="meme?.url"
+      width="300"
+      aspect-ratio="1"
+      class="mx-auto"
+    />
   </v-card>
 </template>
