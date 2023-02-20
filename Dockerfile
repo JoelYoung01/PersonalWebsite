@@ -7,6 +7,9 @@ WORKDIR /app
 # copy all the dev files over
 COPY . .
 
+# install pnpm with npm
+RUN npm i -g pnpm
+
 # do an initial install
 RUN pnpm i \
    --frozen-lockfile \
@@ -28,11 +31,16 @@ FROM node:lts
 WORKDIR /app
 
 # grab files resulting from prod builder
-COPY --from=builder /app  .
+COPY --from=builder /app/dist /app/dist
+
+# get the js file that starts the express server
+COPY --from=builder /app/expressStartScript.ts /app
+
+RUN npm i express
 
 # set ip and port info
 ENV HOST 0.0.0.0
 EXPOSE 3000
 
 # start project
-CMD [ "pnpm", "start" ]
+CMD [ "node", "expressStartScript.ts" ]
