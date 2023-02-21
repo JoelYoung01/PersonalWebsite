@@ -1,4 +1,8 @@
 <script setup lang="ts">
+import { useDisplay } from "vuetify/lib/framework.mjs";
+
+
+const { mobile } = useDisplay();
 
 interface projectItem {
   title: string;
@@ -30,7 +34,7 @@ const projects: projectItem[] = [
 
 <template>
   <v-card class="j-roundest pa-2">
-    <v-row align="center">
+    <v-row align="center" :class="mobile ? 'flex-column' : null">
       <v-col class="pa-5 my-auto d-flex flex-column">
         <v-card
           v-for="project in projects"
@@ -40,7 +44,7 @@ const projects: projectItem[] = [
           :to="`/projects/${project.key}`"
         >
           <v-row>
-            <v-col cols="auto">
+            <v-col v-if="!mobile" cols="auto">
               <v-img
                 :src="project.imageSrc"
                 cover
@@ -81,7 +85,7 @@ const projects: projectItem[] = [
           </v-row>
         </v-card>
       </v-col> 
-      <v-col cols="4">
+      <v-col :cols="mobile ? 12 : 4" :order="mobile ? 'first' : undefined">
         <div class="text-h3 text-center">
           Projects
         </div>

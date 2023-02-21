@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { useClipboard } from "@vueuse/core";
+import { useDisplay } from "vuetify/lib/framework.mjs";
 
+const { mobile } = useDisplay();
 const { copy, copied: showCopiedSnackbar, isSupported } = useClipboard();
 
 interface listItem {
@@ -54,8 +56,8 @@ const contactList: listItem[] = [
 
 <template>
   <v-card class="j-roundest pa-5">
-    <v-row align="center">
-      <v-col cols="6">
+    <v-row align="center" :class="mobile ? 'flex-column' : null">
+      <v-col :cols="mobile ? 12 : 6">
         <div class="text-h3 text-center">
           Get In Touch
         </div>

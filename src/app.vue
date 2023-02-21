@@ -1,68 +1,23 @@
 <script setup lang="ts">
 import { useTitle } from "@vueuse/core";
+import { useDisplay } from "vuetify";
+import WebsiteNavBar from "./components/layout/WebsiteNavBar.vue";
 
 useTitle("Joel's Website");
+const { mobile } = useDisplay();
 
 </script>
 
 <template>
   <v-app>
-    <v-app-bar
-      color="secondary"
-      class="app-bar-styles"
-      :elevation="0"
-    >
-      <template #prepend>
-        <v-img
-          src="/img/SharpGoatTransparent_primary.png"
-          width="50"
-        />
-      </template>
-      <v-app-bar-title>
-        <RouterLink to="/">
-          <h1 style="color: #C6AC8F">
-            Joel's Website
-          </h1>
-        </RouterLink>
-      </v-app-bar-title>
-
-      <v-spacer />
-
-      <v-btn
-        icon
-        to="/projects"
-      >
-        <v-icon
-          color="primary"
-          size="x-large"
-          icon="mdi-tools"
-        />
-      </v-btn>
-
-      <v-btn
-        icon
-        class="nav-button"
-        to="/about"
-      >
-        <v-icon
-          color="primary"
-          size="x-large"
-          icon="mdi-account"
-        />
-      </v-btn>
-    </v-app-bar>
-    <v-container class="main-container">
+    <WebsiteNavBar />
+    <v-container :class="mobile ? 'w-100' : 'w-75'" class="mt-16 mt-md-0">
       <RouterView />
     </v-container>
   </v-app>
 </template>
 
 <style scoped>
-.main-container {
-  margin-top: 5rem;
-  width: 70%;
-}
-
 .app-bar-styles {
   padding: 1rem;
   width: 100%;
