@@ -11,7 +11,7 @@ const { mobile } = useDisplay();
 <template>
   <v-app>
     <WebsiteNavBar />
-    <v-container :class="mobile ? 'w-100' : 'w-75'" class="mt-16 mt-md-0">
+    <v-container :class="mobile ? 'w-100' : 'w-75'" :style="{marginTop: '5rem'}">
       <RouterView />
     </v-container>
   </v-app>
