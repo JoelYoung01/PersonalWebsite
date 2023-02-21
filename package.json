@@ -3,6 +3,7 @@
   "scripts": {
     "dev": "vite",
     "build": "run-s lint type-check test:unit build-only",
+    "test": "run-s lint type-check test:unit",
     "preview": "vite preview",
     "test:unit": "vitest --environment jsdom --root src/ --silent --run",
     "test:unit:dev": "vitest --environment jsdom --root src/ --coverage",
