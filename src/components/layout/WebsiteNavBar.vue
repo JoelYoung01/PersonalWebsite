@@ -10,9 +10,9 @@
         width="50"
       />
     </v-col>
-    <v-col cols="3" md="auto">
+    <v-col cols="3" sm="auto">
       <RouterLink to="/">
-        <div class="text-h4 text-md-h2" style="color: #C6AC8F">
+        <div class="text-h4 text-md-h3 text-lg-h2" style="color: #C6AC8F">
           Joel's Website
         </div>
       </RouterLink>
