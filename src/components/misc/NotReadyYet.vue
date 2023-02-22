@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import RandomMeme from "@/components/RandomMeme.vue";
+import RandomMeme from "@/components/misc/RandomMeme.vue";
 import { useDisplay } from "vuetify/lib/framework.mjs";
 
 const { mobile } = useDisplay();
