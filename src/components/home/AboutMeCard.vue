@@ -11,15 +11,17 @@ const { mobile } = useDisplay();
       <v-col
         cols="auto"
       >
-        <v-img
-          class="about-image"
-          :class="mobile ? '' : 'ma-1'"
-          src="/img/joel-in-da-woods.png"
-          alt="Joel in the woods"
-          width="350"
-          aspect-ratio="1"
-          cover
-        />
+        <RouterLink to="about">
+          <v-img
+            class="about-image"
+            :class="mobile ? '' : 'ma-1'"
+            src="/img/joel-in-da-woods.png"
+            alt="Joel in the woods"
+            width="350"
+            aspect-ratio="1"
+            cover
+          />
+        </RouterLink>
       </v-col>
       <v-col class="px-5 my-auto">
         <div class="text-h3 mb-2">

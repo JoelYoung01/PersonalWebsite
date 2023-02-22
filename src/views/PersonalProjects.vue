@@ -3,5 +3,5 @@ import NotReadyYet from "@/components/misc/NotReadyYet.vue";
 </script>
 
 <template>
-  <NotReadyYet />
+  <NotReadyYet class="mt-10" />
 </template>

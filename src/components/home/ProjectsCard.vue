@@ -39,7 +39,7 @@ const projects: projectItem[] = [
         <v-card
           v-for="project in projects"
           :key="project.key"
-          color="white"
+          color="primary-lighten-1"
           class="d-flex j-hover j-rounder pa-3 ma-3"
           :to="`/projects/${project.key}`"
         >

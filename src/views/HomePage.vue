@@ -24,7 +24,7 @@ const topBackgroundStyle = computed(() => {
 
 <style scoped>
 .top-background {
-  background-image: linear-gradient(to bottom, #EAE0D5 100%, #22333b 100%);
+  background-color: rgb(var(--v-theme-secondary));
   position: absolute;
   width: 100%;
   top: 0;

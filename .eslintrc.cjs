@@ -30,7 +30,7 @@ module.exports = {
     semi: ["warn", "always"],
     "comma-dangle": ["warn"],
     "@typescript-eslint/no-unused-vars": "warn",
-    "vue/max-attributes-per-line": ["error", {
+    "vue/max-attributes-per-line": ["warn", {
       "singleline": {
         "max": 3
       },      
