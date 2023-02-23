@@ -1,4 +1,26 @@
 <script setup lang="ts">
+
+interface Skill {
+  title: string;
+  description: string;
+  mdiIcon: string;
+}
+
+const hardSkillList: Skill[] = [
+  {
+    title: "Typescript",
+    description: "desc",
+    mdiIcon: "mdi-language-typescript"
+  }
+];
+
+const softSkillList: Skill[] = [
+  {
+    title: "SAFe",
+    description: "desc",
+    mdiIcon: "mdi-image-filter-hdr"
+  }
+];
 </script>
 
 <template>
@@ -64,8 +86,51 @@
 
     <!-- Skills -->
     <v-card class="pa-8">
-      <div id="skills" class="text-h2 text-center">
+      <div id="skills" class="text-h3 text-center mb-6">
         Skills and Abilities
+      </div>
+      <div class="d-flex">
+        <div style="width: 45%">
+          <div class="text-h5 text-center mb-2">
+            Hard Skills
+          </div>
+          <v-expansion-panels color="secondary">
+            <v-expansion-panel
+              v-for="skill in hardSkillList"
+              :key="skill.title"
+              bg-color="primary-lighten-1"
+              :text="skill.description"
+            >
+              <template #title>
+                <v-icon :icon="skill.mdiIcon" class="mr-3" /><span class="text-h6">{{ skill.title }}</span>
+              </template>
+              <template #description>
+                <span class="text-body-1">{{ skill.description }}</span>
+              </template>
+            </v-expansion-panel> 
+          </v-expansion-panels>
+        </div>
+        <v-spacer />
+        <div style="width: 45%">
+          <div class="text-h5 text-center mb-2">
+            Soft Skills
+          </div>
+          <v-expansion-panels color="secondary">
+            <v-expansion-panel
+              v-for="skill in softSkillList"
+              :key="skill.title"
+              bg-color="primary-lighten-1"
+              :text="skill.description"
+            >
+              <template #title>
+                <v-icon :icon="skill.mdiIcon" class="mr-3" /><span class="text-h6">{{ skill.title }}</span>
+              </template>
+              <template #description>
+                <span class="text-body-1">{{ skill.description }}</span>
+              </template>
+            </v-expansion-panel> 
+          </v-expansion-panels>
+        </div>
       </div>
     </v-card>
 
