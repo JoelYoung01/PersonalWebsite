@@ -37,6 +37,7 @@ module.exports = {
       "multiline": {
         "max": 1
       }
-    }]
+    }],
+    "vue/no-unused-vars": "warn"
   }
 };
