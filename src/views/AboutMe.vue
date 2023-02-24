@@ -8,17 +8,57 @@ interface Skill {
 
 const hardSkillList: Skill[] = [
   {
+    title: "Vue.js",
+    description: "As I've stepped into the front-end framework scene, I've dipped my toe into the big three; Angular, React, and Vue. Although all three certainly have their place, I was drawn to Vue because of it's pretty manageable learning curve and vast community. The more I develop Vue.js apps, the more I really start to love the idea of a community-first front end framework. I recognize there is risks when putting eggs into the Vue basket, but I think that this project has really taken off in the recent years and really see the beauty of open source shine through it.",
+    mdiIcon: "mdi-vuejs"
+  },
+  {
     title: "Typescript",
-    description: "desc",
+    description: "I've been using Typescript for 3 years now, first tentavely as it seems just an overcomplication on JavaSript and now with much love. I have been saved by it through many projects; from React apps to Vue apps to just Node.js Scripts, and have never looked back to learning the ins and outs!",
     mdiIcon: "mdi-language-typescript"
+  },
+  {
+    title: ".NET",
+    description: "I have been writing in the .NET framework for 2 years in both front-end situations using MVC with Razor syntax and back-end situations writing resiliant SOAP and RESTful APIs. The nifty tricks that C# boasts along with the usability make it my favorite statically typed language. Before you write me off, Rust and GO are on my list to learn.",
+    mdiIcon: "mdi-language-csharp"
+  },
+  {
+    title: "Python",
+    description: "During my junior year of college, I took a machine learning class and ever since then have really been pulled into Python, loving both its simplicity and community. Learning Python was one of the quickest experiences, and I just kept finding myself saying 'that is so slick'. The shortcuts and tricks that are built into the language make it such a fun language to work with!",
+    mdiIcon: "mdi-language-python"
+  },
+  {
+    title: "Visual Studio (Code)",
+    description: "The majority of my coding life, I have written in Visual Studio. However, as of recently, I have really started to turn towards the much sleeker and faster Visual Studio Code. Now, whenver starting a project, I tend to start with VS Code and I don't really have to look back! The community support and extension library really does give you the power to shape the IDE into the exact tool you need for virtually any job.",
+    mdiIcon: "mdi-microsoft-visual-studio-code"
   }
 ];
 
 const softSkillList: Skill[] = [
   {
     title: "SAFe",
-    description: "desc",
+    description: "I have been working in a Scaled Agile Framework environment for 2 years now, along with a semester of classes structured to train Agile practices. At first, the rituals seemed to just take up time that could be better spent writing code, but as I mature in my field and am exposed to larger projects, I truly understand the value of SAFe and the organization and efficiency benefits that an enterprise gains through following a SAFe-like system.",
     mdiIcon: "mdi-image-filter-hdr"
+  },
+  {
+    title: "Communication Abilities",
+    description: "My family and I have lived in 3 different countries, all during my time in highschool, which has thrown me into new social circles repeatedly and forced me to adapt to new situations quickly. One of the skills that resulted from all that upheaval was some great communication abilities. I am now comfortable in a room full of strangers, and don't mind one bit being the first one to open the floor and loosen the mood!",
+    mdiIcon: "mdi-forum"
+  },
+  {
+    title: "Constant Learning",
+    description: "I took my first coding class my freshman year of highschool and have not stopped learning since then! I love the software development industry because there is always new technologies rising up that are more efficient or more effective than the last. I believe learning is what keeps us sharp, and that constant flow of new tech is the perfect environment to be in a perpetual state of learning!",
+    mdiIcon: "mdi-school"
+  },
+  {
+    title: "Problem Solving",
+    description: "One of the best feelings is sitting down and chewing away at a hard problem, and after a time of hard work and energy finally reaching that moment where the solution just clicks into place. I am a junky for this sensation, which drives me to hunt down problems that need solutions. What better place to find this high than software development? I can confidently say I am addicted to solving problems, and my personal favorite way to satiate the addiction is to write code to improve others' lives.",
+    mdiIcon: "mdi-lightbulb-on"
+  },
+  {
+    title: "Positive Attitude",
+    description: "The one thing that can consistently make any situation better is doing your best to keep the positive angle. I do my best to apply this concept to everything in my life, and it has really paid off. Even when the work seems too much, or the weather seems to dreary, or the deadlines seem to creep up too quickly, a positive attitude has always set my foot in the right direction and kept me productive.",
+    mdiIcon: "mdi-comment-plus"
   }
 ];
 </script>
@@ -85,7 +125,7 @@ const softSkillList: Skill[] = [
     </div>
 
     <!-- Skills -->
-    <v-card class="pa-8">
+    <v-card class="pa-8" style="margin-bottom: 13rem;">
       <div id="skills" class="text-h3 text-center mb-6">
         Skills and Abilities
       </div>
