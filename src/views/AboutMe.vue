@@ -236,6 +236,11 @@ const hobbies: Hobby[] = [
     </v-card>
 
     <!-- Socials -->
+    <v-card class="pa-12" style="margin-bottom: 15rem;">
+      <div id="skills" class="text-h3 text-center mb-10">
+        Socials
+      </div>
+    </v-card>
   </div>
 </template>
 
