@@ -78,7 +78,7 @@ const softSkillList: Skill[] = [
         />
       </v-col>
       <v-col>
-        <v-card class="ml-auto pa-10 mt-big" style="width: 80%">
+        <v-card class="ml-auto pa-10" style="margin-top: 10rem; width: 80%">
           <div class="text-h2 text-center mb-5">
             About Me
           </div>
@@ -184,9 +184,5 @@ const softSkillList: Skill[] = [
 .about-me-portrait {
   margin-top: 20px;
   box-shadow: -30px -30px 0px 0px rgb(var(--v-theme-surface));
-}
-
-.mt-big {
-  margin-top: 10rem;
 }
 </style>
