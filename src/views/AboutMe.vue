@@ -6,6 +6,12 @@ interface Skill {
   mdiIcon: string;
 }
 
+interface Hobby {
+  title: string;
+  description: string;
+  imgSrc: string;
+}
+
 const hardSkillList: Skill[] = [
   {
     title: "Vue.js",
@@ -59,6 +65,29 @@ const softSkillList: Skill[] = [
     title: "Positive Attitude",
     description: "The one thing that can consistently make any situation better is doing your best to keep the positive angle. I do my best to apply this concept to everything in my life, and it has really paid off. Even when the work seems too much, or the weather seems to dreary, or the deadlines seem to creep up too quickly, a positive attitude has always set my foot in the right direction and kept me productive.",
     mdiIcon: "mdi-comment-plus"
+  }
+];
+
+const hobbies: Hobby[] = [
+  {
+    title: "Games With Friends",
+    description: "I love sitting down with the homies and playing any type of game, ranging from slower-paced games like Catan or Wingspan to faster-paced like Battlefield or Forza.",
+    imgSrc: "/img/joel-bird-game.JPEG"
+  },
+  {
+    title: "Experiencing Nature",
+    description: "There is nothing more relaxing or freeing than getting out and spending some time living on the minimal out in nature, bonus if you take some friends or family!",
+    imgSrc: "/img/joel-camping.JPEG"
+  },
+  {
+    title: "Eating Great Food",
+    description: "Food is one of humanity's greatest inventions. The rich diversity and vast range of food in our world never ceases to amaze me, I will never try enough of them.",
+    imgSrc: "/img/banger-masubi.JPEG"
+  },
+  {
+    title: "Coding!!!!",
+    description: "I truly enjoy sitting down with a goal in mind or a problem to solve, banging away at the keyboard while jamming to some tunes, and creating!",
+    imgSrc: "/img/joel-workspace.JPEG"
   }
 ];
 </script>
@@ -125,7 +154,7 @@ const softSkillList: Skill[] = [
     </div>
 
     <!-- Skills -->
-    <v-card class="pa-8" style="margin-bottom: 13rem;">
+    <v-card class="pa-8" style="margin-bottom: 15rem;">
       <div id="skills" class="text-h3 text-center mb-6">
         Skills and Abilities
       </div>
@@ -175,6 +204,36 @@ const softSkillList: Skill[] = [
     </v-card>
 
     <!-- Hobbies -->
+    <v-card class="pa-12" style="margin-bottom: 15rem;">
+      <div id="skills" class="text-h3 text-center mb-10">
+        Hobbies
+      </div>
+      <v-row justify="center">
+        <v-col
+          v-for="hobby in hobbies"
+          :key="hobby.title"
+          cols="auto"
+          class="pa-0 d-flex ma-3 hobby-card j-rounder"
+        >
+          <v-img
+            :src="hobby.imgSrc"
+            :alt="hobby.title"
+            class="j-rounder"
+            cover
+            width="250"
+            aspect-ratio="1"
+          />
+          <div class="px-4" style="width: 350px">
+            <div class="text-h4">
+              {{ hobby.title }}
+            </div>
+            <div class="text-h6">
+              {{ hobby.description }}
+            </div>
+          </div>
+        </v-col>
+      </v-row>
+    </v-card>
 
     <!-- Socials -->
   </div>
@@ -184,5 +243,10 @@ const softSkillList: Skill[] = [
 .about-me-portrait {
   margin-top: 20px;
   box-shadow: -30px -30px 0px 0px rgb(var(--v-theme-surface));
+}
+
+.hobby-card {
+  overflow: hidden;
+  margin-bottom: 3rem;
 }
 </style>
