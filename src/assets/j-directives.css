@@ -18,3 +18,14 @@
   box-shadow: 0 0 8px -1px;
   transition: .05s;
 }
+
+/* Raised */
+.j-raised {
+  box-shadow: 0 0 3px 0;
+}
+.j-raiseder {
+  box-shadow: 0 0 6px 0;
+}
+.j-raisedest {
+  box-shadow: 0 0 12px 0;
+}

@@ -213,12 +213,12 @@ const hobbies: Hobby[] = [
           v-for="hobby in hobbies"
           :key="hobby.title"
           cols="auto"
-          class="pa-0 d-flex ma-3 hobby-card j-rounder"
+          class="pa-0 d-flex ma-3 j-rounder"
         >
           <v-img
             :src="hobby.imgSrc"
             :alt="hobby.title"
-            class="j-rounder"
+            class="j-rounder j-raised"
             cover
             width="250"
             aspect-ratio="1"
@@ -243,10 +243,5 @@ const hobbies: Hobby[] = [
 .about-me-portrait {
   margin-top: 20px;
   box-shadow: -30px -30px 0px 0px rgb(var(--v-theme-surface));
-}
-
-.hobby-card {
-  overflow: hidden;
-  margin-bottom: 3rem;
 }
 </style>
