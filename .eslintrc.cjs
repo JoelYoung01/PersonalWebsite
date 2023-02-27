@@ -11,8 +11,8 @@ module.exports = {
     ecmaVersion: "latest"
   },
   extends: [
-    "plugin:vue/vue3-recommended",
     "eslint:recommended",
+    "plugin:vue/vue3-recommended",
     "@vue/eslint-config-typescript"
   ],
   overrides: [

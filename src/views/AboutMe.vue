@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import SocialCard from "@/components/aboutMe/SocialCard.vue";
+
 
 interface Skill {
   title: string;
@@ -10,6 +12,13 @@ interface Hobby {
   title: string;
   description: string;
   imgSrc: string;
+}
+
+interface Social {
+  profileUri: string;
+  profileImageUri: string;
+  mdiIcon: string;
+  handle: string;
 }
 
 const hardSkillList: Skill[] = [
@@ -65,6 +74,33 @@ const softSkillList: Skill[] = [
     title: "Positive Attitude",
     description: "The one thing that can consistently make any situation better is doing your best to keep the positive angle. I do my best to apply this concept to everything in my life, and it has really paid off. Even when the work seems too much, or the weather seems to dreary, or the deadlines seem to creep up too quickly, a positive attitude has always set my foot in the right direction and kept me productive.",
     mdiIcon: "mdi-comment-plus"
+  }
+];
+
+const socials: Social[] = [
+  {
+    profileUri: "https://twitter.com/JoelYou39645359",
+    profileImageUri: "/img/socials/twitter.jpg",
+    mdiIcon: "mdi-twitter",
+    handle: "@JoelYou39645359"
+  },
+  {
+    profileUri: "https://github.com/JoelYoung01",
+    profileImageUri: "https://github.com/joelyoung01.png?size=250",
+    mdiIcon: "mdi-github",
+    handle: "JoelYoung01"
+  },
+  {
+    profileUri: "https://www.instagram.com/j.oelyoung/",
+    profileImageUri: "/img/socials/instagram.jpg",
+    mdiIcon: "mdi-instagram",
+    handle: "@j.oelyoung"
+  },
+  {
+    profileUri: "https://www.linkedin.com/in/joel-young-049627196/",
+    profileImageUri: "/img/socials/linkedin.jpg",
+    mdiIcon: "mdi-linkedin",
+    handle: "Joel Young"
   }
 ];
 
@@ -240,6 +276,21 @@ const hobbies: Hobby[] = [
       <div id="skills" class="text-h3 text-center mb-10">
         Socials
       </div>
+      <v-row justify="space-around">
+        <v-col 
+          v-for="social in socials"
+          :key="social.mdiIcon"
+          cols="auto"
+        >
+          <SocialCard
+            :profile-uri="social.profileUri"
+            :profile-image-uri="social.profileImageUri"
+            :mdi-icon="social.mdiIcon"
+            :handle="social.handle"
+            :size="200"
+          />
+        </v-col>
+      </v-row>
     </v-card>
   </div>
 </template>
