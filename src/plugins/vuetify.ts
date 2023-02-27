@@ -5,6 +5,9 @@ import { createVuetify, type ThemeDefinition } from "vuetify";
 import * as components from "vuetify/components";
 import * as directives from "vuetify/directives";
 
+/**
+ * Main site theme and colors
+ */
 const theme = {
   dark: false,
   colors: {
@@ -44,6 +47,9 @@ const theme = {
   }
 } as ThemeDefinition;
 
+/**
+ * Main Export, to be referenced in main.ts
+ */
 const vuetify = createVuetify({
   components,
   directives,

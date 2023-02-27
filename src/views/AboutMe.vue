@@ -95,7 +95,7 @@ const hobbies: Hobby[] = [
 <template>
   <div class="d-flex flex-column" style="margin-top: 8rem;">
     <!-- Header Section -->
-    <div class="d-flex" style="margin-bottom: 15rem;">
+    <div id="header" class="d-flex" style="margin-bottom: 15rem;">
       <v-col cols="auto">
         <v-img
           src="/img/about-me-portrait.jpeg"
@@ -154,7 +154,7 @@ const hobbies: Hobby[] = [
     </div>
 
     <!-- Skills -->
-    <v-card class="pa-8" style="margin-bottom: 15rem;">
+    <v-card id="skills" class="pa-8" style="margin-bottom: 15rem;">
       <div id="skills" class="text-h3 text-center mb-6">
         Skills and Abilities
       </div>
@@ -204,7 +204,7 @@ const hobbies: Hobby[] = [
     </v-card>
 
     <!-- Hobbies -->
-    <v-card class="pa-12" style="margin-bottom: 15rem;">
+    <v-card id="hobbies" class="pa-12" style="margin-bottom: 15rem;">
       <div id="skills" class="text-h3 text-center mb-10">
         Hobbies
       </div>
@@ -236,7 +236,7 @@ const hobbies: Hobby[] = [
     </v-card>
 
     <!-- Socials -->
-    <v-card class="pa-12" style="margin-bottom: 15rem;">
+    <v-card id="socials" class="pa-12" style="margin-bottom: 15rem;">
       <div id="skills" class="text-h3 text-center mb-10">
         Socials
       </div>
