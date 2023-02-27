@@ -11,8 +11,8 @@ module.exports = {
     ecmaVersion: "latest"
   },
   extends: [
-    "plugin:vue/vue3-recommended",
     "eslint:recommended",
+    "plugin:vue/vue3-recommended",
     "@vue/eslint-config-typescript"
   ],
   overrides: [
@@ -30,13 +30,14 @@ module.exports = {
     semi: ["warn", "always"],
     "comma-dangle": ["warn"],
     "@typescript-eslint/no-unused-vars": "warn",
-    "vue/max-attributes-per-line": ["error", {
+    "vue/max-attributes-per-line": ["warn", {
       "singleline": {
         "max": 3
       },      
       "multiline": {
         "max": 1
       }
-    }]
+    }],
+    "vue/no-unused-vars": "warn"
   }
 };
