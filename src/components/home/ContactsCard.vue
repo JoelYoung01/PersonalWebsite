@@ -24,7 +24,6 @@ const contactAction = (contact: listItem) => {
     // @ts-expect-error Forcing this value, since the useClipboard composable is cool and still resets it for us
     showCopiedSnackbar.value = true;
   }
-  
 };
 
 const contactList: listItem[] = [
@@ -58,17 +57,11 @@ const contactList: listItem[] = [
   <v-card class="j-roundest pa-5">
     <v-row align="center" :class="mobile ? 'flex-column' : null">
       <v-col :cols="mobile ? 12 : 6">
-        <div class="text-h3 text-center">
-          Get In Touch
-        </div>
+        <div class="text-h3 text-center">Get In Touch</div>
       </v-col>
       <v-col class="pa-5 my-auto d-flex flex-column">
         <v-list>
-          <v-list-item
-            v-for="contact in contactList"
-            :key="contact.title"
-            @click.stop="contactAction(contact)"
-          >
+          <v-list-item v-for="contact in contactList" :key="contact.title" @click.stop="contactAction(contact)">
             <template #prepend>
               <v-icon :icon="contact.icon" class="mr-4" />
             </template>
@@ -82,9 +75,7 @@ const contactList: listItem[] = [
         Copied
         <v-icon icon="mdi-check" color="success" />
       </div>
-      <div v-else>
-        Copying to clipboard is not supported!
-      </div>
+      <div v-else>Copying to clipboard is not supported!</div>
     </v-snackbar>
   </v-card>
 </template>

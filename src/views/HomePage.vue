@@ -9,7 +9,6 @@ const windowSize = useWindowSize();
 const topBackgroundStyle = computed(() => {
   return { height: windowSize.width.value / 4 + 200 + "px" };
 });
-
 </script>
 
 <template>

@@ -5,13 +5,12 @@ import WebsiteNavBar from "./components/layout/WebsiteNavBar.vue";
 
 useTitle("Joel's Website");
 const { mobile } = useDisplay();
-
 </script>
 
 <template>
   <v-app>
     <WebsiteNavBar />
-    <v-container :class="mobile ? 'w-100' : 'w-75'" :style="{marginTop: '5rem'}">
+    <v-container :class="mobile ? 'w-100' : 'w-75'" :style="{ marginTop: '5rem' }">
       <RouterView />
     </v-container>
   </v-app>

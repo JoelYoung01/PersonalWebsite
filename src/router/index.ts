@@ -1,8 +1,8 @@
 import { createRouter, createWebHistory, type RouterScrollBehavior } from "vue-router";
 import routes from "./routes";
 
-/** 
- * Scroll Behavior 
+/**
+ * Scroll Behavior
  */
 const scrollBehavior: RouterScrollBehavior = (to) => {
   if (to.hash) {
