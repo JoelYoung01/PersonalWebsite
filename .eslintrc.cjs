@@ -28,7 +28,15 @@ module.exports = {
   rules: {
     quotes: ["warn", "double"],
     semi: ["warn", "always"],
-    "prettier/prettier": "warn",
+    "prettier/prettier": [
+      "warn",
+      {
+        semi: true,
+        trailingComma: "none",
+        singleQuote: false,
+        printWidth: 120
+      }
+    ],
     "comma-dangle": "warn",
     "@typescript-eslint/no-unused-vars": "warn",
     "vue/multiline-html-element-content-newline": "off",

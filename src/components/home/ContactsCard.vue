@@ -1,15 +1,29 @@
 <script setup lang="ts">
 import { useClipboard } from "@vueuse/core";
+import { ref, computed, watch } from "vue";
 import { useDisplay } from "vuetify/lib/framework.mjs";
 
 const { mobile } = useDisplay();
-const { copy, copied: showCopiedSnackbar, isSupported } = useClipboard();
+const { copy, copied, isSupported } = useClipboard();
 
 interface listItem {
   title: string;
   icon: string;
   uri?: string;
 }
+
+const supportError = ref(false);
+watch(supportError, () => {
+  if (supportError.value) {
+    setTimeout(() => {
+      supportError.value = false;
+    }, 3000);
+  }
+});
+
+const showSnackbar = computed(() => {
+  return copied.value || supportError.value;
+});
 
 /**
  * Either navigate to a social (or copy it if no navigation applicable)
@@ -21,8 +35,7 @@ const contactAction = (contact: listItem) => {
   } else if (isSupported) {
     copy(contact.title);
   } else {
-    // @ts-expect-error Forcing this value, since the useClipboard composable is cool and still resets it for us
-    showCopiedSnackbar.value = true;
+    supportError.value = true;
   }
 };
 
@@ -70,12 +83,12 @@ const contactList: listItem[] = [
         </v-list>
       </v-col>
     </v-row>
-    <v-snackbar v-model="showCopiedSnackbar" class="text-center">
+    <v-snackbar v-model="showSnackbar" class="text-center">
       <div v-if="isSupported" class="text-center">
         Copied
         <v-icon icon="mdi-check" color="success" />
       </div>
-      <div v-else>Copying to clipboard is not supported!</div>
+      <div v-else class="text-center">Copying to clipboard is not supported!</div>
     </v-snackbar>
   </v-card>
 </template>
