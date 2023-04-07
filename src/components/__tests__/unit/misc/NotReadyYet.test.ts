@@ -4,14 +4,14 @@ import { useDisplay, type DisplayInstance } from "vuetify/lib/framework.mjs";
 import NotReadyYet from "@/components/misc/NotReadyYet.vue";
 import { ref } from "vue";
 
-class ResizeObserver {
-  observe() {
-    /**/
-  }
-  unobserve() {
-    /**/
-  }
-}
+const ResizeObserverMock = vi.fn(() => ({
+  disconnect: vi.fn(),
+  observe: vi.fn(),
+  takeRecords: vi.fn(),
+  unobserve: vi.fn()
+}));
+
+vi.stubGlobal("ResizeObserver", ResizeObserverMock);
 
 vi.mock("vuetify/lib/framework.mjs", async (actual) => ({
   ...((await actual()) as object),
@@ -19,11 +19,6 @@ vi.mock("vuetify/lib/framework.mjs", async (actual) => ({
 }));
 
 describe("NotReadyYet.vue", () => {
-  beforeAll(() => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    window.ResizeObserver = ResizeObserver as any;
-  });
-
   test("renders the correct message", () => {
     const wrapper = mount(NotReadyYet, {
       global: {

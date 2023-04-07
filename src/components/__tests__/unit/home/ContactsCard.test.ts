@@ -5,15 +5,6 @@ import { useClipboard } from "@vueuse/core";
 import { computed, ref } from "vue";
 import { useDisplay, type DisplayInstance } from "vuetify/lib/framework.mjs";
 
-class ResizeObserver {
-  observe() {
-    /**/
-  }
-  unobserve() {
-    /**/
-  }
-}
-
 vi.mock("vuetify/lib/framework.mjs", async (actual) => ({
   ...((await actual()) as object),
   useDisplay: vi.fn().mockReturnValue({ mobile: false })
@@ -29,15 +20,6 @@ vi.mock("@vueuse/core", async (actual) => ({
 }));
 
 describe("ContactsCard.vue", () => {
-  beforeAll(() => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    window.ResizeObserver = ResizeObserver as any;
-  });
-
-  beforeEach(() => {
-    vi.resetModules();
-  });
-
   test("renders the correct number of contacts", () => {
     const wrapper = mount(ContactsCard, {
       global: {
