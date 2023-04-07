@@ -42,6 +42,7 @@ module.exports = {
     "vue/multiline-html-element-content-newline": "off",
     "vue/singleline-html-element-content-newline": "off",
     "vue/max-attributes-per-line": "off",
-    "vue/no-unused-vars": "warn"
+    "vue/no-unused-vars": "warn",
+    "vue/html-self-closing": "off"
   }
 };
