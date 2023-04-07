@@ -43,4 +43,4 @@ ENV HOST 0.0.0.0
 EXPOSE 3000
 
 # start project
-CMD [ "node", "expressStartScript.ts" ]
+CMD [ "node", "expressStartScript.js" ]
