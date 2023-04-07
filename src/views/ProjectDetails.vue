@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import NotReadyYet from "@/components/misc/NotReadyYet.vue";
 import { useRoute } from "vue-router";
-const { params: { projectKey } } = useRoute();
+const {
+  params: { projectKey }
+} = useRoute();
 </script>
 
 <template>

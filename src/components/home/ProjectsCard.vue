@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { useDisplay } from "vuetify/lib/framework.mjs";
 
-
 const { mobile } = useDisplay();
 
 interface projectItem {
@@ -19,15 +18,17 @@ const projects: projectItem[] = [
     key: "this-website",
     imageSrc: "/img/websiteImage.png",
     gitUri: "https://github.com/JoelYoung01/PersonalWebsite",
-    description: "This website is a node-based Vue.js Single-Page application, built with Vite and styled with Vuetify. I host it myself, using Ubuntu Server 20.04 and Docker containers."
+    description:
+      "This website is a node-based Vue.js Single-Page application, built with Vite and styled with Vuetify. I host it myself, using Ubuntu Server 20.04 and Docker containers."
   },
   {
     title: "UW-Stout Capstone Project",
     key: "scheduler-assistant",
     imageSrc: "/img/scheduler-image.png",
-    projectUri:"https://schedulerapp.vercel.app",
+    projectUri: "https://schedulerapp.vercel.app",
     gitUri: "https://github.com/Stout-2022-Capstone-Scheduler-Team/SchedulerApp",
-    description: "This website is a node-based React.js Single-page scheduling application hosted through Vercel. I built this application during my senior year at UW-Stout, and acted as the Product Owner for the project, along with providing technical guidance to my teammates."
+    description:
+      "This website is a node-based React.js Single-page scheduling application hosted through Vercel. I built this application during my senior year at UW-Stout, and acted as the Product Owner for the project, along with providing technical guidance to my teammates."
   }
 ];
 </script>
@@ -45,22 +46,12 @@ const projects: projectItem[] = [
         >
           <v-row>
             <v-col v-if="!mobile" cols="auto">
-              <v-img
-                :src="project.imageSrc"
-                cover
-                class="j-round"
-                width="100"
-                aspect-ratio="1"
-              />
+              <v-img :src="project.imageSrc" cover class="j-round" width="100" aspect-ratio="1" />
             </v-col>
             <v-col>
               <div class="text-h5">
                 {{ project.title }}
-                <v-tooltip 
-                  v-if="project.projectUri"
-                  text="Open project in a new page"
-                  location="top"
-                >
+                <v-tooltip v-if="project.projectUri" text="Open project in a new page" location="top">
                   <template #activator="{ props }">
                     <v-btn
                       v-bind="props"
@@ -84,11 +75,9 @@ const projects: projectItem[] = [
             </v-col>
           </v-row>
         </v-card>
-      </v-col> 
+      </v-col>
       <v-col :cols="mobile ? 12 : 4" :order="mobile ? 'first' : undefined">
-        <div class="text-h3 text-center">
-          Projects
-        </div>
+        <div class="text-h3 text-center">Projects</div>
       </v-col>
     </v-row>
   </v-card>
