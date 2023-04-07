@@ -17,7 +17,7 @@ watch(supportError, () => {
   if (supportError.value) {
     setTimeout(() => {
       supportError.value = false;
-    }, 3000);
+    }, 2000);
   }
 });
 
@@ -32,7 +32,7 @@ const contactAction = (contact: listItem) => {
   // If the uri doesn't exist, do nothing
   if (contact.uri) {
     window.open(contact.uri);
-  } else if (isSupported) {
+  } else if (isSupported.value) {
     copy(contact.title);
   } else {
     supportError.value = true;
@@ -85,7 +85,7 @@ const contactList: listItem[] = [
     </v-row>
     <v-snackbar v-model="showSnackbar" class="text-center">
       <div v-if="isSupported" class="text-center">
-        Copied
+        Copied!
         <v-icon icon="mdi-check" color="success" />
       </div>
       <div v-else class="text-center">Copying to clipboard is not supported!</div>
