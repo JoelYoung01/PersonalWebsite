@@ -34,7 +34,7 @@ WORKDIR /app
 COPY --from=builder /app/dist /app/dist
 
 # get the js file that starts the express server
-COPY --from=builder /app/expressStartScript.ts /app
+COPY --from=builder /app/expressStartScript.js /app
 
 RUN npm i express
 

@@ -4,6 +4,15 @@ import { useDisplay, type DisplayInstance } from "vuetify/lib/framework.mjs";
 import NotReadyYet from "@/components/misc/NotReadyYet.vue";
 import { ref } from "vue";
 
+const ResizeObserverMock = vi.fn(() => ({
+  disconnect: vi.fn(),
+  observe: vi.fn(),
+  takeRecords: vi.fn(),
+  unobserve: vi.fn()
+}));
+
+vi.stubGlobal("ResizeObserver", ResizeObserverMock);
+
 vi.mock("vuetify/lib/framework.mjs", async (actual) => ({
   ...((await actual()) as object),
   useDisplay: vi.fn(() => ({ mobile: ref(false) }))
