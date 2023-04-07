@@ -9,7 +9,7 @@ const { mobile } = useDisplay();
   <v-card class="mx-auto text-center" :width="mobile ? 325 : 375" prepend-icon="mdi-progress-wrench">
     <template #title> This page is not done yet! </template>
     <v-card-subtitle class="mb-5">
-      Coming soon to a website near you...<br >
+      Coming soon to a website near you...<br />
       Here's a random meme from reddit instead!
     </v-card-subtitle>
     <RandomMeme class="mb-5" />
