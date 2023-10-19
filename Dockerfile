@@ -1,14 +1,14 @@
 # start the builder
 FROM node:lts as builder
 
+# install pnpm with npm
+RUN npm i -g pnpm
+
 # set working directory to the app root
 WORKDIR /app
 
 # copy all the dev files over
 COPY . .
-
-# install pnpm with npm
-RUN npm i -g pnpm
 
 # do an initial install
 RUN pnpm i \
