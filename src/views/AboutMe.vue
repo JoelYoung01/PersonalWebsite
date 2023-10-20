@@ -196,7 +196,7 @@ const hobbies: Hobby[] = [
               <template #title>
                 <v-icon :icon="skill.mdiIcon" class="mr-3" /><span class="text-h6">{{ skill.title }}</span>
               </template>
-              <template #description>
+              <template #text>
                 <span class="text-body-1">{{ skill.description }}</span>
               </template>
             </v-expansion-panel>
@@ -215,7 +215,7 @@ const hobbies: Hobby[] = [
               <template #title>
                 <v-icon :icon="skill.mdiIcon" class="mr-3" /><span class="text-h6">{{ skill.title }}</span>
               </template>
-              <template #description>
+              <template #text>
                 <span class="text-body-1">{{ skill.description }}</span>
               </template>
             </v-expansion-panel>
