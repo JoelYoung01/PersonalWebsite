@@ -1,6 +1,8 @@
 import HomePage from "../views/HomePage.vue";
 import ErrorPage from "../views/ErrorPage.vue";
 
+import projectRoutes from "./projects";
+
 const routes = [
   {
     path: "/",
@@ -21,14 +23,12 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (About.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import("../views/PersonalProjects.vue")
+    component: () => import("../views/ProjectsPage.vue")
   },
   {
-    path: "/projects/:projectKey",
+    path: "/project",
     name: "project details",
-    // route level code-splitting
-    // this generates a separate chunk (About.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
+    children: projectRoutes,
     component: () => import("../views/ProjectDetails.vue")
   },
   // Catch-all path for 404 page

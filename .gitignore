@@ -29,3 +29,6 @@ coverage
 
 # Because I like danger
 pnpm-lock.yaml
+
+# This is just for dev
+docker-compose.yml
