@@ -18,11 +18,15 @@ const projects = computed(() => {
   <div class="text-h2 d-flex" style="margin-top: 50px; margin-bottom: 25px">
     Personal Projects
     <v-spacer />
-    <v-btn variant="text" @click="refresh"><v-icon icon="mdi-refresh" /></v-btn>
+    <v-btn variant="text" icon="mdi-refresh" @click="refresh" />
   </div>
-  <v-alert v-if="error" type="error">
-    {{ error }}
-    <v-btn varian="tonal" @click="refresh">Retry</v-btn>
+  <v-alert v-if="error" type="error" :icon="false">
+    <div class="d-flex align-center">
+      <v-icon icon="mdi-close-circle" class="mr-4" />
+      {{ error }}
+      <v-spacer />
+      <v-btn variant="text" @click="refresh">Retry</v-btn>
+    </div>
   </v-alert>
   <div v-if="isFetching">Loading...</div>
   <div v-if="projects && projects.length > 0" class="d-flex flex-gap-10">
