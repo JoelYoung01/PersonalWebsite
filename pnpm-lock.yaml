@@ -94,6 +94,9 @@ devDependencies:
   vitest:
     specifier: ^0.29.8
     version: 0.29.8(jsdom@21.1.2)(sass@1.69.4)
+  vue-google-maps-community-fork:
+    specifier: ^0.3.1
+    version: 0.3.1
   vue-tsc:
     specifier: ^1.8.19
     version: 1.8.19(typescript@5.2.2)
@@ -365,6 +368,13 @@ packages:
   /@eslint/js@8.51.0:
     resolution: {integrity: sha512-HxjQ8Qn+4SI3/AFv6sOrDB+g6PpUTDwSJiQqOrnneEk8L71161srI9gjzzZvYVbzHiVg/BvcH95+cK/zfIt4pg==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+    dev: true
+
+  /@googlemaps/markerclusterer@2.5.0:
+    resolution: {integrity: sha512-WpHLCZxP7QmB4Hc5kyODGdTfJPsZiOIbcvbYhcS/VeiRNDVjf6CRQ8ViQjwrG5OySC66rtOdj4RVhUXsd1tNTQ==}
+    dependencies:
+      fast-deep-equal: 3.1.3
+      supercluster: 8.0.1
     dev: true
 
   /@hapi/hoek@9.3.0:
@@ -2532,6 +2542,10 @@ packages:
     resolution: {integrity: sha512-gfFQZrcTc8CnKXp6Y4/CBT3fTc0OVuDofpre4aEeEpSBPV5X5v4+Vmx+8snU7RLPrNHPKSgLxGo9YuQzz20o+w==}
     dev: true
 
+  /kdbush@4.0.2:
+    resolution: {integrity: sha512-WbCVYJ27Sz8zi9Q7Q0xHC+05iwkm3Znipc2XTlrnJbsHMYktW4hPhXUE8Ys1engBrvffoSCqbil1JQAa7clRpA==}
+    dev: true
+
   /keyv@4.5.4:
     resolution: {integrity: sha512-oxVHkHR/EJf2CNXnWxRLW6mg7JyCCUcG0DtEGmL2ctUo1PNTin1PUil+r/+4r5MpVgC/fn1kjsx7mjSujKqIpw==}
     dependencies:
@@ -3495,6 +3509,12 @@ packages:
       acorn: 8.10.0
     dev: true
 
+  /supercluster@8.0.1:
+    resolution: {integrity: sha512-IiOea5kJ9iqzD2t7QJq/cREyLHTtSmUT6gQsweojg9WH2sYJqZK9SswTu6jrscO6D1G5v5vYZ9ru/eq85lXeZQ==}
+    dependencies:
+      kdbush: 4.0.2
+    dev: true
+
   /supports-color@5.5.0:
     resolution: {integrity: sha512-QjVjwdXIt408MIiAqCX4oUKsgU2EqAGzs2Ppkm4aQYbjm+ZEWEcW4SfFNTr4uMNZma0ey4f5lgLrkB0aX0QMow==}
     engines: {node: '>=4'}
@@ -3894,6 +3914,12 @@ packages:
       semver: 7.5.4
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /vue-google-maps-community-fork@0.3.1:
+    resolution: {integrity: sha512-RcnpQZdv/aXf6Aeuq+hWdtwZaC4HRgXBY+S59QpbozgVIK4MHp23zbAQjpJ/zzG/B0e7BL91UIa8psuwbPBZQA==}
+    dependencies:
+      '@googlemaps/markerclusterer': 2.5.0
     dev: true
 
   /vue-router@4.2.5(vue@3.3.4):
