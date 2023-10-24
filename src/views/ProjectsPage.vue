@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Project } from "@/types/Project";
+import type { Project } from "@/types";
 import { useFetch } from "@vueuse/core";
 import { computed } from "vue";
 
