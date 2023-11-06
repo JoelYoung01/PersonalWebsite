@@ -15,7 +15,7 @@ jobs:
       image_name: personalsite # No capital letters!
     secrets:
       docker_access_key: ${{ secrets.DOCKER_ACCESS_KEY }}
-      dotenv_contents: ${{ secrets.DOTENV_CONTENTS }} # Not Required
+      dotenv_contents: ${{ secrets.DOTENV_CONTENTS }}
 
       
   Deploy:
