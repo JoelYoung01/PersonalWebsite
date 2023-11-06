@@ -1,9 +1,15 @@
 <script setup lang="ts">
-import MapWidgetRoot from "@/components/projects/mapDrawingWidget/MapWidgetRoot.vue";
+import DrawMap from "@/components/projects/mapDrawingWidget/DrawMap.vue";
+
 import { Loader } from "@googlemaps/js-api-loader";
 import { ref } from "vue";
+import PlaceSelector from "./PlaceSelector.vue";
 
 const loadingApi = ref(false);
+
+const onPlaceSelect = (placeId: string) => {
+  console.debug("Place selected:", placeId);
+};
 
 const initGoogleApi = async () => {
   loadingApi.value = true;
@@ -25,10 +31,8 @@ initGoogleApi();
 
 <template>
   <div>
-    <p class="mb-5">
-      This is an instance of the Google Maps drawing widget I wrote. This is designed to allow the user to select an
-      area on the map, and then report the area of the drawn polygons in square footage.
-    </p>
-    <MapWidgetRoot />
+    {{ loadingApi ? " - Loading..." : "" }}
+    <PlaceSelector style="width: 700px" @place-selected="onPlaceSelect" />
+    <DrawMap style="height: 500px; width: 700px" />
   </div>
 </template>

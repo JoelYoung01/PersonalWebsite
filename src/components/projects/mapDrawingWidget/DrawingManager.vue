@@ -11,6 +11,17 @@ const drawingManager = ref<google.maps.drawing.DrawingManager>();
 const allPolygons = ref<google.maps.Polygon[]>([]);
 const totalArea = ref<number>(0);
 
+const centerOnUser = () => {
+  if (!props.mapRef) return;
+
+  navigator.geolocation.getCurrentPosition((position) => {
+    props.mapRef?.map?.setCenter({
+      lat: position.coords.latitude,
+      lng: position.coords.longitude
+    });
+  });
+};
+
 const handleNewPolygon = (newPolygon: google.maps.Polygon) => {
   newPolygon.addListener("contextmenu", () => {
     removePolygon(newPolygon);
@@ -44,8 +55,8 @@ const initMap = async () => {
   }
 
   const drawOptions: google.maps.drawing.DrawingManagerOptions = {
-    drawingMode: null,
-    drawingControl: true,
+    drawingMode: google.maps.drawing.OverlayType.POLYGON,
+    drawingControl: false,
     drawingControlOptions: {
       position: google.maps.ControlPosition.TOP_CENTER,
       drawingModes: [google.maps.drawing.OverlayType.POLYGON]
@@ -94,6 +105,11 @@ onBeforeUnmount(() => {
     sq ft
 
     <v-spacer />
+
+    <v-btn variant="text" color="white" icon @click="centerOnUser">
+      <v-icon icon="mdi-crosshairs-gps" />
+      <v-tooltip activator="parent" location="bottom"> Center map on me </v-tooltip>
+    </v-btn>
 
     <v-btn variant="text" color="white" icon @click="clearAllPolygons">
       <v-icon icon="mdi-layers-remove" />
