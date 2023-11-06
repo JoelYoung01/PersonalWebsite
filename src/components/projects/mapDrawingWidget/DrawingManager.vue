@@ -128,7 +128,7 @@ defineExpose({
       <v-tooltip activator="parent" location="bottom"> Center map on me </v-tooltip>
     </v-btn>
 
-    <v-btn variant="text" color="white" icon @click="clearAllPolygons">
+    <v-btn :disabled="allPolygons.length === 0" variant="text" color="white" icon @click="clearAllPolygons">
       <v-icon icon="mdi-layers-remove" />
       <v-tooltip activator="parent" location="bottom"> Clear all areas </v-tooltip>
     </v-btn>
