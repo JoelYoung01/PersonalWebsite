@@ -66,7 +66,7 @@ initSearchService();
     placeholder="Jump to a location..."
     prepend-inner-icon="mdi-magnify"
     variant="solo"
-    no-data-text="No places found."
+    no-data-text="Start Typing to find places"
     auto-select-first
     return-object
     clearable

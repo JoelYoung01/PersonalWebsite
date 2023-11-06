@@ -49,7 +49,7 @@ const handleNewPolygon = (newPolygon: google.maps.Polygon) => {
 const removePolygon = (polygon: google.maps.Polygon) => {
   totalArea.value -= google.maps.geometry.spherical.computeArea(polygon.getPath(), 2.093e7);
   polygon.setMap(null);
-  allPolygons.value = allPolygons.value.filter((p) => p !== polygon);
+  allPolygons.value = allPolygons.value.filter((p) => p.getMap() !== null);
 };
 
 const clearAllPolygons = () => {
@@ -118,7 +118,7 @@ defineExpose({
 <template>
   <div class="d-flex align-center py-2">
     Total Area:
-    <v-chip class="mx-2">{{ Math.round(totalArea).toLocaleString() }}</v-chip>
+    <v-chip class="mx-2">{{ Math.max(0, Math.round(totalArea)).toLocaleString() }}</v-chip>
     sq ft
 
     <v-spacer />
