@@ -8,8 +8,17 @@ const sodSmith: google.maps.LatLngLiteral = { lat: 44.886297901877114, lng: -93.
 
 const zoom = ref(17);
 const mapRef = ref<InstanceType<typeof GoogleMap>>();
+const drawManagerRef = ref<InstanceType<typeof DrawingManager>>();
 
 const apiKey = import.meta.env.VITE_GOOGLE_API_KEY;
+
+const centerOnPlace = (place_id: string) => {
+  drawManagerRef.value?.centerOnPlace(place_id);
+};
+
+defineExpose({
+  centerOnPlace
+});
 </script>
 
 <template>
@@ -29,6 +38,6 @@ const apiKey = import.meta.env.VITE_GOOGLE_API_KEY;
     zoom-control
     fullscreen-control
   >
-    <DrawingManager :map-ref="mapRef" />
+    <DrawingManager ref="drawManagerRef" :map-ref="mapRef" />
   </GoogleMap>
 </template>

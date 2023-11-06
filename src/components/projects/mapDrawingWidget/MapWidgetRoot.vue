@@ -6,9 +6,11 @@ import { ref } from "vue";
 import PlaceSelector from "./PlaceSelector.vue";
 
 const loadingApi = ref(false);
+const mapDrawer = ref<InstanceType<typeof DrawMap>>();
 
 const onPlaceSelect = (placeId: string) => {
-  console.debug("Place selected:", placeId);
+  if (!placeId) return;
+  mapDrawer.value?.centerOnPlace(placeId);
 };
 
 const initGoogleApi = async () => {
@@ -33,6 +35,6 @@ initGoogleApi();
   <div>
     {{ loadingApi ? " - Loading..." : "" }}
     <PlaceSelector style="width: 700px" @place-selected="onPlaceSelect" />
-    <DrawMap style="height: 500px; width: 700px" />
+    <DrawMap ref="mapDrawer" style="height: 500px; width: 700px" />
   </div>
 </template>

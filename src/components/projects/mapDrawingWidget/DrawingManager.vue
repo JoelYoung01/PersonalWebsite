@@ -22,6 +22,17 @@ const centerOnUser = () => {
   });
 };
 
+const centerOnPlace = (place_id: string) => {
+  if (!place_id || !props.mapRef?.map) return;
+
+  const service = new google.maps.places.PlacesService(props.mapRef.map);
+  service.getDetails({ placeId: place_id }, (place, status) => {
+    if (status === google.maps.places.PlacesServiceStatus.OK && place?.geometry?.location) {
+      props.mapRef?.map?.setCenter(place.geometry.location);
+    }
+  });
+};
+
 const handleNewPolygon = (newPolygon: google.maps.Polygon) => {
   newPolygon.addListener("contextmenu", () => {
     removePolygon(newPolygon);
@@ -95,6 +106,12 @@ onBeforeUnmount(() => {
     drawingManager.value.setMap(null);
     drawingManager.value = undefined;
   }
+});
+
+defineExpose({
+  centerOnUser,
+  centerOnPlace,
+  clearAllPolygons
 });
 </script>
 
