@@ -1,14 +1,4 @@
-<script setup lang="ts">
-import NotReadyYet from "@/components/misc/NotReadyYet.vue";
-import { useRoute } from "vue-router";
-const {
-  params: { projectKey }
-} = useRoute();
-</script>
-
 <template>
-  <div class="text-h2">
-    {{ projectKey }}
-  </div>
-  <NotReadyYet />
+  <h1 class="mt-10 mb-3">Project Details</h1>
+  <router-view />
 </template>
