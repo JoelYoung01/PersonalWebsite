@@ -32,3 +32,6 @@ pnpm-lock.yaml
 
 # This is just for dev
 docker-compose.yml
+
+# testing
+.env

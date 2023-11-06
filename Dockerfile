@@ -36,6 +36,9 @@ COPY --from=builder /app/dist /app/dist
 # get the js file that starts the express server
 COPY --from=builder /app/expressStartScript.js /app
 
+# grab .env for testing
+COPY --from=builder /app/.env /app
+
 RUN npm i express
 
 # set ip and port info
