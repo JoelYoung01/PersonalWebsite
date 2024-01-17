@@ -96,9 +96,8 @@ function reset() {
     return;
   }
   demoActivated.value = false;
-  scriptMount.innerHTML =
-    // prettier-ignore
-    "<div id=\"cost-estimation-tool-mount-point\"><span class=\"v-chip v-theme--theme v-chip--density-default v-chip--size-default v-chip--variant-tonal\" draggable=\"false\"><span class=\"v-chip__underlay\"></span><div class=\"v-chip__content\">Mount Point Here</div></span></div>";
+  // Reload the page
+  location.reload();
 }
 </script>
 
