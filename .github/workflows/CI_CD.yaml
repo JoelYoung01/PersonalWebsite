@@ -28,6 +28,5 @@ jobs:
       host_port: 3000
       server_hostname: joelyoung.dev
     secrets:
-      local_host: ${{ secrets.LOCAL_HOST }}
       server_ssh_key: ${{ secrets.SERVER_SSH_KEY }}
       server_ssh_port: ${{ secrets.SERVER_SSH_PORT }}
