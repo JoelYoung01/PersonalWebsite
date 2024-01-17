@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useDisplay } from "vuetify/lib/framework.mjs";
+import SodSmithImage from "@/assets/images/sod-smith.png";
 
 const { mobile } = useDisplay();
 
@@ -22,6 +23,15 @@ const projects: projectItem[] = [
       "This website is a node-based Vue.js Single-Page application, built with Vite and styled with Vuetify. I host it myself, using Ubuntu Server 20.04 and Docker containers."
   },
   {
+    title: "Cost Estimate Tool",
+    key: "cost-estimate-tool",
+    imageSrc: SodSmithImage,
+    // projectUri: "https://sodsmith.com",
+    gitUri: "https://github.com/JoelYoung01/CostEstimateTool",
+    description:
+      "This project is a cdn-delivered widget for a site that serves a vue app designed to streamline customer interaction and increase engagement."
+  },
+  {
     title: "UW-Stout Capstone Project",
     key: "scheduler-assistant",
     imageSrc: "/img/scheduler-image.png",
@@ -42,7 +52,7 @@ const projects: projectItem[] = [
           :key="project.key"
           color="primary-lighten-1"
           class="d-flex j-hover j-rounder pa-3 ma-3"
-          :to="`/projects/${project.key}`"
+          :to="`/project/${project.key}`"
         >
           <v-row>
             <v-col v-if="!mobile" cols="auto">
