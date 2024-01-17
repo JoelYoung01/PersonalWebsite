@@ -27,7 +27,7 @@ jobs:
       deployment_user: deploy
       host_port: 3000
       server_hostname: joelyoung.dev
-      secrets:
-        server_ssh_key: ${{ secrets.SERVER_SSH_KEY }}
-        server_ssh_port: ${{ secrets.SERVER_SSH_PORT }}
-        local_host: ${{ secrets.LOCAL_HOST }}
+    secrets:
+      local_host: ${{ secrets.LOCAL_HOST }}
+      server_ssh_key: ${{ secrets.SERVER_SSH_KEY }}
+      server_ssh_port: ${{ secrets.SERVER_SSH_PORT }}
