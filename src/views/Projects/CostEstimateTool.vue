@@ -76,10 +76,22 @@ const technologies = [
 ];
 
 const demoActivated = ref(false);
+const scriptSrc = ref("");
+
+const cdnEnvironments = [
+  {
+    title: "Production",
+    url: "https://d3o7bndcxbs47b.cloudfront.net/cost-estimate-tool/index.js"
+  },
+  {
+    title: "Staging",
+    url: "https://d3f0ib6ya46lqp.cloudfront.net/cost-estimate-tool/index.js"
+  }
+];
 
 function demo() {
   var script = document.createElement("script");
-  script.src = "https://d3o7bndcxbs47b.cloudfront.net/cost-estimate-tool/index.js";
+  script.src = scriptSrc.value;
   const scriptMount = document.getElementById("cost-estimate-script-mount-point");
   if (!scriptMount) {
     console.error("Could not find script mount point");
@@ -136,7 +148,17 @@ function reset() {
           </div>
         </div>
       </v-theme-provider>
-      <v-btn :disabled="demoActivated" @click="demo">Activate Demo</v-btn>
+
+      <v-select
+        v-model="scriptSrc"
+        :items="cdnEnvironments"
+        variant="solo"
+        hide-details
+        label="Select Environment"
+        item-text="title"
+        item-value="url"
+      />
+      <v-btn :disabled="!scriptSrc || demoActivated" @click="demo">Activate Demo</v-btn>
       <v-btn :disabled="!demoActivated" @click="reset">Reset</v-btn>
     </div>
   </div>
