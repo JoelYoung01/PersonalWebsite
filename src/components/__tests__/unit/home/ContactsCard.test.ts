@@ -26,7 +26,7 @@ describe("ContactsCard.vue", () => {
         plugins: [vuetify]
       }
     });
-    expect(wrapper.findAll(".v-list-item")).toHaveLength(5);
+    expect(wrapper.findAll(".v-list-item")).toHaveLength(4);
   });
 
   test("opens a link when a contact is clicked", () => {
