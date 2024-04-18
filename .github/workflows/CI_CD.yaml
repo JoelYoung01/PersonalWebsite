@@ -1,32 +1,17 @@
-name: CI / CD Workflow
-run-name: Deploy to PROD started by ${{ github.actor }}
-# This workflow will build and deploy the Docker image to the server
+name: Deploy to PROD
 
 on:
   push:
     branches:
       - main
-      
-jobs:
-  Build:
-    uses: joelyoung01/Templates/.github/workflows/BuildDockerImage.yaml@main
-    with:
-      docker_username: joelyoung01
-      image_name: personalsite # No capital letters!
-    secrets:
-      docker_access_key: ${{ secrets.DOCKER_ACCESS_KEY }}
-      dotenv_contents: ${{ secrets.DOTENV_CONTENTS }}
 
-      
-  Deploy:
-    uses: joelyoung01/Templates/.github/workflows/DeployDockerImage.yaml@main
-    needs: Build
+jobs:
+  Deploy_to_environment:
+    uses: ./.github/workflows/Deploy.yaml
     with:
-      docker_user: joelyoung01
-      image_name: personalsite
-      deployment_user: deploy
-      host_port: 3000
-      server_hostname: joelyoung.dev
+      environment: production
     secrets:
-      server_ssh_key: ${{ secrets.SERVER_SSH_KEY }}
-      server_ssh_port: ${{ secrets.SERVER_SSH_PORT }}
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      S3_BUCKET: ${{ secrets.S3_BUCKET }}
+      VITE_GOOGLE_API_KEY: ${{ secrets.VITE_GOOGLE_API_KEY }}

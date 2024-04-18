@@ -20,7 +20,7 @@ const projects: projectItem[] = [
     imageSrc: "/img/websiteImage.png",
     gitUri: "https://github.com/JoelYoung01/PersonalWebsite",
     description:
-      "This website is a node-based Vue.js Single-Page application, built with Vite and styled with Vuetify. I host it myself, using Ubuntu Server 20.04 and Docker containers."
+      "This website is a node-based Vue.js Single-Page application, built with Vite and styled with Vuetify. I deploy it to AWS using CloudFront and S3."
   },
   {
     title: "Cost Estimate Tool",

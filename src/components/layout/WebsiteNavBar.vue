@@ -11,12 +11,17 @@
 
     <v-spacer />
 
-    <v-btn icon to="/projects">
-      <v-icon color="secondary" size="x-large" icon="mdi-tools" />
+    <v-btn href="https://wedding.joelyoung.dev" target="_blank" icon>
+      <v-tooltip location="bottom" activator="parent">Wedding Website</v-tooltip>
+      <v-icon color="secondary" size="x-large" icon="mdi-heart" />
     </v-btn>
 
     <v-btn icon class="nav-button" to="/about">
       <v-icon color="secondary" size="x-large" icon="mdi-account" />
+    </v-btn>
+
+    <v-btn icon class="nav-button" to="/">
+      <v-icon color="secondary" size="x-large" icon="mdi-home" />
     </v-btn>
   </v-app-bar>
 </template>
