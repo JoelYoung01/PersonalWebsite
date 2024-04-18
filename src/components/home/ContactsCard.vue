@@ -57,11 +57,6 @@ const contactList: listItem[] = [
     title: "Joel Young",
     icon: "mdi-linkedin",
     uri: "https://www.linkedin.com/in/joel-young-049627196/"
-  },
-  {
-    title: "@JoelYou39645359",
-    icon: "mdi-twitter",
-    uri: "https://twitter.com/JoelYou39645359"
   }
 ];
 </script>
