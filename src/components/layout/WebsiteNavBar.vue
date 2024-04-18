@@ -11,17 +11,19 @@
 
     <v-spacer />
 
-    <v-btn href="https://wedding.joelyoung.dev" target="_blank" icon>
-      <v-tooltip location="bottom" activator="parent">Wedding Website</v-tooltip>
-      <v-icon color="secondary" size="x-large" icon="mdi-heart" />
+    <v-btn icon class="nav-button" to="/">
+      <v-tooltip location="bottom" activator="parent">Home</v-tooltip>
+      <v-icon color="secondary" size="x-large" icon="mdi-home" />
     </v-btn>
 
     <v-btn icon class="nav-button" to="/about">
+      <v-tooltip location="bottom" activator="parent">About Me</v-tooltip>
       <v-icon color="secondary" size="x-large" icon="mdi-account" />
     </v-btn>
 
-    <v-btn icon class="nav-button" to="/">
-      <v-icon color="secondary" size="x-large" icon="mdi-home" />
+    <v-btn href="https://wedding.joelyoung.dev" target="_blank" icon>
+      <v-tooltip location="bottom" activator="parent">Wedding Website</v-tooltip>
+      <v-icon color="secondary" size="x-large" icon="mdi-heart" />
     </v-btn>
   </v-app-bar>
 </template>
