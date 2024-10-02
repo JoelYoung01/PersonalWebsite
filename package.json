@@ -33,7 +33,10 @@
     "prettier": "^2.8.8",
     "sass": "^1.79.4",
     "start-server-and-test": "^1.15.4",
-    "vite": "^4.5.5",
+    "unplugin-auto-import": "^0.18.3",
+    "vite": "^5.4.8",
+    "vite-plugin-vue-devtools": "^7.4.6",
+    "vite-plugin-vuetify": "^2.0.4",
     "vitest": "^1.6.0",
     "vue-tsc": "^1.8.27",
     "vue3-google-map": "^0.18.0"
