@@ -36,7 +36,7 @@ const hardSkillList: Skill[] = [
   {
     title: ".NET",
     description:
-      "I have been writing in the .NET framework for 2 years in both front-end situations using MVC with Razor syntax and back-end situations writing resiliant SOAP and RESTful APIs. The nifty tricks that C# boasts along with the usability make it my favorite statically typed language. Before you write me off, Rust and GO are on my list to learn.",
+      "I have been writing in the .NET framework for 2 years in both front-end situations using MVC with Razor syntax and back-end situations writing resiliant SOAP and RESTful APIs. The nifty tricks that C# boasts along with the usability make it my favorite statically typed language. Before you write me off, Rust and GO are on my list to learn!",
     mdiIcon: "mdi-language-csharp"
   },
   {
@@ -81,17 +81,17 @@ const softSkillList: Skill[] = [
   {
     title: "Positive Attitude",
     description:
-      "The one thing that can consistently make any situation better is doing your best to keep the positive angle. I do my best to apply this concept to everything in my life, and it has really paid off. Even when the work seems too much, or the weather seems to dreary, or the deadlines seem to creep up too quickly, a positive attitude has always set my foot in the right direction and kept me productive.",
+      "The one thing that can always make any situation better is doing your best to keep the positive angle. I do my best to apply this concept to everything in my life, and it has really paid off. Even when the work seems too much, or the weather seems to dreary, or the deadlines seem to creep up too quickly, a positive attitude has always set my foot in the right direction and kept me productive.",
     mdiIcon: "mdi-comment-plus"
   }
 ];
 
 const socials: Social[] = [
   {
-    profileUri: "https://twitter.com/JoelYou39645359",
+    profileUri: "https://twitter.com/JoelYoung01",
     profileImageUri: "/img/socials/twitter.jpg",
     mdiIcon: "mdi-twitter",
-    handle: "@JoelYou39645359"
+    handle: "@JoelYoung01"
   },
   {
     profileUri: "https://github.com/JoelYoung01",
@@ -118,19 +118,19 @@ const hobbies: Hobby[] = [
     title: "Games With Friends",
     description:
       "I love sitting down with the homies and playing any type of game, ranging from slower-paced games like Catan or Wingspan to faster-paced like Battlefield or Forza.",
-    imgSrc: "/img/joel-bird-game.JPEG"
+    imgSrc: "/img/gamin.JPEG"
   },
   {
     title: "Experiencing Nature",
     description:
       "There is nothing more relaxing or freeing than getting out and spending some time living on the minimal out in nature, bonus if you take some friends or family!",
-    imgSrc: "/img/joel-camping.JPEG"
+    imgSrc: "/img/joel-in-da-mountains.JPEG"
   },
   {
     title: "Eating Great Food",
     description:
       "Food is one of humanity's greatest inventions. The rich diversity and vast range of food in our world never ceases to amaze me, I will never try enough of them.",
-    imgSrc: "/img/banger-masubi.JPEG"
+    imgSrc: "/img/yummy-food.JPEG"
   },
   {
     title: "Coding!!!!",
@@ -161,7 +161,8 @@ const hobbies: Hobby[] = [
           <div class="text-h5">
             My name is Joel Young and I love writing all things code! I enjoy both the creativity and problem solving
             skills that are required to write a good program. I thrive on applying what I know combined with what I
-            learned 30 minutes earlier on YouTube or StackOverflow to solve any problem thrown my way!
+            learned 30 minutes earlier from YouTube or <a href="https://claude.ai">Claude</a> to solve any problem
+            thrown my way!
           </div>
           <v-row align="center" justify="space-between" style="width: 300px" class="mx-auto mt-3">
             <v-col cols="auto">
