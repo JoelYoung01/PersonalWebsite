@@ -1,5 +1,16 @@
+<script setup lang="ts">
+import { computed } from "vue";
+import { useRoute } from "vue-router";
+
+const route = useRoute();
+
+const elevation = computed(() => {
+  return route.path === "/" ? 0 : 1;
+});
+</script>
+
 <template>
-  <v-app-bar color="surface" class="app-bar-styles" :elevation="10">
+  <v-app-bar class="pa-3" :elevation="elevation">
     <v-col cols="auto">
       <v-img src="/img/SharpGoatTransparent_secondary.png" width="50" />
     </v-col>
@@ -27,3 +38,9 @@
     </v-btn>
   </v-app-bar>
 </template>
+
+<style scoped>
+.text-h4 {
+  font-weight: 400;
+}
+</style>

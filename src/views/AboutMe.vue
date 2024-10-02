@@ -1,5 +1,9 @@
 <script setup lang="ts">
 import SocialCard from "@/components/aboutMe/SocialCard.vue";
+import { useDisplay } from "vuetify/lib/framework.mjs";
+
+// Mobile flag (true if viewer is mobile user)
+const { mobile } = useDisplay();
 
 interface Skill {
   title: string;
@@ -142,123 +146,132 @@ const hobbies: Hobby[] = [
 </script>
 
 <template>
-  <div class="d-flex flex-column" style="margin-top: 8rem">
-    <!-- Header Section -->
-    <div id="header" class="d-flex" style="margin-bottom: 15rem">
-      <v-col cols="auto">
-        <v-img
-          src="/img/about-me-portrait.jpeg"
-          alt="Joel wearing a hat in the winter"
-          class="about-me-portrait j-round mx-2"
-          width="500"
-          cover
-          :aspect-ratio="8 / 10"
-        />
-      </v-col>
-      <v-col>
-        <v-card class="ml-auto pa-10" style="margin-top: 10rem; width: 80%">
-          <div class="text-h2 text-center mb-5">About Me</div>
-          <div class="text-h5">
-            My name is Joel Young and I love writing all things code! I enjoy both the creativity and problem solving
-            skills that are required to write a good program. I thrive on applying what I know combined with what I
-            learned 30 minutes earlier from YouTube or <a href="https://claude.ai">Claude</a> to solve any problem
-            thrown my way!
-          </div>
-          <v-row align="center" justify="space-between" style="width: 300px" class="mx-auto mt-3">
-            <v-col cols="auto">
-              <v-chip text="Skills" to="#skills" color="secondary" variant="elevated" />
-            </v-col>
-            <span class="text-h6">•</span>
-            <v-col cols="auto">
-              <v-chip text="Hobbies" to="#hobbies" color="secondary" variant="elevated" />
-            </v-col>
-            <span class="text-h6">•</span>
-            <v-col cols="auto">
-              <v-chip text="Socials" to="#socials" color="secondary" variant="elevated" />
-            </v-col>
-          </v-row>
-        </v-card>
-      </v-col>
-    </div>
-
-    <!-- Skills -->
-    <v-card id="skills" class="pa-8" style="margin-bottom: 15rem">
-      <div id="skills" class="text-h3 text-center mb-6">Skills and Abilities</div>
-      <div class="d-flex">
-        <div style="width: 45%">
-          <div class="text-h5 text-center mb-2">Hard Skills</div>
-          <v-expansion-panels color="secondary">
-            <v-expansion-panel
-              v-for="skill in hardSkillList"
-              :key="skill.title"
-              bg-color="primary-lighten-1"
-              :text="skill.description"
-            >
-              <template #title>
-                <v-icon :icon="skill.mdiIcon" class="mr-3" /><span class="text-h6">{{ skill.title }}</span>
-              </template>
-              <template #text>
-                <span class="text-body-1">{{ skill.description }}</span>
-              </template>
-            </v-expansion-panel>
-          </v-expansion-panels>
-        </div>
-        <v-spacer />
-        <div style="width: 45%">
-          <div class="text-h5 text-center mb-2">Soft Skills</div>
-          <v-expansion-panels color="secondary">
-            <v-expansion-panel
-              v-for="skill in softSkillList"
-              :key="skill.title"
-              bg-color="primary-lighten-1"
-              :text="skill.description"
-            >
-              <template #title>
-                <v-icon :icon="skill.mdiIcon" class="mr-3" /><span class="text-h6">{{ skill.title }}</span>
-              </template>
-              <template #text>
-                <span class="text-body-1">{{ skill.description }}</span>
-              </template>
-            </v-expansion-panel>
-          </v-expansion-panels>
-        </div>
-      </div>
-    </v-card>
-
-    <!-- Hobbies -->
-    <v-card id="hobbies" class="pa-12" style="margin-bottom: 15rem">
-      <div id="skills" class="text-h3 text-center mb-10">Hobbies</div>
-      <v-row justify="center">
-        <v-col v-for="hobby in hobbies" :key="hobby.title" cols="auto" class="pa-0 d-flex ma-3 j-rounder">
-          <v-img :src="hobby.imgSrc" :alt="hobby.title" class="j-rounder j-raised" cover width="250" aspect-ratio="1" />
-          <div class="px-4" style="width: 350px">
-            <div class="text-h4">
-              {{ hobby.title }}
-            </div>
-            <div class="text-h6">
-              {{ hobby.description }}
-            </div>
-          </div>
-        </v-col>
-      </v-row>
-    </v-card>
-
-    <!-- Socials -->
-    <v-card id="socials" class="pa-12" style="margin-bottom: 15rem">
-      <div id="skills" class="text-h3 text-center mb-10">Socials</div>
-      <v-row justify="space-around">
-        <v-col v-for="social in socials" :key="social.mdiIcon" cols="auto">
-          <SocialCard
-            :profile-uri="social.profileUri"
-            :profile-image-uri="social.profileImageUri"
-            :mdi-icon="social.mdiIcon"
-            :handle="social.handle"
-            :size="200"
+  <v-container :class="[mobile ? 'w-100' : 'w-75']" :style="{ marginTop: '5rem' }">
+    <div class="d-flex flex-column" style="margin-top: 8rem">
+      <!-- Header Section -->
+      <div id="header" class="d-flex" style="margin-bottom: 15rem">
+        <v-col cols="auto">
+          <v-img
+            src="/img/about-me-portrait.jpeg"
+            alt="Joel wearing a hat in the winter"
+            class="about-me-portrait j-round mx-2"
+            width="500"
+            cover
+            :aspect-ratio="8 / 10"
           />
         </v-col>
-      </v-row>
-    </v-card>
-  </div>
+        <v-col>
+          <v-card class="ml-auto pa-10" style="margin-top: 10rem; width: 80%">
+            <div class="text-h2 text-center mb-5">About Me</div>
+            <div class="text-h5">
+              My name is Joel Young and I love writing all things code! I enjoy both the creativity and problem solving
+              skills that are required to write a good program. I thrive on applying what I know combined with what I
+              learned 30 minutes earlier from YouTube or <a href="https://claude.ai">Claude</a> to solve any problem
+              thrown my way!
+            </div>
+            <v-row align="center" justify="space-between" style="width: 300px" class="mx-auto mt-3">
+              <v-col cols="auto">
+                <v-chip text="Skills" to="#skills" color="secondary" variant="elevated" />
+              </v-col>
+              <span class="text-h6">•</span>
+              <v-col cols="auto">
+                <v-chip text="Hobbies" to="#hobbies" color="secondary" variant="elevated" />
+              </v-col>
+              <span class="text-h6">•</span>
+              <v-col cols="auto">
+                <v-chip text="Socials" to="#socials" color="secondary" variant="elevated" />
+              </v-col>
+            </v-row>
+          </v-card>
+        </v-col>
+      </div>
+
+      <!-- Skills -->
+      <v-card id="skills" class="pa-8" style="margin-bottom: 15rem">
+        <div id="skills" class="text-h3 text-center mb-6">Skills and Abilities</div>
+        <div class="d-flex">
+          <div style="width: 45%">
+            <div class="text-h5 text-center mb-2">Hard Skills</div>
+            <v-expansion-panels color="secondary">
+              <v-expansion-panel
+                v-for="skill in hardSkillList"
+                :key="skill.title"
+                bg-color="primary-lighten-1"
+                :text="skill.description"
+              >
+                <template #title>
+                  <v-icon :icon="skill.mdiIcon" class="mr-3" /><span class="text-h6">{{ skill.title }}</span>
+                </template>
+                <template #text>
+                  <span class="text-body-1">{{ skill.description }}</span>
+                </template>
+              </v-expansion-panel>
+            </v-expansion-panels>
+          </div>
+          <v-spacer />
+          <div style="width: 45%">
+            <div class="text-h5 text-center mb-2">Soft Skills</div>
+            <v-expansion-panels color="secondary">
+              <v-expansion-panel
+                v-for="skill in softSkillList"
+                :key="skill.title"
+                bg-color="primary-lighten-1"
+                :text="skill.description"
+              >
+                <template #title>
+                  <v-icon :icon="skill.mdiIcon" class="mr-3" /><span class="text-h6">{{ skill.title }}</span>
+                </template>
+                <template #text>
+                  <span class="text-body-1">{{ skill.description }}</span>
+                </template>
+              </v-expansion-panel>
+            </v-expansion-panels>
+          </div>
+        </div>
+      </v-card>
+
+      <!-- Hobbies -->
+      <v-card id="hobbies" class="pa-12" style="margin-bottom: 15rem">
+        <div id="skills" class="text-h3 text-center mb-10">Hobbies</div>
+        <v-row justify="center">
+          <v-col v-for="hobby in hobbies" :key="hobby.title" cols="auto" class="pa-0 d-flex ma-3 j-rounder">
+            <v-img
+              :src="hobby.imgSrc"
+              :alt="hobby.title"
+              class="j-rounder j-raised"
+              cover
+              width="250"
+              aspect-ratio="1"
+            />
+            <div class="px-4" style="width: 350px">
+              <div class="text-h4">
+                {{ hobby.title }}
+              </div>
+              <div class="text-h6">
+                {{ hobby.description }}
+              </div>
+            </div>
+          </v-col>
+        </v-row>
+      </v-card>
+
+      <!-- Socials -->
+      <v-card id="socials" class="pa-12" style="margin-bottom: 15rem">
+        <div id="skills" class="text-h3 text-center mb-10">Socials</div>
+        <v-row justify="space-around">
+          <v-col v-for="social in socials" :key="social.mdiIcon" cols="auto">
+            <SocialCard
+              :profile-uri="social.profileUri"
+              :profile-image-uri="social.profileImageUri"
+              :mdi-icon="social.mdiIcon"
+              :handle="social.handle"
+              :size="200"
+            />
+          </v-col>
+        </v-row>
+      </v-card>
+    </div>
+  </v-container>
 </template>
 
 <style scoped>
