@@ -22,7 +22,7 @@ const projects: Project[] = [
     imageSrc: portfolioImageUrl,
     sourceUri: "https://github.com/JoelYoung01/PersonalWebsite",
     description:
-      "This website is a node-based Vue.js Single-Page application, built with Vite and styled with Vuetify. I deploy it to AWS using CloudFront and S3."
+      "This website is a node-based Vue.js Single-Page application, built with Vite and styled with Vuetify. I deploy it to AWS using CloudFront and S3.",
   },
   {
     projectId: 1,
@@ -31,7 +31,7 @@ const projects: Project[] = [
     imageSrc: costEstimateSiteUrl,
     sourceUri: "",
     description:
-      "This is a tool to estimate the cost of a sod installation project based on the square footage of the area to be sodded. It is build with Vue.js and Vuetify, and is served via CDN on AWS."
+      "This is a tool to estimate the cost of a sod installation project based on the square footage of the area to be sodded. It is build with Vue.js and Vuetify, and is served via CDN on AWS.",
   },
   {
     projectId: 2,
@@ -39,7 +39,8 @@ const projects: Project[] = [
     title: "GreenSight",
     imageSrc: greensightImageUrl,
     sourceUri: "https://github.com/JoelYoung01/GreenSight",
-    description: "this is an app that can take data about your garden and generate interesting reports about it."
+    description:
+      "this is an app that can take data about your garden and generate interesting reports about it.",
   },
   {
     projectId: 3,
@@ -48,24 +49,24 @@ const projects: Project[] = [
     imageSrc: timeTrackingSiteUrl,
     sourceUri: "",
     description:
-      "This is a time tracking application that allows users to track their time spent on various projects. It supports adding customers to projects, and can generate invoices based on time spent."
-  }
+      "This is a time tracking application that allows users to track their time spent on various projects. It supports adding customers to projects, and can generate invoices based on time spent.",
+  },
 ];
 
 const contactList: listItem[] = [
   {
     title: "joel.young@joelyoung.dev",
-    icon: "mdi-gmail"
+    icon: "mdi-gmail",
   },
   {
     title: "(612) 438-9418",
-    icon: "mdi-phone"
+    icon: "mdi-phone",
   },
   {
     title: "Joel Young",
     icon: "mdi-linkedin",
-    uri: "https://www.linkedin.com/in/joel-young-049627196/"
-  }
+    uri: "https://www.linkedin.com/in/joel-young-049627196/",
+  },
 ];
 
 const { copy, copied, isSupported } = useClipboard();
@@ -126,7 +127,13 @@ function contactAction(contact: listItem) {
           class="text-center"
           @click.stop="contactAction(contact)"
         >
-          <v-btn stacked size="x-large" :prepend-icon="contact.icon" variant="text">{{ contact.title }}</v-btn>
+          <v-btn
+            stacked
+            size="x-large"
+            :prepend-icon="contact.icon"
+            variant="text"
+            >{{ contact.title }}</v-btn
+          >
         </v-col>
       </v-row>
     </section>
@@ -136,7 +143,9 @@ function contactAction(contact: listItem) {
         Copied!
         <v-icon icon="mdi-check" color="success" />
       </div>
-      <div v-else class="text-center">Copying to clipboard is not supported!</div>
+      <div v-else class="text-center">
+        Copying to clipboard is not supported!
+      </div>
     </v-snackbar>
   </v-container>
 </template>

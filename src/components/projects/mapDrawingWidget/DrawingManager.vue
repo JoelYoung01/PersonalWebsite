@@ -3,9 +3,11 @@
 import { onMounted } from "vue";
 import { onBeforeUnmount } from "vue";
 import { ref } from "vue";
-import type { GoogleMap } from "vue3-google-map/*";
+import type { GoogleMap } from "vue3-google-map";
 
-const props = defineProps<{ mapRef: InstanceType<typeof GoogleMap> | undefined }>();
+const props = defineProps<{
+  mapRef: InstanceType<typeof GoogleMap> | undefined;
+}>();
 
 const drawingManager = ref<google.maps.drawing.DrawingManager>();
 const allPolygons = ref<google.maps.Polygon[]>([]);
@@ -17,7 +19,7 @@ const centerOnUser = () => {
   navigator.geolocation.getCurrentPosition((position) => {
     props.mapRef?.map?.setCenter({
       lat: position.coords.latitude,
-      lng: position.coords.longitude
+      lng: position.coords.longitude,
     });
   });
 };
@@ -27,7 +29,10 @@ const centerOnPlace = (place_id: string) => {
 
   const service = new google.maps.places.PlacesService(props.mapRef.map);
   service.getDetails({ placeId: place_id }, (place, status) => {
-    if (status === google.maps.places.PlacesServiceStatus.OK && place?.geometry?.location) {
+    if (
+      status === google.maps.places.PlacesServiceStatus.OK &&
+      place?.geometry?.location
+    ) {
       props.mapRef?.map?.setCenter(place.geometry.location);
     }
   });
@@ -42,12 +47,18 @@ const handleNewPolygon = (newPolygon: google.maps.Polygon) => {
     // do nothing
   });
 
-  totalArea.value += google.maps.geometry.spherical.computeArea(newPolygon.getPath(), 2.093e7);
+  totalArea.value += google.maps.geometry.spherical.computeArea(
+    newPolygon.getPath(),
+    2.093e7,
+  );
   allPolygons.value.push(newPolygon);
 };
 
 const removePolygon = (polygon: google.maps.Polygon) => {
-  totalArea.value -= google.maps.geometry.spherical.computeArea(polygon.getPath(), 2.093e7);
+  totalArea.value -= google.maps.geometry.spherical.computeArea(
+    polygon.getPath(),
+    2.093e7,
+  );
   polygon.setMap(null);
   allPolygons.value = allPolygons.value.filter((p) => p.getMap() !== null);
 };
@@ -70,7 +81,7 @@ const initMap = async () => {
     drawingControl: false,
     drawingControlOptions: {
       position: google.maps.ControlPosition.TOP_CENTER,
-      drawingModes: [google.maps.drawing.OverlayType.POLYGON]
+      drawingModes: [google.maps.drawing.OverlayType.POLYGON],
     },
     polygonOptions: {
       clickable: true,
@@ -84,13 +95,17 @@ const initMap = async () => {
       strokePosition: google.maps.StrokePosition.CENTER,
       strokeWeight: 5,
       visible: true,
-      zIndex: 1
-    }
+      zIndex: 1,
+    },
   };
 
   drawingManager.value = new google.maps.drawing.DrawingManager(drawOptions);
 
-  google.maps.event.addListener(drawingManager.value, "polygoncomplete", handleNewPolygon);
+  google.maps.event.addListener(
+    drawingManager.value,
+    "polygoncomplete",
+    handleNewPolygon,
+  );
 
   drawingManager.value.setMap(props.mapRef.map);
 };
@@ -111,26 +126,38 @@ onBeforeUnmount(() => {
 defineExpose({
   centerOnUser,
   centerOnPlace,
-  clearAllPolygons
+  clearAllPolygons,
 });
 </script>
 
 <template>
   <div class="d-flex align-center py-2">
     Total Area:
-    <v-chip class="mx-2">{{ Math.max(0, Math.round(totalArea)).toLocaleString() }}</v-chip>
+    <v-chip class="mx-2">{{
+      Math.max(0, Math.round(totalArea)).toLocaleString()
+    }}</v-chip>
     sq ft
 
     <v-spacer />
 
     <v-btn variant="text" color="white" icon @click="centerOnUser">
       <v-icon icon="mdi-crosshairs-gps" />
-      <v-tooltip activator="parent" location="bottom"> Center map on me </v-tooltip>
+      <v-tooltip activator="parent" location="bottom">
+        Center map on me
+      </v-tooltip>
     </v-btn>
 
-    <v-btn :disabled="allPolygons.length === 0" variant="text" color="white" icon @click="clearAllPolygons">
+    <v-btn
+      :disabled="allPolygons.length === 0"
+      variant="text"
+      color="white"
+      icon
+      @click="clearAllPolygons"
+    >
       <v-icon icon="mdi-layers-remove" />
-      <v-tooltip activator="parent" location="bottom"> Clear all areas </v-tooltip>
+      <v-tooltip activator="parent" location="bottom">
+        Clear all areas
+      </v-tooltip>
     </v-btn>
   </div>
 </template>

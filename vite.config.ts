@@ -10,7 +10,7 @@ import AutoImport from "unplugin-auto-import/vite";
 export default defineConfig({
   plugins: [
     vue({
-      template: { transformAssetUrls }
+      template: { transformAssetUrls },
     }),
     vueDevTools(),
     vuetify(),
@@ -20,15 +20,15 @@ export default defineConfig({
       imports: [
         {
           from: "vue",
-          imports: ["ref", "reactive", "computed", "watch", "watchEffect"]
-        }
+          imports: ["ref", "reactive", "computed", "watch", "watchEffect"],
+        },
       ],
-      dts: "./auto-imports.d.ts"
-    })
+      dts: "./auto-imports.d.ts",
+    }),
   ],
   resolve: {
     alias: {
-      "@": fileURLToPath(new URL("./src", import.meta.url))
-    }
-  }
+      "@": fileURLToPath(new URL("./src", import.meta.url)),
+    },
+  },
 });

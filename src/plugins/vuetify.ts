@@ -30,8 +30,8 @@ const theme = {
     error: "#b00020",
     warning: "#FB8C00",
     info: "#2196F3",
-    success: "#4CAF50"
-  }
+    success: "#4CAF50",
+  },
 } as ThemeDefinition;
 
 /**
@@ -41,9 +41,9 @@ const vuetify = createVuetify({
   theme: {
     defaultTheme: "theme",
     themes: {
-      theme
-    }
-  }
+      theme,
+    },
+  },
 });
 
 export default vuetify;

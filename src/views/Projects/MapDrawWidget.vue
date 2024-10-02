@@ -10,7 +10,7 @@ const initGoogleApi = async () => {
   try {
     const loader = new Loader({
       apiKey: import.meta.env.VITE_GOOGLE_API_KEY,
-      version: "weekly"
+      version: "weekly",
     });
     loader.importLibrary("drawing");
     loader.importLibrary("places");
@@ -26,8 +26,9 @@ initGoogleApi();
 <template>
   <div>
     <p class="mb-5">
-      This is an instance of the Google Maps drawing widget I wrote. This is designed to allow the user to select an
-      area on the map, and then report the area of the drawn polygons in square footage.
+      This is an instance of the Google Maps drawing widget I wrote. This is
+      designed to allow the user to select an area on the map, and then report
+      the area of the drawn polygons in square footage.
     </p>
     <MapWidgetRoot />
   </div>

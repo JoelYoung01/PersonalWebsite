@@ -4,7 +4,10 @@ import { ref } from "vue";
 import { GoogleMap } from "vue3-google-map";
 import DrawingManager from "./DrawingManager.vue";
 
-const sodSmith: google.maps.LatLngLiteral = { lat: 44.886297901877114, lng: -93.30808521796632 };
+const sodSmith: google.maps.LatLngLiteral = {
+  lat: 44.886297901877114,
+  lng: -93.30808521796632,
+};
 
 const zoom = ref(17);
 const mapRef = ref<InstanceType<typeof GoogleMap>>();
@@ -17,7 +20,7 @@ const centerOnPlace = (place_id: string) => {
 };
 
 defineExpose({
-  centerOnPlace
+  centerOnPlace,
 });
 </script>
 

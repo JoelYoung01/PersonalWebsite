@@ -13,14 +13,18 @@ type memeResponse = {
   preview: string[];
 };
 
-const { data: meme, isFetching, execute } = useFetch<memeResponse>("https://meme-api.com/gimme").json();
+const {
+  data: meme,
+  isFetching,
+  execute,
+} = useFetch<memeResponse>("https://meme-api.com/gimme").json();
 </script>
 
 <template>
   <v-card class="mx-auto pb-2" color="white" width="300">
     <v-card-title>
       <v-row align="center">
-        <v-col cols="11" class="text-left d-inline-block text-truncate pa-0" :title="meme?.title">
+        <v-col cols="11" class="text-left d-inline-block text-truncate pa-0">
           {{ meme?.title }}
         </v-col>
 

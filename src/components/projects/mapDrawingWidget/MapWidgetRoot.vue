@@ -18,7 +18,7 @@ const initGoogleApi = async () => {
   try {
     const loader = new Loader({
       apiKey: import.meta.env.VITE_GOOGLE_API_KEY,
-      version: "weekly"
+      version: "weekly",
     });
     loader.importLibrary("drawing");
     loader.importLibrary("places");

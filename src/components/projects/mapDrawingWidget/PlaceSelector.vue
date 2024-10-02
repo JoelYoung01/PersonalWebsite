@@ -20,7 +20,9 @@ const searchResults = ref<PlaceSelectItem[]>([]);
 const loadResults = async (query: string) => {
   loadingResults.value = true;
   try {
-    const response = await autocompleteService.getPlacePredictions({ input: query });
+    const response = await autocompleteService.getPlacePredictions({
+      input: query,
+    });
 
     if (!response || response.predictions.length === 0) {
       searchResults.value = [];
@@ -29,7 +31,7 @@ const loadResults = async (query: string) => {
 
     searchResults.value = response.predictions.map((p) => ({
       title: p.description,
-      placeObject: p
+      placeObject: p,
     }));
   } catch (er) {
     console.error(er);
@@ -70,6 +72,8 @@ initSearchService();
     auto-select-first
     return-object
     clearable
-    @update:model-value="$emit('place-selected', $event?.placeObject?.place_id)"
+    @update:model-value="
+      $emit('place-selected', $event?.placeObject?.place_id ?? '')
+    "
   />
 </template>
