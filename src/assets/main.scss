@@ -1,0 +1,7 @@
+$body-font-family: 'nunito', sans-serif;
+$heading-font-family: 'nunito', sans-serif;
+
+@use 'vuetify' with (
+  $body-font-family: $body-font-family,
+  $heading-font-family: $heading-font-family
+);

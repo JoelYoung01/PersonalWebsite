@@ -30,7 +30,12 @@ const projects = computed(() => {
   </v-alert>
   <div v-if="isFetching">Loading...</div>
   <div v-if="projects && projects.length > 0" class="d-flex flex-gap-10">
-    <v-card v-for="project in projects" :key="project.projectId" class="d-flex flex-column" style="flex-basis: 24%">
+    <v-card
+      v-for="project in projects"
+      :key="project.projectId"
+      class="d-flex flex-column"
+      style="flex-basis: 24%"
+    >
       <v-card-title>{{ project.title }}</v-card-title>
       <v-card-text>{{ project.description }}</v-card-text>
       <v-spacer />

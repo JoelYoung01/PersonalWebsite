@@ -1,4 +1,4 @@
-interface Project {
+export interface Project {
   projectId: number;
   projectKey: string;
   title: string;
@@ -7,5 +7,3 @@ interface Project {
   description: string;
   uri?: string;
 }
-
-export type { Project };
