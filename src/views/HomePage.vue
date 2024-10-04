@@ -45,8 +45,8 @@ const projects: Project[] = [
   },
   {
     projectId: 3,
-    projectKey: "time-tracker",
-    title: "Time Tracker",
+    projectKey: "time-tracking",
+    title: "Time Tracking",
     imageSrc: timeTrackingSiteUrl,
     sourceUri: "",
     description:
