@@ -13,12 +13,14 @@ const elevation = computed(() => {
 <template>
   <v-app-bar class="pa-3" :elevation="elevation">
     <v-col cols="auto">
-      <v-img :src="sharpGoatLogo" width="50" />
+      <RouterLink to="/">
+        <v-img :src="sharpGoatLogo" width="50" />
+      </RouterLink>
     </v-col>
-    <v-col cols="3" sm="auto">
+    <v-col cols="3" md="auto">
       <RouterLink to="/">
         <div
-          class="text-h4 text-md-h3 text-lg-h2"
+          class="text-h5 text-lg-h2"
           style="color: rgb(var(--v-theme-secondary))"
         >
           Joel's Website

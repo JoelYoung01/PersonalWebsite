@@ -22,7 +22,7 @@ const technologies = [
     title: "Vite",
     subtitle:
       "Vite is a fast build tool that provides a faster dev experience and faster builds.",
-    icon: "mdi-language-typescript",
+    icon: "mdi-lightning-bolt",
   },
   {
     title: "Node.js",
@@ -123,12 +123,9 @@ function reset() {
 </script>
 
 <template>
-  <div class="d-flex flex-gap-4">
-    <div
-      class="d-flex flex-column flex-gap-4"
-      style="flex-basis: 50%; flex-grow: 0"
-    >
-      <h1 class="text-h4 mt-10">About the project</h1>
+  <v-row>
+    <v-col md="6" cols="12" class="d-flex flex-column gap-2">
+      <h1 class="text-h4">About the project</h1>
       <v-card>
         <v-card-text>
           This project was created to provide high-level cost estimates for sod
@@ -158,9 +155,9 @@ function reset() {
           </v-expansion-panel-text>
         </v-expansion-panel>
       </v-expansion-panels>
-    </div>
-    <div class="d-flex flex-column flex-gap-4">
-      <h1 class="text-h4 mt-10">Demo</h1>
+    </v-col>
+    <v-col md="6" cols="12" class="d-flex flex-column align-md-start gap-2">
+      <h1 class="text-h4">Demo</h1>
       <v-theme-provider>
         <div id="cost-estimate-script-mount-point">
           <div id="cost-estimation-tool-mount-point">
@@ -177,17 +174,23 @@ function reset() {
         label="Select Environment"
         item-title="title"
         item-value="url"
+        class="flex-grow-0"
+        min-width="200"
       />
-      <v-btn :disabled="!scriptSrc || demoActivated" @click="demo"
-        >Activate Demo</v-btn
-      >
+      <v-btn :disabled="!scriptSrc || demoActivated" @click="demo">
+        Activate Demo
+      </v-btn>
       <v-btn :disabled="!demoActivated" @click="reset">Reset</v-btn>
-    </div>
-  </div>
+    </v-col>
+  </v-row>
 </template>
 
 <style scoped>
 .text-dimmed {
   color: rgba(var(--v-theme-on-surface), var(--v-medium-emphasis-opacity));
+}
+
+.gap-2 {
+  gap: 0.5rem;
 }
 </style>

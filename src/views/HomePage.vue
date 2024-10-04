@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useClipboard } from "@vueuse/core";
 import { ref, computed, watch } from "vue";
+import { useDisplay } from "vuetify";
 import type { Project } from "@/types";
 import portfolioImageUrl from "@/assets/images/portfolioImage.png";
 import timeTrackingSiteUrl from "@/assets/images/timeTrackingSite.png";
@@ -44,8 +45,8 @@ const projects: Project[] = [
   },
   {
     projectId: 3,
-    projectKey: "time-tracker",
-    title: "Time Tracker",
+    projectKey: "time-tracking",
+    title: "Time Tracking",
     imageSrc: timeTrackingSiteUrl,
     sourceUri: "",
     description:
@@ -70,6 +71,7 @@ const contactList: listItem[] = [
 ];
 
 const { copy, copied, isSupported } = useClipboard();
+const { mobile } = useDisplay();
 
 const supportError = ref(false);
 
@@ -102,28 +104,36 @@ function contactAction(contact: listItem) {
 
 <template>
   <v-container>
-    <section class="align-start">
-      <h1 class="text-h1">My Name is Joel Young</h1>
-      <h2 class="text-h3">I enjoy building things and solving problems.</h2>
+    <section :class="{ mobile }" class="align-start">
+      <h1 class="text-md-h1 text-h3">My Name is Joel Young</h1>
+      <h2 class="text-md-h3 text-h5">
+        I enjoy building things and solving problems.
+      </h2>
       <v-btn to="/about" color="primary" class="mt-5">More About Me</v-btn>
     </section>
 
-    <section>
-      <h2 class="text-h2 text-center">Featured Projects</h2>
+    <section :class="{ mobile }">
+      <h2 class="text-md-h2 text-h4 text-center">Featured Projects</h2>
       <v-row justify="space-around" class="flex-grow-0">
-        <v-col v-for="project in projects" :key="project.projectId" cols="4">
+        <v-col
+          v-for="project in projects"
+          :key="project.projectId"
+          cols="12"
+          md="4"
+        >
           <ProjectCard :project="project" class="h-100" />
         </v-col>
       </v-row>
     </section>
 
-    <section>
-      <h2 class="text-h2 text-center">Get In Touch</h2>
+    <section :class="{ mobile }">
+      <h2 class="text-md-h2 text-h4 text-center">Get In Touch</h2>
       <v-row class="flex-grow-0" justify="space-around">
         <v-col
           v-for="contact in contactList"
           :key="contact.title"
-          cols="4"
+          md="4"
+          cols="12"
           class="text-center"
           @click.stop="contactAction(contact)"
         >
@@ -152,7 +162,6 @@ function contactAction(contact: listItem) {
 
 <style scoped>
 section {
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -160,7 +169,18 @@ section {
   margin-bottom: 0;
 }
 
-section h2.text-center {
+section.mobile {
+  min-height: 75vh;
+}
+
+section:not(.mobile) {
+  min-height: 100vh;
+}
+
+section:not(.mobile) h2.text-center {
   margin-bottom: 5rem;
+}
+section.mobile h2.text-center {
+  margin-bottom: 2rem;
 }
 </style>
