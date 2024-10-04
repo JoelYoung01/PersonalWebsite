@@ -146,39 +146,36 @@ const hobbies: Hobby[] = [
 </script>
 
 <template>
-  <v-container
-    :class="[mobile ? 'w-100' : 'w-75']"
-    :style="{ marginTop: '5rem' }"
-  >
-    <div class="d-flex flex-column" style="margin-top: 8rem">
-      <!-- Header Section -->
-      <div id="header" class="d-flex" style="margin-bottom: 15rem">
-        <v-col cols="auto">
+  <v-container :class="[mobile ? 'w-100' : 'w-75']">
+    <!-- Header Section -->
+    <section :class="{ mobile, 'mt-8': mobile }">
+      <v-row id="header" class="align-center mb-16 flex-grow-0">
+        <v-col md="5" cols="12" class="d-flex justify-center">
           <v-img
             src="/img/about-me-portrait.jpeg"
             alt="Joel wearing a hat in the winter"
             class="about-me-portrait j-round mx-2"
-            width="500"
+            :max-width="mobile ? 200 : 500"
             cover
             :aspect-ratio="8 / 10"
           />
         </v-col>
-        <v-col>
-          <v-card class="ml-auto pa-10" style="margin-top: 10rem; width: 80%">
-            <div class="text-h2 text-center mb-5">About Me</div>
-            <div class="text-h5">
+        <v-col md="7" cols="12">
+          <v-card :class="[mobile ? 'pa-5' : 'pa-10', 'w-100']">
+            <h2 class="text-md-h2 text-h4 text-center mb-5">About Me</h2>
+            <p class="text-md-h5 text-body-1">
               My name is Joel Young and I love writing all things code! I enjoy
               both the creativity and problem solving skills that are required
               to write a good program. I thrive on applying what I know combined
               with what I learned 30 minutes earlier from YouTube or
               <a href="https://claude.ai" target="_blank">Claude</a> to solve
               any problem thrown my way!
-            </div>
+            </p>
             <v-row
               align="center"
               justify="space-between"
               style="width: 300px"
-              class="mx-auto mt-3"
+              class="mx-auto mt-md-3 mt-1"
             >
               <v-col cols="auto">
                 <v-chip
@@ -209,16 +206,18 @@ const hobbies: Hobby[] = [
             </v-row>
           </v-card>
         </v-col>
-      </div>
+      </v-row>
+    </section>
 
-      <!-- Skills -->
+    <!-- Skills -->
+    <section :class="{ mobile }">
       <v-card id="skills" class="pa-8" style="margin-bottom: 15rem">
-        <div id="skills" class="text-h3 text-center mb-6">
+        <h2 id="skills" class="text-md-h2 text-h4 text-center mb-6">
           Skills and Abilities
-        </div>
-        <div class="d-flex">
-          <div style="width: 45%">
-            <div class="text-h5 text-center mb-2">Hard Skills</div>
+        </h2>
+        <v-row justify="space-between">
+          <v-col md="6" cols="12" class="pe-md-8">
+            <h3 class="text-md-h4 text-h5 text-center mb-2">Hard Skills</h3>
             <v-expansion-panels color="secondary">
               <v-expansion-panel
                 v-for="skill in hardSkillList"
@@ -237,10 +236,12 @@ const hobbies: Hobby[] = [
                 </template>
               </v-expansion-panel>
             </v-expansion-panels>
-          </div>
+          </v-col>
+
           <v-spacer />
-          <div style="width: 45%">
-            <div class="text-h5 text-center mb-2">Soft Skills</div>
+
+          <v-col md="6" cols="12" class="ps-md-8">
+            <div class="text-md-h4 text-h5 text-center mb-2">Soft Skills</div>
             <v-expansion-panels color="secondary">
               <v-expansion-panel
                 v-for="skill in softSkillList"
@@ -259,43 +260,55 @@ const hobbies: Hobby[] = [
                 </template>
               </v-expansion-panel>
             </v-expansion-panels>
-          </div>
-        </div>
+          </v-col>
+        </v-row>
       </v-card>
+    </section>
 
-      <!-- Hobbies -->
+    <!-- Hobbies -->
+    <section :class="{ mobile }">
       <v-card id="hobbies" class="pa-12" style="margin-bottom: 15rem">
-        <div id="skills" class="text-h3 text-center mb-10">Hobbies</div>
+        <h2 id="skills" class="text-md-h2 text-h4 text-center mb-10">
+          Hobbies
+        </h2>
         <v-row justify="center">
           <v-col
             v-for="hobby in hobbies"
             :key="hobby.title"
-            cols="auto"
-            class="pa-0 d-flex ma-3 j-rounder"
+            md="6"
+            cols="12"
+            class="j-rounder"
           >
-            <v-img
-              :src="hobby.imgSrc"
-              :alt="hobby.title"
-              class="j-rounder j-raised"
-              cover
-              width="250"
-              aspect-ratio="1"
-            />
-            <div class="px-4" style="width: 350px">
-              <div class="text-h4">
-                {{ hobby.title }}
-              </div>
-              <div class="text-h6">
-                {{ hobby.description }}
-              </div>
-            </div>
+            <v-row>
+              <v-col md="5" cols="12">
+                <v-img
+                  :src="hobby.imgSrc"
+                  :alt="hobby.title"
+                  class="j-rounder j-raised"
+                  cover
+                  aspect-ratio="1"
+                />
+              </v-col>
+              <v-col md="7" cols="12">
+                <h3 class="text-md-h3 text-h5">
+                  {{ hobby.title }}
+                </h3>
+                <p class="text-md-h6 text-body-1">
+                  {{ hobby.description }}
+                </p>
+              </v-col>
+            </v-row>
           </v-col>
         </v-row>
       </v-card>
+    </section>
 
-      <!-- Socials -->
-      <v-card id="socials" class="pa-12" style="margin-bottom: 15rem">
-        <div id="skills" class="text-h3 text-center mb-10">Socials</div>
+    <!-- Socials -->
+    <section :class="{ mobile }">
+      <v-card id="socials" :class="['pa-12', mobile ? 'mt-6' : 'mt-8r']">
+        <div id="skills" class="text-md-h2 text-h4 text-center mb-10">
+          Socials
+        </div>
         <v-row justify="space-around">
           <v-col v-for="social in socials" :key="social.mdiIcon" cols="auto">
             <SocialCard
@@ -308,7 +321,7 @@ const hobbies: Hobby[] = [
           </v-col>
         </v-row>
       </v-card>
-    </div>
+    </section>
   </v-container>
 </template>
 
@@ -316,5 +329,23 @@ const hobbies: Hobby[] = [
 .about-me-portrait {
   margin-top: 20px;
   box-shadow: -30px -30px 0px 0px rgb(var(--v-theme-surface));
+}
+.mt-8r {
+  margin-top: 8rem;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+section.mobile {
+  min-height: 75vh;
+}
+section:not(.mobile) {
+  min-height: 100vh;
 }
 </style>
