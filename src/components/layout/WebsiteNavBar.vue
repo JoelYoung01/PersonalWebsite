@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { useRoute } from "vue-router";
+import { useDisplay } from "vuetify";
 import sharpGoatLogo from "@/assets/images/SharpGoatTransparent_secondary.png";
 
 const route = useRoute();
+const { mobile } = useDisplay();
 
 const elevation = computed(() => {
   return route.path === "/" ? 0 : 1;
@@ -13,9 +15,11 @@ const elevation = computed(() => {
 <template>
   <v-app-bar class="pa-3" :elevation="elevation">
     <v-col cols="auto">
-      <v-img :src="sharpGoatLogo" width="50" />
+      <RouterLink to="/">
+        <v-img :src="sharpGoatLogo" width="50" />
+      </RouterLink>
     </v-col>
-    <v-col cols="3" sm="auto">
+    <v-col v-if="!mobile" cols="3" sm="auto">
       <RouterLink to="/">
         <div
           class="text-h4 text-md-h3 text-lg-h2"
