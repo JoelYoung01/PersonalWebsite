@@ -25,4 +25,5 @@ export const TAGS = {
   mobile: "Mobile-first",
   professional: "Professional",
   supabase: "Supabase",
+  static: "Static",
 };
