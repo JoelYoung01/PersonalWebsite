@@ -39,13 +39,6 @@ const elevation = computed(() => {
       <v-tooltip location="bottom" activator="parent">About Me</v-tooltip>
       <v-icon color="secondary" size="x-large" icon="mdi-account" />
     </v-btn>
-
-    <v-btn href="https://wedding.joelyoung.dev" target="_blank" icon>
-      <v-tooltip location="bottom" activator="parent"
-        >Wedding Website</v-tooltip
-      >
-      <v-icon color="secondary" size="x-large" icon="mdi-heart" />
-    </v-btn>
   </v-app-bar>
 </template>
 
