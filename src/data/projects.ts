@@ -32,7 +32,7 @@ export const projects: Project[] = [
       TAGS.spa,
     ],
     description:
-      "This website is a node-based Vue.js Single-Page application, built with Vite and styled with Vuetify. I deploy it to AWS using CloudFront and S3.",
+      "A node-based Vue.js Single-Page application, built with Vite and styled with Vuetify. Deployed to AWS using CloudFront and S3.",
   },
   {
     projectKey: "recipe-db",
@@ -92,7 +92,7 @@ export const projects: Project[] = [
     sourceUri: "",
     tags: [TAGS.vue, TAGS.vuetify, TAGS.aws, TAGS.spa],
     description:
-      "This is a tool to estimate the cost of a sod installation project based on the square footage of the area to be sodded. It is build with Vue.js and Vuetify, and is served via CDN on AWS.",
+      "A tool to estimate the cost of a sod installation project based on the square footage of the area to be sodded. It is build with Vue.js and Vuetify, and is served via CDN on AWS.",
   },
   {
     projectKey: "greensight",
@@ -101,7 +101,7 @@ export const projects: Project[] = [
     sourceUri: "https://github.com/JoelYoung01/GreenSight",
     tags: [TAGS.vue, TAGS.vuetify, TAGS.aws, TAGS.spa],
     description:
-      "this is an app that can take data about your garden and generate interesting reports about it.",
+      "A web app that can take data about your garden and generate interesting reports about it.",
   },
   {
     projectKey: "time-tracking",
@@ -163,6 +163,6 @@ export const projects: Project[] = [
     imageSrc: eaterGame,
     sourceUri: "",
     tags: [],
-    description: "My first programming project. A simple game written in Java.",
+    description: "My first programming project! A simple game written in Java.",
   },
 ];

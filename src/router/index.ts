@@ -24,4 +24,12 @@ const router = createRouter({
   scrollBehavior,
 });
 
+router.beforeEach((to, from, next) => {
+  if (to.path.match(/^\/http/)) {
+    window.location.href = to.path.slice(1);
+  } else {
+    next();
+  }
+});
+
 export default router;
