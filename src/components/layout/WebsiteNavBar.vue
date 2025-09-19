@@ -10,17 +10,15 @@ const elevation = computed(() => {
 </script>
 
 <template>
-  <v-app-bar class="pa-3" :elevation="elevation">
-    <v-col cols="3" md="auto">
-      <RouterLink to="/">
-        <div
-          class="text-h5 text-lg-h2"
-          style="color: rgb(var(--v-theme-secondary))"
-        >
-          Joel's Website
-        </div>
-      </RouterLink>
-    </v-col>
+  <v-app-bar class="py-3 px-5" :elevation="elevation">
+    <RouterLink to="/">
+      <div
+        class="text-h5 text-lg-h2"
+        style="color: rgb(var(--v-theme-secondary))"
+      >
+        Joel's Website
+      </div>
+    </RouterLink>
 
     <v-spacer />
 
@@ -33,11 +31,20 @@ const elevation = computed(() => {
       <v-tooltip location="bottom" activator="parent">About Me</v-tooltip>
       <v-icon color="secondary" size="x-large" icon="mdi-account" />
     </v-btn>
+
+    <v-btn icon class="nav-button" to="/projects">
+      <v-tooltip location="bottom" activator="parent">Projects</v-tooltip>
+      <v-icon color="secondary" size="x-large" icon="mdi-folder" />
+    </v-btn>
   </v-app-bar>
 </template>
 
 <style scoped>
 .text-h4 {
   font-weight: 400;
+}
+
+:deep(.v-toolbar__content) {
+  gap: 0.5rem;
 }
 </style>

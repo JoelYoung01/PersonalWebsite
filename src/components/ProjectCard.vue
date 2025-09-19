@@ -4,10 +4,12 @@ import { useRouter } from "vue-router";
 
 interface Props {
   project: Project;
-  selectedTags: string[];
+  selectedTags?: string[];
 }
 
-const props = defineProps<Props>();
+const props = withDefaults(defineProps<Props>(), {
+  selectedTags: () => [],
+});
 
 const emit = defineEmits<{
   tagClicked: [tag: string];
