@@ -1,67 +1,23 @@
 <script setup lang="ts">
 import { useClipboard } from "@vueuse/core";
-import { ref, computed, watch } from "vue";
+import { ref, computed } from "vue";
 import { useDisplay } from "vuetify";
-import type { Project } from "@/types";
-import portfolioImageUrl from "@/assets/images/portfolioImage.png";
-import timeTrackingSiteUrl from "@/assets/images/timeTrackingSite.png";
-import costEstimateSiteUrl from "@/assets/images/costEstimateDemo.png";
-import greensightImageUrl from "@/assets/images/greensight.png";
+import { projects as allProjects } from "@/data/projects";
+
 import ProjectCard from "@/components/ProjectCard.vue";
 
-interface listItem {
-  title: string;
-  icon: string;
-  uri?: string;
-}
+const projects = allProjects.filter((project) => project.featured);
 
-const projects: Project[] = [
-  {
-    projectId: 0,
-    projectKey: "this-website",
-    title: "This Website",
-    imageSrc: portfolioImageUrl,
-    sourceUri: "https://github.com/JoelYoung01/PersonalWebsite",
-    description:
-      "This website is a node-based Vue.js Single-Page application, built with Vite and styled with Vuetify. I deploy it to AWS using CloudFront and S3.",
-  },
-  {
-    projectId: 1,
-    projectKey: "cost-estimate-tool",
-    title: "Cost Estimate Tool",
-    imageSrc: costEstimateSiteUrl,
-    sourceUri: "",
-    description:
-      "This is a tool to estimate the cost of a sod installation project based on the square footage of the area to be sodded. It is build with Vue.js and Vuetify, and is served via CDN on AWS.",
-  },
-  {
-    projectId: 2,
-    projectKey: "greensight",
-    title: "GreenSight",
-    imageSrc: greensightImageUrl,
-    sourceUri: "https://github.com/JoelYoung01/GreenSight",
-    description:
-      "this is an app that can take data about your garden and generate interesting reports about it.",
-  },
-  {
-    projectId: 3,
-    projectKey: "time-tracking",
-    title: "Time Tracking",
-    imageSrc: timeTrackingSiteUrl,
-    sourceUri: "",
-    description:
-      "This is a time tracking application that allows users to track their time spent on various projects. It supports adding customers to projects, and can generate invoices based on time spent.",
-  },
-];
-
-const contactList: listItem[] = [
+const contactList = [
   {
     title: "joel.young@joelyoung.dev",
     icon: "mdi-gmail",
+    uri: null,
   },
   {
     title: "(612) 438-9418",
     icon: "mdi-phone",
+    uri: null,
   },
   {
     title: "Joel Young",
@@ -79,25 +35,25 @@ const showSnackbar = computed(() => {
   return copied.value || supportError.value;
 });
 
-watch(supportError, () => {
-  if (supportError.value) {
-    setTimeout(() => {
-      supportError.value = false;
-    }, 2000);
-  }
-});
+function showSupportError() {
+  supportError.value = true;
+
+  setTimeout(() => {
+    supportError.value = false;
+  }, 2000);
+}
 
 /**
  * Either navigate to a social (or copy it if no navigation applicable)
  */
-function contactAction(contact: listItem) {
+function contactAction(contact: (typeof contactList)[number]) {
   // If the uri doesn't exist, do nothing
   if (contact.uri) {
     window.open(contact.uri);
   } else if (isSupported.value) {
     copy(contact.title);
   } else {
-    supportError.value = true;
+    showSupportError();
   }
 }
 </script>
@@ -109,21 +65,32 @@ function contactAction(contact: listItem) {
       <h2 class="text-md-h3 text-h5">
         I enjoy building things and solving problems.
       </h2>
-      <v-btn to="/about" color="primary" class="mt-5">More About Me</v-btn>
+      <div class="d-flex ga-4">
+        <v-btn to="/about" color="primary" class="mt-5">More About Me</v-btn>
+        <v-btn to="/projects" color="primary" class="mt-5">
+          Browse my Projects
+        </v-btn>
+      </div>
     </section>
 
     <section :class="{ mobile }">
       <h2 class="text-md-h2 text-h4 text-center">Featured Projects</h2>
-      <v-row justify="space-around" class="flex-grow-0">
+      <v-row justify="space-around" class="flex-grow-0 mb-6">
         <v-col
           v-for="project in projects"
-          :key="project.projectId"
+          :key="project.projectKey"
           cols="12"
           md="4"
         >
           <ProjectCard :project="project" class="h-100" />
         </v-col>
       </v-row>
+
+      <div class="d-flex justify-center">
+        <v-btn to="/projects" size="x-large" variant="tonal"
+          >View All Projects</v-btn
+        >
+      </div>
     </section>
 
     <section :class="{ mobile }">

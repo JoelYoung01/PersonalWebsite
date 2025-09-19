@@ -9,7 +9,11 @@ defineProps<Props>();
 </script>
 
 <template>
-  <v-card class="d-flex flex-column" :to="`/project/${project.projectKey}`">
+  <v-card
+    class="d-flex flex-column"
+    rounded="xl"
+    :to="`/project/${project.projectKey}`"
+  >
     <v-img
       :src="project.imageSrc"
       position="top"

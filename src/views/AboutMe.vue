@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import HeadshotImg from "@/assets/images/Headshot.jpg";
 import SocialCard from "@/components/aboutMe/SocialCard.vue";
 import svelteLogo from "@/assets/images/Svelte_Logo_bw.svg";
 import { useDisplay } from "vuetify";
@@ -6,103 +7,11 @@ import { useDisplay } from "vuetify";
 // Mobile flag (true if viewer is mobile user)
 const { mobile } = useDisplay();
 
-interface Skill {
-  title: string;
-  description: string;
-  mdiIcon?: string;
-  svgIcon?: string;
-}
-
-interface Social {
-  profileUri: string;
-  profileImageUri: string;
-  mdiIcon: string;
-  handle: string;
-}
-
-const hardSkillList: Skill[] = [
+const socials = [
   {
-    title: "Vue.js",
-    description:
-      "I've written countless Vue.js applications, both professionally and personally. I enjoy the simplicity and ease of use of Vue.js, the community support, and the wide range of toolings and libraries available. I've written Vue 2 and Vue 3 applications, using both Composition and Options API, and have migrated >20 applications from 2 to 3. And I still love the framework!",
-    mdiIcon: "mdi-vuejs",
-  },
-  {
-    title: "Svelte",
-    description:
-      "I've written an app with Svelte and another with SvelteKit. Svelte is great for quick, small projects but can scale to larger projects with the right direction, which makes it a powerful tool for any developer.",
-    svgIcon: svelteLogo,
-  },
-  {
-    title: "Typescript",
-    description:
-      "Typescript is a great tool that I've used for many large Vue projects professionally and personally. The peace of mind and robustness it provides is invaluable to larger scale projects that involve bigger teams.",
-    mdiIcon: "mdi-language-typescript",
-  },
-  {
-    title: ".NET",
-    description:
-      ".NET has been a staple in my software development career for business critical applications that require reliability and maintainability. I've written both front-end and back-end applications using .NET, and have a deep understanding of the framework and its capabilities.",
-    mdiIcon: "mdi-language-csharp",
-  },
-  {
-    title: "Python",
-    description:
-      "I've used python in a variety of projects, from small scripting tasks to training machine learning models to building large scale web applications. Professionally, I have built and maintained 30+ Django applications, and love the simplicity and power of the language.",
-    mdiIcon: "mdi-language-python",
-  },
-  {
-    title: "VS Code",
-    description:
-      "The majority of my coding life, I have written in Visual Studio. However, as of recently, I have really started to turn towards the much sleeker and faster Visual Studio Code. Now, whenver starting a project, I tend to start with VS Code and I don't really have to look back! The community support and extension library really does give you the power to shape the IDE into the exact tool you need for virtually any job.",
-    mdiIcon: "mdi-microsoft-visual-studio-code",
-  },
-];
-
-const softSkillList: Skill[] = [
-  {
-    title: "Agile",
-    description:
-      "I have worked in various Agile environments, ranging from an organization-wide Agile program including 300+ developers to a small team of 3. I've used various Agile methodologies, including Scrum, Kanban, and SAFe, and see the value in all versions of Agile.",
-    mdiIcon: "mdi-image-filter-hdr",
-  },
-  {
-    title: "Communication Abilities",
-    description:
-      "I believe that communication is the key to success in any relatiionship, personal or professional. I enjoy working together with other intelligent and motivated individuals to achieve a common goal, and am always looking for ways to learn and grow.",
-    mdiIcon: "mdi-forum",
-  },
-  {
-    title: "Constant Learning",
-    description:
-      "I approach life with curiosity and a desire to learn. This has helped me to grow and develop in many ways, especially in my career as a software developer; there is always new things to learn and ways to improve!",
-    mdiIcon: "mdi-school",
-  },
-  {
-    title: "Problem Solving",
-    description:
-      "There is nothing more satisfying than solving a problem, whether that be a difficult bug that has been confusing me for hours or a complex requirement from a client that my team needs to implement. I love the challenge of finding the best solution to a problem, and balancing the tradeoffs between different solutions.",
-    mdiIcon: "mdi-lightbulb-on",
-  },
-  {
-    title: "Positive Attitude",
-    description:
-      "No matter what the situation, a positive attitude can only help. I try to approach every situation with a positive attitude, and it has helped me to be more productive and successful in my career.",
-    mdiIcon: "mdi-comment-plus",
-  },
-  {
-    title: "Leadership",
-    description:
-      "I have led a couple of development teams, and have built a strong understanding of the importance of communication and collaboration in a team. I enjoy the challenge of building a plan and executing it across the team, and I love watching the team come together to achieve a common goal.",
-    mdiIcon: "mdi-account-group",
-  },
-];
-
-const socials: Social[] = [
-  {
-    profileUri: "https://twitter.com/JoelYoung01",
+    profileUri: "https://x.com/JoelYoung01",
     profileImageUri: "/img/socials/twitter.jpg",
-    mdiIcon: "mdi-twitter",
+    mdiIcon: "mdi-x",
     handle: "@JoelYoung01",
   },
   {
@@ -133,7 +42,7 @@ const socials: Social[] = [
       <v-row id="header" class="align-center mb-16 flex-grow-0">
         <v-col md="5" cols="12" class="d-flex justify-center">
           <v-img
-            src="/img/about-me-portrait.jpeg"
+            :src="HeadshotImg"
             alt="Joel wearing a hat in the winter"
             class="about-me-portrait j-round mx-2"
             :max-width="mobile ? 200 : 500"
@@ -193,38 +102,139 @@ const socials: Social[] = [
     <!-- Skills -->
     <section :class="{ mobile }">
       <v-card id="skills" class="pa-8" style="margin-bottom: 15rem">
-        <h2 id="skills" class="text-md-h2 text-h4 text-center mb-6">
+        <h2 id="skills" class="text-md-h2 text-h4 text-center">
           Skills and Abilities
         </h2>
+
+        <div class="d-flex justify-center align-center ga-2 my-6">
+          <v-chip variant="tonal" to="/projects">
+            Public Personal Projects: 17
+          </v-chip>
+          <v-chip variant="tonal"> Vue.js Applications Shipped: 25+ </v-chip>
+          <v-chip variant="tonal"> Professional Projects Led: 8 </v-chip>
+          <v-chip variant="tonal"> Professional Experience: 5+ years </v-chip>
+        </div>
+
         <v-row justify="space-between">
           <v-col md="6" cols="12" class="pe-md-8">
             <h3 class="text-md-h4 text-h5 text-center mb-2">Hard Skills</h3>
             <v-expansion-panels color="secondary">
-              <v-expansion-panel
-                v-for="skill in hardSkillList"
-                :key="skill.title"
-                bg-color="primary-lighten-1"
-                :text="skill.description"
-              >
+              <!-- Vue.js -->
+              <v-expansion-panel bg-color="primary-lighten-1">
                 <template #title>
-                  <v-icon
-                    v-if="skill.mdiIcon"
-                    :icon="skill.mdiIcon"
-                    class="mr-3"
-                  />
+                  <v-icon icon="mdi-vuejs" class="me-3" />
+                  <span class="text-h6">Vue.js</span>
+                </template>
+                <template #text>
+                  <span class="text-body-1"
+                    >I've written countless Vue.js applications, both
+                    professionally and
+                    <RouterLink to="/projects">personally</RouterLink>. I enjoy
+                    the simplicity and ease of use of Vue.js, the community
+                    support, and the wide range of toolings and libraries
+                    available. I've written Vue 2 and Vue 3 applications, using
+                    both Composition and Options API, and have migrated >20
+                    applications from 2 to 3. And I still love the
+                    framework!</span
+                  >
+                </template>
+              </v-expansion-panel>
+
+              <!-- Python -->
+              <v-expansion-panel bg-color="primary-lighten-1">
+                <template #title>
+                  <v-icon icon="mdi-language-python" class="me-3" />
+                  <span class="text-h6">Python</span>
+                </template>
+                <template #text>
+                  <span class="text-body-1"
+                    >I've used python in a variety of projects, from small
+                    scripting tasks to training machine learning models to
+                    building large scale web applications. Professionally, I
+                    have built and maintained 30+ Django applications, and love
+                    the simplicity and power of the language.</span
+                  >
+                </template>
+              </v-expansion-panel>
+
+              <!-- Svelte -->
+              <v-expansion-panel bg-color="primary-lighten-1">
+                <template #title>
                   <div>
                     <v-img
-                      v-if="skill.svgIcon"
-                      :src="skill.svgIcon"
+                      :src="svelteLogo"
                       width="24"
                       height="24"
                       class="mr-3"
                     />
                   </div>
-                  <span class="text-h6">{{ skill.title }} </span>
+                  <span class="text-h6">Svelte(kit)</span>
                 </template>
                 <template #text>
-                  <span class="text-body-1">{{ skill.description }}</span>
+                  <span class="text-body-1"
+                    >I've written an app with Svelte and another with SvelteKit.
+                    Svelte is great for quick, small projects but can scale to
+                    larger projects with the right direction, which makes it a
+                    powerful tool for any developer.</span
+                  >
+                </template>
+              </v-expansion-panel>
+
+              <!-- TS -->
+              <v-expansion-panel bg-color="primary-lighten-1">
+                <template #title>
+                  <v-icon icon="mdi-language-typescript" class="me-3" />
+                  <span class="text-h6">Typescript</span>
+                </template>
+                <template #text>
+                  <span class="text-body-1"
+                    >Typescript is a great tool that I've used for many large
+                    Vue projects professionally and
+                    <RouterLink to="/projects">personally</RouterLink>. The
+                    peace of mind and robustness it provides makes it a great
+                    tool for larger scale projects that involve bigger
+                    teams.</span
+                  >
+                </template>
+              </v-expansion-panel>
+
+              <!-- .NET -->
+              <v-expansion-panel bg-color="primary-lighten-1">
+                <template #title>
+                  <v-icon icon="mdi-language-csharp" class="me-3" />
+                  <span class="text-h6">.NET</span>
+                </template>
+                <template #text>
+                  <span class="text-body-1"
+                    >.NET has been a staple in my software development career
+                    for business critical applications that require reliability
+                    and maintainability. I've written both front-end and
+                    back-end applications using .NET, and have a deep
+                    understanding of the framework and its capabilities.</span
+                  >
+                </template>
+              </v-expansion-panel>
+
+              <!-- VS Code -->
+              <v-expansion-panel bg-color="primary-lighten-1">
+                <template #title>
+                  <v-icon
+                    icon="mdi-microsoft-visual-studio-code"
+                    class="me-3"
+                  />
+                  <span class="text-h6">VS Code</span>
+                </template>
+                <template #text>
+                  <span class="text-body-1"
+                    >The majority of my coding life, I have written in Visual
+                    Studio. However, as of recently, I have really started to
+                    turn towards the much sleeker and faster Visual Studio Code.
+                    Now, whenver starting a project, I tend to start with VS
+                    Code and I don't really have to look back! The community
+                    support and extension library really does give you the power
+                    to shape the IDE into the exact tool you need for virtually
+                    any job.</span
+                  >
                 </template>
               </v-expansion-panel>
             </v-expansion-panels>
@@ -235,20 +245,104 @@ const socials: Social[] = [
           <v-col md="6" cols="12" class="ps-md-8">
             <div class="text-md-h4 text-h5 text-center mb-2">Soft Skills</div>
             <v-expansion-panels color="secondary">
-              <v-expansion-panel
-                v-for="skill in softSkillList"
-                :key="skill.title"
-                bg-color="primary-lighten-1"
-                :text="skill.description"
-              >
+              <!-- Agile -->
+              <v-expansion-panel bg-color="primary-lighten-1">
                 <template #title>
-                  <v-icon :icon="skill.mdiIcon" class="mr-3" /><span
-                    class="text-h6"
-                    >{{ skill.title }}</span
-                  >
+                  <v-icon icon="mdi-image-filter-hdr" class="me-3" />
+                  <span class="text-h6">Agile</span>
                 </template>
                 <template #text>
-                  <span class="text-body-1">{{ skill.description }}</span>
+                  <span class="text-body-1">
+                    I have worked in various Agile environments, ranging from an
+                    organization-wide Agile program including 300+ developers to
+                    a small team of 3. I've used various Agile methodologies,
+                    including Scrum, Kanban, and SAFe, and see the value in all
+                    versions of Agile.
+                  </span>
+                </template>
+              </v-expansion-panel>
+
+              <!-- Communication -->
+              <v-expansion-panel bg-color="primary-lighten-1">
+                <template #title>
+                  <v-icon icon="mdi-forum" class="me-3" />
+                  <span class="text-h6">Communication Abilities</span>
+                </template>
+                <template #text>
+                  <span class="text-body-1">
+                    I believe that communication is the key to success in any
+                    relatiionship, personal or professional. I enjoy working
+                    together with other intelligent and motivated individuals to
+                    achieve a common goal, and am always looking for ways to
+                    learn and grow.
+                  </span>
+                </template>
+              </v-expansion-panel>
+
+              <!-- Learning -->
+              <v-expansion-panel bg-color="primary-lighten-1">
+                <template #title>
+                  <v-icon icon="mdi-school" class="me-3" />
+                  <span class="text-h6">Constant Learning</span>
+                </template>
+                <template #text>
+                  <span class="text-body-1">
+                    I approach life with curiosity and a desire to learn. This
+                    has helped me to grow and develop in many ways, especially
+                    in my career as a software developer; there is always new
+                    things to learn and ways to improve!
+                  </span>
+                </template>
+              </v-expansion-panel>
+
+              <!-- Problem Solving -->
+              <v-expansion-panel bg-color="primary-lighten-1">
+                <template #title>
+                  <v-icon icon="mdi-lightbulb-on" class="me-3" />
+                  <span class="text-h6">Problem Solving</span>
+                </template>
+                <template #text>
+                  <span class="text-body-1">
+                    There is nothing more satisfying than solving a problem,
+                    whether that be a difficult bug that has been confusing me
+                    for hours or a complex requirement from a client that my
+                    team needs to implement. I love the challenge of finding the
+                    best solution to a problem, and balancing the tradeoffs
+                    between different solutions.
+                  </span>
+                </template>
+              </v-expansion-panel>
+
+              <!-- Positive Attitude -->
+              <v-expansion-panel bg-color="primary-lighten-1">
+                <template #title>
+                  <v-icon icon="mdi-comment-plus" class="me-3" />
+                  <span class="text-h6">Positive Attitude</span>
+                </template>
+                <template #text>
+                  <span class="text-body-1">
+                    No matter what the situation, a positive attitude can only
+                    help. I try to approach every situation with a positive
+                    attitude, and it has helped me to be more productive and
+                    successful in my career.
+                  </span>
+                </template>
+              </v-expansion-panel>
+
+              <!-- Leadership -->
+              <v-expansion-panel bg-color="primary-lighten-1">
+                <template #title>
+                  <v-icon icon="mdi-account-group" class="me-3" />
+                  <span class="text-h6">Leadership</span>
+                </template>
+                <template #text>
+                  <span class="text-body-1">
+                    I have led a couple of development teams, and have built a
+                    strong understanding of the importance of communication and
+                    collaboration in a team. I enjoy the challenge of building a
+                    plan and executing it across the team, and I love watching
+                    the team come together to achieve a common goal.
+                  </span>
                 </template>
               </v-expansion-panel>
             </v-expansion-panels>
@@ -265,7 +359,7 @@ const socials: Social[] = [
         </h2>
         <v-row justify="center">
           <v-col md="6" cols="12">
-            <h3 class="text-md-h3 text-h5">Experiencing Nature</h3>
+            <h3 class="text-md-h4 text-h5">Experiencing Nature</h3>
             <p class="text-md-h6 text-body-1">
               There is nothing more relaxing or freeing that escaping the
               schedules and stress of everyday life to get out and experience
@@ -274,7 +368,7 @@ const socials: Social[] = [
             </p>
           </v-col>
           <v-col md="6" cols="12">
-            <h3 class="text-md-h3 text-h5">Sports</h3>
+            <h3 class="text-md-h4 text-h5">Sports</h3>
             <p class="text-md-h6 text-body-1">
               I am not a pro at any sport, but I do enjoy playing a variety of
               casual sports with friends and family. You can catch me playing
@@ -283,7 +377,7 @@ const socials: Social[] = [
             </p>
           </v-col>
           <v-col md="6" cols="12">
-            <h3 class="text-md-h3 text-h5">Cooking</h3>
+            <h3 class="text-md-h4 text-h5">Cooking</h3>
             <p class="text-md-h6 text-body-1">
               I love cooking and more importantly, eating great food! One of the
               best experiences in life is sharing a meal with the ones you love,
@@ -291,7 +385,7 @@ const socials: Social[] = [
             </p>
           </v-col>
           <v-col md="6" cols="12">
-            <h3 class="text-md-h3 text-h5">Gaming</h3>
+            <h3 class="text-md-h4 text-h5">Gaming</h3>
             <p class="text-md-h6 text-body-1">
               Games are a great way to relax and have fun with anyone! I can be
               found playing a variety of games, ranging from board games like

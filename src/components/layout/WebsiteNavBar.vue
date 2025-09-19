@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { useRoute } from "vue-router";
-import sharpGoatLogo from "@/assets/images/SharpGoatTransparent_secondary.png";
 
 const route = useRoute();
 
@@ -12,11 +11,6 @@ const elevation = computed(() => {
 
 <template>
   <v-app-bar class="pa-3" :elevation="elevation">
-    <v-col cols="auto">
-      <RouterLink to="/">
-        <v-img :src="sharpGoatLogo" width="50" />
-      </RouterLink>
-    </v-col>
     <v-col cols="3" md="auto">
       <RouterLink to="/">
         <div
