@@ -13,12 +13,6 @@ interface Skill {
   svgIcon?: string;
 }
 
-interface Hobby {
-  title: string;
-  description: string;
-  imgSrc: string;
-}
-
 interface Social {
   profileUri: string;
   profileImageUri: string;
@@ -128,33 +122,6 @@ const socials: Social[] = [
     profileImageUri: "/img/socials/linkedin.jpg",
     mdiIcon: "mdi-linkedin",
     handle: "Joel Young",
-  },
-];
-
-const hobbies: Hobby[] = [
-  {
-    title: "Games With Friends",
-    description:
-      "I love sitting down with the homies and playing any type of game, ranging from slower-paced games like Catan or Wingspan to faster-paced like Battlefield or Forza.",
-    imgSrc: "/img/gamin.JPEG",
-  },
-  {
-    title: "Experiencing Nature",
-    description:
-      "There is nothing more relaxing or freeing than getting out and spending some time living on the minimal out in nature, bonus if you take some friends or family!",
-    imgSrc: "/img/joel-in-da-mountains.JPEG",
-  },
-  {
-    title: "Eating Great Food",
-    description:
-      "Food is one of humanity's greatest inventions. The rich diversity and vast range of food in our world never ceases to amaze me, I will never try enough of them.",
-    imgSrc: "/img/yummy-food.JPEG",
-  },
-  {
-    title: "Coding!!!!",
-    description:
-      "I truly enjoy sitting down with a goal in mind or a problem to solve, banging away at the keyboard while jamming to some tunes, and creating!",
-    imgSrc: "/img/joel-workspace.JPEG",
   },
 ];
 </script>
