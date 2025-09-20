@@ -11,12 +11,7 @@ const defaultSize = 250;
 </script>
 
 <template>
-  <v-card
-    :href="profileUri"
-    target="_blank"
-    class="pa-6 j-rounder"
-    color="secondary"
-  >
+  <v-card :href="profileUri" target="_blank" class="pa-6 j-rounder" color="secondary">
     <v-img
       :src="profileImageUri"
       cover
@@ -26,12 +21,7 @@ const defaultSize = 250;
       class="mx-auto"
     />
     <div class="text-center mt-3">
-      <v-icon
-        :icon="mdiIcon"
-        size="75"
-        color="primary-lighten-1"
-        class="shift-icon-up"
-      />
+      <v-icon :icon="mdiIcon" size="75" color="primary-lighten-1" class="shift-icon-up" />
       <span class="font-weight-bold text-h5">{{ handle }}</span>
     </div>
   </v-card>

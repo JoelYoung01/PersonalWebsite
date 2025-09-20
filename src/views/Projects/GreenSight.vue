@@ -34,10 +34,9 @@ const technologies = [
         <v-img :src="projectImage" />
         <v-card-title>Project Description</v-card-title>
         <v-card-text>
-          The GreenSight project was created in order to build some interesting
-          and hopefully useful reports based on data from a user's garden. I
-          built it primarily for use by some family members, but made it public
-          so anyone else who is interested might have access.
+          The GreenSight project was created in order to build some interesting and hopefully useful
+          reports based on data from a user's garden. I built it primarily for use by some family
+          members, but made it public so anyone else who is interested might have access.
         </v-card-text>
       </v-card>
     </v-col>

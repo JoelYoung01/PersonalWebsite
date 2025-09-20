@@ -46,16 +46,14 @@ const technologies = [
         <v-img :src="projectImage" />
         <v-card-title>Project Description</v-card-title>
         <v-card-text>
-          Time Tracking was a project I built to help me track the time I spent
-          on various projects; for myself or otherwise. The main goal was to
-          have a tool to make it easier to generate invoices and track hours on
-          those invoices. It was a classic example of spreadsheet to web app
-          evolution.
+          Time Tracking was a project I built to help me track the time I spent on various projects;
+          for myself or otherwise. The main goal was to have a tool to make it easier to generate
+          invoices and track hours on those invoices. It was a classic example of spreadsheet to web
+          app evolution.
         </v-card-text>
         <v-card-text>
-          I chose to use Supabase as it allowed me to build on my own silicone
-          and not pay for a server or any hosting alternatives. I host it on my
-          own dedicated server.
+          I chose to use Supabase as it allowed me to build on my own silicone and not pay for a
+          server or any hosting alternatives. I host it on my own dedicated server.
         </v-card-text>
       </v-card>
     </v-col>

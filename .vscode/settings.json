@@ -1,5 +1,4 @@
 {
     "typescript.tsdk": "node_modules/typescript/lib",
     "path-intellisense.showHiddenFiles": true,
-    "eslint.useFlatConfig": false,
 }

@@ -62,9 +62,7 @@ function contactAction(contact: (typeof contactList)[number]) {
   <v-container>
     <section :class="{ mobile }" class="align-start">
       <h1 class="text-md-h1 text-h3">My Name is Joel Young</h1>
-      <h2 class="text-md-h3 text-h5">
-        I enjoy building things and solving problems.
-      </h2>
+      <h2 class="text-md-h3 text-h5">I enjoy building things and solving problems.</h2>
       <div class="d-flex flex-wrap ga-4 mt-5">
         <v-btn to="/about" color="primary">More About Me</v-btn>
         <v-btn to="/projects" color="primary"> Browse my Projects </v-btn>
@@ -74,20 +72,13 @@ function contactAction(contact: (typeof contactList)[number]) {
     <section :class="{ mobile }">
       <h2 class="text-md-h2 text-h4 text-center">Featured Projects</h2>
       <v-row justify="space-around" class="flex-grow-0 mb-6">
-        <v-col
-          v-for="project in projects"
-          :key="project.projectKey"
-          cols="12"
-          md="4"
-        >
+        <v-col v-for="project in projects" :key="project.projectKey" cols="12" md="4">
           <ProjectCard :project="project" class="h-100" />
         </v-col>
       </v-row>
 
       <div class="d-flex justify-center">
-        <v-btn to="/projects" size="x-large" variant="tonal"
-          >View All Projects</v-btn
-        >
+        <v-btn to="/projects" size="x-large" variant="tonal">View All Projects</v-btn>
       </div>
     </section>
 
@@ -102,13 +93,9 @@ function contactAction(contact: (typeof contactList)[number]) {
           class="text-center"
           @click.stop="contactAction(contact)"
         >
-          <v-btn
-            stacked
-            size="x-large"
-            :prepend-icon="contact.icon"
-            variant="text"
-            >{{ contact.title }}</v-btn
-          >
+          <v-btn stacked size="x-large" :prepend-icon="contact.icon" variant="text">{{
+            contact.title
+          }}</v-btn>
         </v-col>
       </v-row>
     </section>
@@ -118,9 +105,7 @@ function contactAction(contact: (typeof contactList)[number]) {
         Copied!
         <v-icon icon="mdi-check" color="success" />
       </div>
-      <div v-else class="text-center">
-        Copying to clipboard is not supported!
-      </div>
+      <div v-else class="text-center">Copying to clipboard is not supported!</div>
     </v-snackbar>
   </v-container>
 </template>

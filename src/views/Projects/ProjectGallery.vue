@@ -48,13 +48,7 @@ function tagClicked(tag: string) {
     </v-combobox>
 
     <v-row justify="center">
-      <v-col
-        v-for="project in filteredProjects"
-        :key="project.projectKey"
-        cols="12"
-        sm="6"
-        md="3"
-      >
+      <v-col v-for="project in filteredProjects" :key="project.projectKey" cols="12" sm="6" md="3">
         <ProjectCard
           class="h-100"
           :project="project"

@@ -34,10 +34,9 @@ const technologies = [
         <v-img :src="projectImage" />
         <v-card-title>Project Description</v-card-title>
         <v-card-text>
-          This website was created to showcase my projects and provide a
-          platform for me to share my thoughts and experiences. The website is
-          built using Vue.js and Vuetify, and is hosted on AWS S3. The website
-          is a single-page application that uses Vue Router to navigate between
+          This website was created to showcase my projects and provide a platform for me to share my
+          thoughts and experiences. The website is built using Vue.js and Vuetify, and is hosted on
+          AWS S3. The website is a single-page application that uses Vue Router to navigate between
           pages.
         </v-card-text>
       </v-card>

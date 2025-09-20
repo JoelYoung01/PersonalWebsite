@@ -1,8 +1,4 @@
-import {
-  createRouter,
-  createWebHistory,
-  type RouterScrollBehavior,
-} from "vue-router";
+import { createRouter, createWebHistory, type RouterScrollBehavior } from "vue-router";
 import routes from "./routes";
 
 /**

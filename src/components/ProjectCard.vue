@@ -61,9 +61,7 @@ function tagVariant(tag: string) {
       </v-card-text>
       <v-card-text>{{ project.description }}</v-card-text>
       <v-card-actions v-if="project.sourceUri">
-        <v-btn :href="project.sourceUri" target="_blank" @click.stop
-          >View Code</v-btn
-        >
+        <v-btn :href="project.sourceUri" target="_blank" @click.stop>View Code</v-btn>
       </v-card-actions>
     </div>
   </v-card>

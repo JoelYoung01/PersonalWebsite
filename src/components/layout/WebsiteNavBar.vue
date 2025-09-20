@@ -12,10 +12,7 @@ const elevation = computed(() => {
 <template>
   <v-app-bar class="py-3 px-5" :elevation="elevation">
     <RouterLink to="/">
-      <div
-        class="text-h5 text-lg-h2"
-        style="color: rgb(var(--v-theme-secondary))"
-      >
+      <div class="text-h5 text-lg-h2" style="color: rgb(var(--v-theme-secondary))">
         Joel's Website
       </div>
     </RouterLink>

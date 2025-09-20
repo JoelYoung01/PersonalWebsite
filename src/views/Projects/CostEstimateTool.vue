@@ -14,32 +14,27 @@ const technologies = [
   },
   {
     title: "Typescript",
-    subtitle:
-      "TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.",
+    subtitle: "TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.",
     icon: "mdi-language-typescript",
   },
   {
     title: "Vite",
-    subtitle:
-      "Vite is a fast build tool that provides a faster dev experience and faster builds.",
+    subtitle: "Vite is a fast build tool that provides a faster dev experience and faster builds.",
     icon: "mdi-lightning-bolt",
   },
   {
     title: "Node.js",
-    subtitle:
-      "Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine.",
+    subtitle: "Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine.",
     icon: "mdi-nodejs",
   },
   {
     title: "Express.js",
-    subtitle:
-      "Express.js is a fast, unopinionated, minimalist web framework for Node.js.",
+    subtitle: "Express.js is a fast, unopinionated, minimalist web framework for Node.js.",
     icon: "mdi-nodejs",
   },
   {
     title: "PostgreSQL",
-    subtitle:
-      "PostgreSQL is a powerful, open source object-relational database system.",
+    subtitle: "PostgreSQL is a powerful, open source object-relational database system.",
     icon: "mdi-database",
   },
   {
@@ -95,11 +90,9 @@ const cdnEnvironments = [
 ];
 
 function demo() {
-  var script = document.createElement("script");
+  const script = document.createElement("script");
   script.src = scriptSrc.value;
-  const scriptMount = document.getElementById(
-    "cost-estimate-script-mount-point",
-  );
+  const scriptMount = document.getElementById("cost-estimate-script-mount-point");
   if (!scriptMount) {
     console.error("Could not find script mount point");
     return;
@@ -109,9 +102,7 @@ function demo() {
 }
 
 function reset() {
-  const scriptMount = document.getElementById(
-    "cost-estimate-script-mount-point",
-  );
+  const scriptMount = document.getElementById("cost-estimate-script-mount-point");
   if (!scriptMount) {
     console.error("Could not find script mount point");
     return;
@@ -128,17 +119,14 @@ function reset() {
       <h1 class="text-h4">About the project</h1>
       <v-card>
         <v-card-text>
-          This project was created to provide high-level cost estimates for sod
-          work. It is a widget that can be dynamically injected into a page
-          using a script tag. The widget is hosted on a CDN, and the Vue.js
-          application is hosted on AWS S3.
+          This project was created to provide high-level cost estimates for sod work. It is a widget
+          that can be dynamically injected into a page using a script tag. The widget is hosted on a
+          CDN, and the Vue.js application is hosted on AWS S3.
         </v-card-text>
       </v-card>
       <v-expansion-panels>
         <v-expansion-panel>
-          <v-expansion-panel-title class="text-h6">
-            Technologies Used
-          </v-expansion-panel-title>
+          <v-expansion-panel-title class="text-h6"> Technologies Used </v-expansion-panel-title>
           <v-expansion-panel-text>
             <v-list>
               <v-list-item
@@ -177,9 +165,7 @@ function reset() {
         class="flex-grow-0"
         min-width="200"
       />
-      <v-btn :disabled="!scriptSrc || demoActivated" @click="demo">
-        Activate Demo
-      </v-btn>
+      <v-btn :disabled="!scriptSrc || demoActivated" @click="demo"> Activate Demo </v-btn>
       <v-btn :disabled="!demoActivated" @click="reset">Reset</v-btn>
     </v-col>
   </v-row>
