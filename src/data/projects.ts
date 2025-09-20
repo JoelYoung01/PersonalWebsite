@@ -1,7 +1,7 @@
 import { type Project, TAGS } from "@/types";
 
 import portfolioImageUrl from "@/assets/images/portfolioImage.png";
-import recipeDbImageUrl from "@/assets/images/recipeDb.png";
+import recipeDbImageUrl from "@/assets/images/RecipeDb.png";
 import play4096ImageUrl from "@/assets/images/play-4096.png";
 import costEstimateSiteUrl from "@/assets/images/costEstimateDemo.png";
 import greensightImageUrl from "@/assets/images/greensight.png";
