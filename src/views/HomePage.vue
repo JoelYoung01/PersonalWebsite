@@ -65,11 +65,9 @@ function contactAction(contact: (typeof contactList)[number]) {
       <h2 class="text-md-h3 text-h5">
         I enjoy building things and solving problems.
       </h2>
-      <div class="d-flex ga-4">
-        <v-btn to="/about" color="primary" class="mt-5">More About Me</v-btn>
-        <v-btn to="/projects" color="primary" class="mt-5">
-          Browse my Projects
-        </v-btn>
+      <div class="d-flex flex-wrap ga-4 mt-5">
+        <v-btn to="/about" color="primary">More About Me</v-btn>
+        <v-btn to="/projects" color="primary"> Browse my Projects </v-btn>
       </div>
     </section>
 

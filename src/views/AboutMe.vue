@@ -106,7 +106,7 @@ const socials = [
           Skills and Abilities
         </h2>
 
-        <div class="d-flex justify-center align-center ga-2 my-6">
+        <div class="d-flex flex-wrap justify-center align-center ga-2 my-6">
           <v-chip variant="tonal" to="/projects">
             Open Source Projects: 17
           </v-chip>
