@@ -30,12 +30,12 @@ const projectRoutes = [
   {
     path: "recipe-db",
     name: "Recipe DB",
-    redirect: "https://github.com/JoelYoung01/RecipeDB",
+    redirect: "https://recipe-db.joelyoung.dev/home",
   },
   {
     path: "play-4096",
     name: "Play 4096",
-    redirect: "https://github.com/JoelYoung01/Play4096",
+    redirect: "https://play-4096.com",
   },
   {
     path: "atmosphyr",
@@ -50,17 +50,17 @@ const projectRoutes = [
   {
     path: "monthly-app",
     name: "Monthly App",
-    redirect: "https://github.com/JoelYoung01/MonthlyApp",
+    redirect: "https://monthly-app.joelyoung.dev",
   },
   {
     path: "craft-caddy",
     name: "Craft Caddy",
-    redirect: "https://github.com/JoelYoung01/CraftCaddy",
+    redirect: "https://craft-caddy.joelyoung.dev",
   },
   {
     path: "bug-zapper",
     name: "Bug Zapper",
-    redirect: "https://github.com/JoelYoung01/BugZapper",
+    redirect: "https://bug-zapper.joelyoung.dev",
   },
   {
     path: "irrigreen-cost-calculator",

@@ -108,10 +108,10 @@ const socials = [
 
         <div class="d-flex justify-center align-center ga-2 my-6">
           <v-chip variant="tonal" to="/projects">
-            Public Personal Projects: 17
+            Open Source Projects: 17
           </v-chip>
           <v-chip variant="tonal"> Vue.js Applications Shipped: 25+ </v-chip>
-          <v-chip variant="tonal"> Professional Projects Led: 8 </v-chip>
+          <v-chip variant="tonal"> Projects Led: 8 </v-chip>
           <v-chip variant="tonal"> Professional Experience: 5+ years </v-chip>
         </div>
 

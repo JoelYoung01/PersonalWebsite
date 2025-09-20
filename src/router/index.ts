@@ -26,7 +26,9 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
   if (to.path.match(/^\/http/)) {
-    window.location.href = to.path.slice(1);
+    window.open(to.path.slice(1), "_blank");
+    // Cancel navigation in the current tab
+    next(false);
   } else {
     next();
   }
