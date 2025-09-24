@@ -204,9 +204,12 @@ function onDownload() {
 }
 
 .print-container {
+  --resume-width: 816px;
+  --resume-height: 1056px;
+
   margin-top: 2rem;
-  width: 816px;
-  height: 1056px;
+  width: var(--resume-width);
+  height: var(--resume-height);
   border-radius: 5px;
   color: #22333b;
   background-color: #ffffff;
@@ -215,10 +218,9 @@ function onDownload() {
   font-family: "Calibri", sans-serif;
   line-height: 1.4;
 
-  /* zoom: 1.5; */
+  zoom: calc(min(1, 98vw / var(--resume-width)));
 
   @media print {
-    zoom: 1;
     margin: -64px 0 0 0;
     padding: 0;
     position: absolute;

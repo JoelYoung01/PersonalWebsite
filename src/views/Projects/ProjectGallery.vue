@@ -25,7 +25,7 @@ function tagClicked(tag: string) {
 </script>
 
 <template>
-  <div class="container">
+  <div class="my-4 mx-2 ma-sm-10">
     <h3 class="text-md-h3 text-h5 mb-4">My Projects</h3>
 
     <v-combobox
@@ -65,9 +65,3 @@ function tagClicked(tag: string) {
     </v-row>
   </div>
 </template>
-
-<style scoped>
-.container {
-  margin: 3rem 3rem;
-}
-</style>
