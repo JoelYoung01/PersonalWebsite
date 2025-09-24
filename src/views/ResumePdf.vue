@@ -207,14 +207,14 @@ function onDownload() {
   --resume-width: 816px;
   --resume-height: 1056px;
 
-  margin-top: 2rem;
+  margin-top: 32px;
   width: var(--resume-width);
   height: var(--resume-height);
   border-radius: 5px;
   color: #22333b;
   background-color: #ffffff;
 
-  font-size: 0.8rem;
+  font-size: 12.8px;
   font-family: "Calibri", sans-serif;
   line-height: 1.4;
 
@@ -233,16 +233,16 @@ function onDownload() {
 h1 {
   color: rgb(var(--v-theme-primary-darken-1));
   font-weight: bold;
-  font-size: 1.2rem;
+  font-size: 19.2px;
 }
 
 h2 {
   color: rgb(var(--v-theme-primary-darken-1));
   font-weight: normal;
-  font-size: 1rem;
+  font-size: 16px;
 }
 
 ul {
-  margin-left: 1rem;
+  margin-left: 16px;
 }
 </style>
