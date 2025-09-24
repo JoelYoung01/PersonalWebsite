@@ -84,13 +84,12 @@ function onDownload() {
     </div>
     <ul>
       <li>
-        Built GitLab Automation tools using Python and Vue that reduces context switching required
-        for developers and improves time to-completion per ticket by up to 4 hours by automating the
-        handoff between development and testing.
-      </li>
-      <li>
         Led front-end development on an application which increased visibility on shipment holdings,
         saving an estimated $5,000,000 in shipping costs.
+      </li>
+      <li>
+        Led development on a web application project automating 80% of the Capital Orders sales
+        process for the focus system, saving an estimated $50,000 in employee hours.
       </li>
       <li>
         Created a plan for migrating Vue + Django applications from Vue 2 to Vue 3 that allowed the
@@ -104,12 +103,13 @@ function onDownload() {
         improve developer experience.
       </li>
       <li>
-        Led development on a web application project automating 80% of the Capital Orders sales
-        process for the focus system, saving an estimated $50,000 in employee hours.
-      </li>
-      <li>
         Researched and fully implemented End to End testing using Playwright in a single 2-week
         sprint, cutting testing duration for shipped projects by an estimated 75%.
+      </li>
+      <li>
+        Built GitLab Automation tools using Python and Vue that reduced context switching required
+        for developers and improved time to-completion per ticket by up to 4 hours by automating the
+        handoff between development and testing.
       </li>
     </ul>
 
@@ -121,7 +121,7 @@ function onDownload() {
 
       <v-spacer />
 
-      <div>January 2024 - March 2024</div>
+      <div>Dec 2020 - March 2024</div>
     </div>
 
     <ul>
