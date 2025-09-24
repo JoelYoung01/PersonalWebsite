@@ -10,7 +10,7 @@ const elevation = computed(() => {
 </script>
 
 <template>
-  <v-app-bar class="py-3 px-5" :elevation="elevation">
+  <v-app-bar class="hide-on-print py-3 px-5" :elevation="elevation">
     <RouterLink to="/">
       <div class="text-h5 text-lg-h2" style="color: rgb(var(--v-theme-secondary))">
         Joel's Website
@@ -32,6 +32,11 @@ const elevation = computed(() => {
     <v-btn icon class="nav-button" to="/projects">
       <v-tooltip location="bottom" activator="parent">Projects</v-tooltip>
       <v-icon color="secondary" size="x-large" icon="mdi-folder" />
+    </v-btn>
+
+    <v-btn icon class="nav-button" to="/resume">
+      <v-tooltip location="bottom" activator="parent">Resume</v-tooltip>
+      <v-icon color="secondary" size="x-large" icon="mdi-file-document" />
     </v-btn>
   </v-app-bar>
 </template>

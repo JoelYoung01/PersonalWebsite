@@ -6,3 +6,9 @@ a {
   text-decoration: none;
   color: rgb(var(--v-theme-primary-darken-1))
 }
+
+.hide-on-print {
+  @media print {
+    display: none !important;
+  }
+}

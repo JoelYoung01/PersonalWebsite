@@ -1,5 +1,9 @@
 import HomePage from "../views/HomePage.vue";
 import ErrorPage from "../views/ErrorPage.vue";
+import ResumePdf from "../views/ResumePdf.vue";
+import AboutMe from "../views/AboutMe.vue";
+import ProjectDetails from "../views/ProjectDetails.vue";
+import ProjectGallery from "../views/Projects/ProjectGallery.vue";
 
 import projectRoutes from "./projects";
 
@@ -12,25 +16,25 @@ const routes = [
   {
     path: "/about",
     name: "about",
-    // route level code-splitting
-    // this generates a separate chunk (About.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import("../views/AboutMe.vue"),
+    component: AboutMe,
   },
   {
     path: "/projects",
     name: "projects",
-    // route level code-splitting
-    // this generates a separate chunk (About.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import("../views/Projects/ProjectGallery.vue"),
+    component: ProjectGallery,
   },
   {
     path: "/project",
-    name: "project details",
+    name: "Project Details",
     children: projectRoutes,
-    component: () => import("../views/ProjectDetails.vue"),
+    component: ProjectDetails,
   },
+  {
+    path: "/resume",
+    name: "resume",
+    component: ResumePdf,
+  },
+
   // Catch-all path for 404 page
   { path: "/:pathMatch(.*)*", component: ErrorPage },
 ];
