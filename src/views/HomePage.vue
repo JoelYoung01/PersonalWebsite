@@ -66,6 +66,7 @@ function contactAction(contact: (typeof contactList)[number]) {
       <div class="d-flex flex-wrap ga-4 mt-5">
         <v-btn to="/about" color="primary">More About Me</v-btn>
         <v-btn to="/projects" color="primary"> Browse my Projects </v-btn>
+        <v-btn to="/resume" color="primary"> View My Resume </v-btn>
       </div>
     </section>
 
