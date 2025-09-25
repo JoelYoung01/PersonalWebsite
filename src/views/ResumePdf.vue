@@ -38,7 +38,7 @@ function onDownload() {
     <v-divider color="secondary" class="border-opacity-50 my-2" />
 
     <p class="text-center">
-      Passionate software developer with 5+ years of professional experience developing ergonomic
+      Passionate software developer with 4+ years of professional experience developing ergonomic
       user experiences using industry standard technologies. Excited about learning new skills and
       using them to improve business operations.
     </p>
@@ -65,8 +65,8 @@ function onDownload() {
       </div>
       <div>
         <div class="font-weight-bold">Software</div>
-        GitHub, GitLab, VSCode, Cursor, Bitbucket, Jira, Visual Studio, Intelli-J IDEA, AWS Console,
-        Jenkins, Docker Desktop
+        GitHub, GitLab, VSCode, Cursor, Datadog, Bitbucket, Jira, Visual Studio, Intelli-J IDEA, AWS
+        Console, Jenkins, Docker Desktop
       </div>
     </div>
 
