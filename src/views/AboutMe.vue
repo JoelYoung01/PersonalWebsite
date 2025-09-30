@@ -55,10 +55,11 @@ const socials = [
             <h2 class="text-md-h2 text-h4 text-center mb-5">About Me</h2>
             <p class="text-md-h5 text-body-1">
               My name is Joel Young and I love writing code! I enjoy both the creativity and problem
-              solving skills involved in coding. I love watching my ideas become reality or the
-              feeling of implementing a new technology to solve a problem more efficiently. Most
-              importantly, I love the feeling of creating something that can help improve someone's
-              life!
+              solving skills required to build quality software. I find the most fulfillment when
+              collaborating with a competent, close-knit team—working together to overcome
+              challenges and achieve shared goals. Most importantly, I thrive when I can contribute
+              to something that has a meaningful and measurable impact on others, from teammates to
+              end users.
             </p>
             <v-row
               align="center"
