@@ -231,10 +231,10 @@ const socials = [
                 </template>
                 <template #text>
                   <span class="text-body-1">
-                    I believe that communication is the key to success in any relatiionship,
-                    personal or professional. I enjoy working together with other intelligent and
-                    motivated individuals to achieve a common goal, and am always looking for ways
-                    to learn and grow.
+                    I believe that communication is the key to success in any relationship, personal
+                    or professional. I enjoy working together with other intelligent and motivated
+                    individuals to achieve a common goal, and am always looking for ways to learn
+                    and grow.
                   </span>
                 </template>
               </v-expansion-panel>
