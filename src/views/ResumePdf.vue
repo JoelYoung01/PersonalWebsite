@@ -9,10 +9,10 @@ function onDownload() {
 </script>
 
 <template>
-  <v-container class="print-container position-relative py-4 px-6">
+  <v-container class="print-container position-relative py-4 px-6 text-body-2">
     <h1 class="text-center">Joel Young</h1>
     <div class="d-flex justify-center align-center ga-2">
-      <div>Coon Rapids, MN</div>
+      <div>Minneapolis, MN</div>
       <div>•</div>
       <div>(612) 438-9418</div>
       <div>•</div>
@@ -37,36 +37,63 @@ function onDownload() {
 
     <v-divider color="secondary" class="border-opacity-50 my-2" />
 
-    <p class="text-center">
-      Passionate software developer with 4+ years of professional experience developing ergonomic
-      user experiences using industry standard technologies. Excited about learning new skills and
-      using them to improve business operations.
+    <p class="text-center text-body-2">
+      Passionate software developer with 4+ years of professional experience developing full-stack
+      solutions across a wide range of technologies. Enjoys collaborating with end users to
+      understand and meet their needs. Excited about learning new skills, working with a close-knit
+      team, and achieving group goals to create tangible value.
     </p>
 
     <h2 class="text-center mt-2">Technical Skills</h2>
     <v-divider color="secondary" class="border-opacity-50 my-1" />
-    <div class="d-flex ga-3">
+    <div class="d-flex justify-space-between text-body-2 ga-3">
       <div>
         <div class="font-weight-bold">Languages</div>
-        HTML, CSS, JavaScript, Python, C#, Java, Markdown, YAML, PowerShell, Bash
+        <ul class="mb-0">
+          <li>HTML <span class="text-caption">(Expert)</span></li>
+          <li>CSS <span class="text-caption">(Expert)</span></li>
+          <li>JavaScript <span class="text-caption">(Expert)</span></li>
+          <li>Python <span class="text-caption">(Proficient)</span></li>
+          <li>C# <span class="text-caption">(Proficient)</span></li>
+          <li>Java <span class="text-caption">(Familiar)</span></li>
+        </ul>
       </div>
       <div>
         <div class="font-weight-bold">Frameworks</div>
-        Vue, Svelte(Kit), Tailwind, React, .NET, Django, FastAPI, Terraform, Kubernetes, GraphQL
+        <ul class="mb-0">
+          <li>Vue <span class="text-caption">(Expert)</span></li>
+          <li>.NET <span class="text-caption">(Proficient)</span></li>
+          <li>Django <span class="text-caption">(Proficient)</span></li>
+          <li>GraphQL <span class="text-caption">(Proficient)</span></li>
+          <li>React <span class="text-caption">(Familiar)</span></li>
+          <li>Tailwind <span class="text-caption">(Familiar)</span></li>
+          <li>Terraform <span class="text-caption">(Familiar)</span></li>
+          <li>Kubernetes <span class="text-caption">(Familiar)</span></li>
+          <li>Svelte(Kit) <span class="text-caption">(Familiar)</span></li>
+        </ul>
       </div>
       <div>
         <div class="font-weight-bold">Tools & Platforms</div>
-        Git, Vite, Playwright, Vuetify, Node, NPM, PNPM, Yarn, AWS, Debian, Ubuntu, Docker
-      </div>
-      <div>
-        <div class="font-weight-bold">Patterns & Practices</div>
-        RESTful API, Open API, Oath2, Unit Testing, Gitflow, Agile Software Development, Test Driven
-        Development
+        <ul class="mb-0">
+          <li>Git <span class="text-caption">(Expert)</span></li>
+          <li>Vuetify <span class="text-caption">(Expert)</span></li>
+          <li>Node <span class="text-caption">(Proficient)</span></li>
+          <li>Docker <span class="text-caption">(Proficient)</span></li>
+          <li>Playwright <span class="text-caption">(Proficient)</span></li>
+          <li>AWS <span class="text-caption">(Familiar)</span></li>
+        </ul>
       </div>
       <div>
         <div class="font-weight-bold">Software</div>
-        GitHub, GitLab, VSCode, Cursor, Datadog, Bitbucket, Jira, Visual Studio, Intelli-J IDEA, AWS
-        Console, Jenkins, Docker Desktop
+        <ul class="mb-0">
+          <li>GitHub <span class="text-caption">(Expert)</span></li>
+          <li>GitLab <span class="text-caption">(Expert)</span></li>
+          <li>Cursor <span class="text-caption">(Expert)</span></li>
+          <li>Jenkins <span class="text-caption">(Proficient)</span></li>
+          <li>Bitbucket <span class="text-caption">(Proficient)</span></li>
+          <li>Atlassian Suite <span class="text-caption">(Proficient)</span></li>
+          <li>Datadog <span class="text-caption">(Familiar)</span></li>
+        </ul>
       </div>
     </div>
 
@@ -83,33 +110,22 @@ function onDownload() {
       <div>March 2024 - Present</div>
     </div>
     <ul>
+      <li>Led front-end development of a shipment visibility app, saving $5M in shipping costs.</li>
       <li>
-        Led front-end development on an application which increased visibility on shipment holdings,
-        saving an estimated $5,000,000 in shipping costs.
+        Automated 80% of the Capital Orders sales process, accelerating per-sale processing by 15x.
       </li>
       <li>
-        Led development on a web application project automating 80% of the Capital Orders sales
-        process for the focus system, saving an estimated $50,000 in employee hours.
+        Designed a Vue 2-to-3 migration plan enabling 2-4 hour migrations; led a team of 6 devs to
+        migrate 23 apps in 2 weeks.
       </li>
       <li>
-        Created a plan for migrating Vue + Django applications from Vue 2 to Vue 3 that allowed the
-        migration of an application in 2-4 hours, greatly reducing the cost of an otherwise
-        challenging migration. Utilized this guide to lead a team of 6 developers to migrate 23 web
-        applications in a single 2-week sprint.
+        Built a Vue 3 component library adopted by 35+ apps, with full documentation to enhance
+        developer experience.
       </li>
+      <li>Implemented Playwright E2E testing in 2 weeks, reducing testing time by 75%.</li>
       <li>
-        Developed a Vue 3 component library providing reusable and simple components implemented by
-        35+ applications. Published full documentation detailing this library and how to use it to
-        improve developer experience.
-      </li>
-      <li>
-        Researched and fully implemented End to End testing using Playwright in a single 2-week
-        sprint, cutting testing duration for shipped projects by an estimated 75%.
-      </li>
-      <li>
-        Built GitLab Automation tools using Python and Vue that reduced context switching required
-        for developers and improved time to-completion per ticket by up to 4 hours by automating the
-        handoff between development and testing.
+        Developed Python/Vue GitLab automation tools, reducing developer context switching and
+        saving up to 4 hours per ticket.
       </li>
     </ul>
 
@@ -126,48 +142,36 @@ function onDownload() {
 
     <ul>
       <li>
-        Built an application using .NET and Vue 3 that consumed data from 5+ sources via webhooks
-        and its REST API, and served it through a performant GraphQL API, enabled access to
-        consolidated data that normally would take up to 8 hours to retrieve to be served in less
-        than a second.
+        Developed a .NET/Vue app that unified data from 5+ sources via webhooks and REST, delivering
+        through a fast GraphQL API—reducing 8-hour data retrievals to under a second.
       </li>
       <li>
-        Developed a patented .NET and Vue 2 application responsible for the orchestration of and
-        reporting for hundreds of thousands of business-wide system deployments, following Test
-        Driven Development practices for both the front and backend. Iterated on this application
-        implementing customer feedback to improve user experience and data visibility for upper
-        management.
+        Developed a patented .NET/Vue app orchestrating and reporting on 100k+ system deployments,
+        using TDD and iterating on user feedback to enhance UX and management visibility.
       </li>
       <li>
-        Wrote a plan for migrating a large application (> 10,000 LOC) from Vue 2 to Vue 3, including
-        a migration of tests and the app's component library, reducing the time of the migration by
-        2 months.
+        Authored a migration plan for a 10k+ LOC app (Vue 2-to-3), including tests and component
+        library Vuetify, cutting projected migration time by 2 months.
       </li>
       <li>
-        Led an effort to research and implement new technologies in the front-end and API space such
-        as Vue 3, Microsoft's Playwright, Vuetify 3, ChilliCream's Banana Cake Pop (.NET + GraphQL),
+        Led adoption of new front-end and API technologies: Vue 3, Playwright, Vuetify 3, GraphQL,
         and Vite.
       </li>
       <li>
-        Maintained a wide portfolio of AWS Resources, including hundreds of EC2 and ECS instances
-        and their respective AWS Load balancing resources, ECR registries for 5 different operating
-        systems, and hundreds of S3 buckets.
+        Managed hundreds of AWS EC2/ECS instances, load balancers, ECR registries (5 OS's), and S3
+        buckets.
       </li>
       <li>
-        Maintained a large portfolio of infrastructure-as-code repositories responsible for both
-        on-prem resources as well as AWS resources, identifying and implementing cost-savings areas
-        ranging from $1 to $10,000.
+        Maintained I.A.C. repos for hybrid on-prem and cloud (AWS), identifying and implementing
+        cost savings from $100 to $10k.
       </li>
       <li>
-        Migrated business systems from traditional servers to auto-scaled servers to efficiently
-        match user demand to system resources, reducing infrastructure costs for high-traffic
-        applications from $30,000/month to $5,000/month.
+        Migrated systems to auto-scaled servers, reducing high-traffic app infrastructure costs from
+        $30k/month to $5k/month.
       </li>
       <li>
-        Created and maintained a repository of documentation covering a large range of topics
-        including external-facing user guides for the applications we maintained, process
-        documentation for infrastructure maintenance, migration guides and other developer guidance
-        documentation, and future work plans.
+        Created and maintained comprehensive documentation: user guides, process docs, migration
+        guides, developer resources, and future plans.
       </li>
     </ul>
 
@@ -233,13 +237,13 @@ function onDownload() {
 h1 {
   color: rgb(var(--v-theme-primary-darken-1));
   font-weight: bold;
-  font-size: 19.2px;
+  font-size: 22px;
 }
 
 h2 {
   color: rgb(var(--v-theme-primary-darken-1));
   font-weight: normal;
-  font-size: 16px;
+  font-size: 20px;
 }
 
 ul {
