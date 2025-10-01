@@ -208,22 +208,6 @@ const socials = [
           <v-col md="6" cols="12" class="ps-md-8">
             <div class="text-md-h4 text-h5 text-center mb-2">Soft Skills</div>
             <v-expansion-panels color="secondary">
-              <!-- Agile -->
-              <v-expansion-panel bg-color="primary-lighten-1">
-                <template #title>
-                  <v-icon icon="mdi-image-filter-hdr" class="me-3" />
-                  <span class="text-h6">Agile</span>
-                </template>
-                <template #text>
-                  <span class="text-body-1">
-                    I have worked in various Agile environments, ranging from an organization-wide
-                    Agile program including 300+ developers to a small team of 3. I've used various
-                    Agile methodologies, including Scrum, Kanban, and SAFe, and see the value in all
-                    versions of Agile.
-                  </span>
-                </template>
-              </v-expansion-panel>
-
               <!-- Communication -->
               <v-expansion-panel bg-color="primary-lighten-1">
                 <template #title>
@@ -299,6 +283,22 @@ const socials = [
                     of the importance of communication and collaboration in a team. I enjoy the
                     challenge of building a plan and executing it across the team, and I love
                     watching the team come together to achieve a common goal.
+                  </span>
+                </template>
+              </v-expansion-panel>
+
+              <!-- Agile -->
+              <v-expansion-panel bg-color="primary-lighten-1">
+                <template #title>
+                  <v-icon icon="mdi-image-filter-hdr" class="me-3" />
+                  <span class="text-h6">Agile</span>
+                </template>
+                <template #text>
+                  <span class="text-body-1">
+                    I have worked in various Agile environments, ranging from an organization-wide
+                    Agile program including 300+ developers to a small team of 3. I've used various
+                    Agile methodologies, including Scrum, Kanban, and SAFe, and see the value in all
+                    versions of Agile.
                   </span>
                 </template>
               </v-expansion-panel>

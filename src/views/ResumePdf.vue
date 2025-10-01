@@ -50,9 +50,9 @@ function onDownload() {
       <div>
         <div class="font-weight-bold">Languages</div>
         <ul class="mb-0">
+          <li>JavaScript <span class="text-caption">(Expert)</span></li>
           <li>HTML <span class="text-caption">(Expert)</span></li>
           <li>CSS <span class="text-caption">(Expert)</span></li>
-          <li>JavaScript <span class="text-caption">(Expert)</span></li>
           <li>Python <span class="text-caption">(Proficient)</span></li>
           <li>C# <span class="text-caption">(Proficient)</span></li>
           <li>Java <span class="text-caption">(Familiar)</span></li>
@@ -62,8 +62,8 @@ function onDownload() {
         <div class="font-weight-bold">Frameworks</div>
         <ul class="mb-0">
           <li>Vue <span class="text-caption">(Expert)</span></li>
-          <li>.NET <span class="text-caption">(Proficient)</span></li>
           <li>Django <span class="text-caption">(Proficient)</span></li>
+          <li>.NET <span class="text-caption">(Proficient)</span></li>
           <li>GraphQL <span class="text-caption">(Proficient)</span></li>
           <li>React <span class="text-caption">(Familiar)</span></li>
           <li>Tailwind <span class="text-caption">(Familiar)</span></li>
