@@ -137,7 +137,7 @@ function onDownload() {
 
       <v-spacer />
 
-      <div>April 2020 - March 2024</div>
+      <div>April 2021 - March 2024</div>
     </div>
 
     <ul>
