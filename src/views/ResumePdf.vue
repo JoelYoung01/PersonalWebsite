@@ -3,6 +3,10 @@ import { useTitle } from "@vueuse/core";
 
 useTitle("Joel Young's Resume");
 
+const startedWorking = new Date(2021, 4, 1).getTime();
+const today = new Date().getTime();
+const yearXp = Math.floor((today - startedWorking) / (1000 * 60 * 60 * 24 * 365.25));
+
 function onDownload() {
   window.print();
 }
@@ -25,12 +29,12 @@ function onDownload() {
         target="_blank"
         class="d-flex align-center ga-1"
       >
-        <v-icon icon="mdi-linkedin" size="x-small" class="mt-1" />
+        <v-icon icon="mdi-linkedin" size="x-small" class="mt-0" />
         LinkedIn</a
       >
       <div>•</div>
       <a href="https://github.com/JoelYoung01" target="_blank" class="d-flex align-center ga-1">
-        <v-icon icon="mdi-github" size="x-small" class="mt-1" />
+        <v-icon icon="mdi-github" size="x-small" class="mt-0" />
         GitHub</a
       >
     </div>
@@ -38,10 +42,10 @@ function onDownload() {
     <v-divider color="secondary" class="border-opacity-50 my-2" />
 
     <p class="text-center text-body-2">
-      Passionate software developer with 4+ years of professional experience developing full-stack
-      solutions across a wide range of technologies. Enjoys collaborating with end users to
-      understand and meet their needs. Excited about learning new skills, working with a close-knit
-      team, and achieving group goals to create tangible value.
+      Passionate software developer with {{ yearXp }}+ years of professional experience developing
+      full-stack solutions across a wide range of technologies. Enjoys collaborating with end users
+      to understand and meet their needs. Excited about learning new skills, working with a
+      close-knit team, and achieving group goals to create tangible value.
     </p>
 
     <h2 class="text-center mt-2">Technical Skills</h2>
