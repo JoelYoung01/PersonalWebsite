@@ -102,7 +102,7 @@ function onDownload() {
     <div class="d-flex">
       <div>
         <div>Boston Scientific, Minneapolis MN</div>
-        <div class="font-weight-bold">Lead Front-End Developer</div>
+        <div class="font-weight-bold">Lead Front-End / Fullstack Developer</div>
       </div>
 
       <v-spacer />
@@ -110,6 +110,11 @@ function onDownload() {
       <div>March 2024 - Present</div>
     </div>
     <ul>
+      <li>
+        Conducted requirements gathering for 40+ applications via weekly client sessions, aligning
+        technical solutions with business needs to prevent misaligned development and ensure
+        satisfaction.
+      </li>
       <li>Led front-end development of a shipment visibility app, saving $5M in shipping costs.</li>
       <li>
         Automated 80% of the Capital Orders sales process, accelerating per-sale processing by 15x.
