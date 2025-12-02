@@ -6,6 +6,7 @@ import ProjectDetails from "../views/ProjectDetails.vue";
 import ProjectGallery from "../views/Projects/ProjectGallery.vue";
 
 import projectRoutes from "./projects";
+import toolRoutes from "./tools";
 
 const routes = [
   {
@@ -28,6 +29,12 @@ const routes = [
     name: "Project Details",
     children: projectRoutes,
     component: ProjectDetails,
+  },
+  {
+    path: "/tools",
+    name: "tools",
+    children: toolRoutes,
+    redirect: "/tools/home",
   },
   {
     path: "/resume",
