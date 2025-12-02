@@ -1,17 +1,109 @@
 <script setup lang="ts">
 import { ref, computed } from "vue";
 
-// Stat ranges from Minecraft wiki
+// Stat ranges from Minecraft wiki (internal values)
 const STAT_RANGES = {
   health: { min: 15, max: 30 },
   speed: { min: 0.1125, max: 0.3375 },
   jump: { min: 0.4, max: 1.0 },
 } as const;
 
-// Input values
-const health = ref<number | null>(null);
-const speed = ref<number | null>(null);
-const jump = ref<number | null>(null);
+const POWER_FUNCTIONS = {
+  health: 1.528,
+  speed: 44,
+  jump: 5.5,
+} as const;
+
+// Display ranges (measured values)
+const DISPLAY_RANGES = {
+  speed: {
+    min: STAT_RANGES.speed.min * 43.171815466666658 - 0.000000339999999,
+    max: STAT_RANGES.speed.max * 43.171815466666658 - 0.000000339999999,
+  },
+  jump: {
+    // Calculate min and max jump heights in meters
+    min:
+      Math.pow(
+        -0.09333 * STAT_RANGES.jump.min * STAT_RANGES.jump.min +
+          1.05367 * STAT_RANGES.jump.min +
+          0.01177,
+        2
+      ) / 0.16,
+    max:
+      Math.pow(
+        -0.09333 * STAT_RANGES.jump.max * STAT_RANGES.jump.max +
+          1.05367 * STAT_RANGES.jump.max +
+          0.01177,
+        2
+      ) / 0.16,
+  },
+};
+
+// Input values (display units)
+const health = ref<number | null>(29);
+const speedMps = ref<number | null>(14.547);
+const jumpMeters = ref<number | null>(5.779);
+
+// Conversion constants
+const SPEED_CONVERSION = {
+  multiplier: 43.171815466666658,
+  offset: 0.000000339999999,
+};
+
+/**
+ * Convert speed from m/s to internal value
+ */
+function convertSpeedMpsToInternal(mps: number): number {
+  return (mps + SPEED_CONVERSION.offset) / SPEED_CONVERSION.multiplier;
+}
+
+/**
+ * Convert jump height from meters to internal jump strength
+ * Uses quadratic formula to solve: meters = (-0.09333 * j^2 + 1.05367 * j + 0.01177)^2 / 0.16
+ */
+function convertJumpMetersToInternal(meters: number): number | null {
+  if (meters <= 0 || !isFinite(meters)) return null;
+
+  // Rearrange: sqrt(0.16 * meters) = -0.09333 * j^2 + 1.05367 * j + 0.01177
+  const innerValue = Math.sqrt(0.16 * meters);
+  if (!isFinite(innerValue) || innerValue < 0) return null;
+
+  // Solve quadratic: -0.09333 * j^2 + 1.05367 * j + (0.01177 - innerValue) = 0
+  const a = -0.09333;
+  const b = 1.05367;
+  const c = 0.01177 - innerValue;
+
+  const discriminant = b * b - 4 * a * c;
+  if (discriminant < 0 || !isFinite(discriminant)) return null;
+
+  const sqrtDisc = Math.sqrt(discriminant);
+  const j1 = (-b + sqrtDisc) / (2 * a);
+  const j2 = (-b - sqrtDisc) / (2 * a);
+
+  // Return the solution in the valid range [0.4, 1.0], preferring j1
+  const validJ1 = j1 >= STAT_RANGES.jump.min && j1 <= STAT_RANGES.jump.max && isFinite(j1);
+  const validJ2 = j2 >= STAT_RANGES.jump.min && j2 <= STAT_RANGES.jump.max && isFinite(j2);
+
+  if (validJ1) return j1;
+  if (validJ2) return j2;
+
+  // If neither is in range, return the one closest to the valid range
+  if (isFinite(j1) && j1 >= 0 && j1 <= 1.0) return j1;
+  if (isFinite(j2) && j2 >= 0 && j2 <= 1.0) return j2;
+
+  return null;
+}
+
+// Internal values (computed from display values)
+const speedInternal = computed(() => {
+  if (speedMps.value === null) return null;
+  return convertSpeedMpsToInternal(speedMps.value);
+});
+
+const jumpInternal = computed(() => {
+  if (jumpMeters.value === null) return null;
+  return convertJumpMetersToInternal(jumpMeters.value);
+});
 
 /**
  * Normalize a stat value to 0-1 range based on min/max
@@ -40,19 +132,23 @@ function calculateStatScore(normalized: number, power: number = 2.5): number {
 const healthScore = computed(() => {
   if (health.value === null) return null;
   const normalized = normalizeStat(health.value, STAT_RANGES.health.min, STAT_RANGES.health.max);
-  return calculateStatScore(normalized) * 100;
+  return calculateStatScore(normalized, POWER_FUNCTIONS.health) * 100;
 });
 
 const speedScore = computed(() => {
-  if (speed.value === null) return null;
-  const normalized = normalizeStat(speed.value, STAT_RANGES.speed.min, STAT_RANGES.speed.max);
-  return calculateStatScore(normalized) * 100;
+  if (speedInternal.value === null) return null;
+  const normalized = normalizeStat(
+    speedInternal.value,
+    STAT_RANGES.speed.min,
+    STAT_RANGES.speed.max
+  );
+  return calculateStatScore(normalized, POWER_FUNCTIONS.speed) * 100;
 });
 
 const jumpScore = computed(() => {
-  if (jump.value === null) return null;
-  const normalized = normalizeStat(jump.value, STAT_RANGES.jump.min, STAT_RANGES.jump.max);
-  return calculateStatScore(normalized) * 100;
+  if (jumpInternal.value === null) return null;
+  const normalized = normalizeStat(jumpInternal.value, STAT_RANGES.jump.min, STAT_RANGES.jump.max);
+  return calculateStatScore(normalized, POWER_FUNCTIONS.jump) * 100;
 });
 
 /**
@@ -64,13 +160,13 @@ const normalizedHealth = computed(() => {
 });
 
 const normalizedSpeed = computed(() => {
-  if (speed.value === null) return null;
-  return normalizeStat(speed.value, STAT_RANGES.speed.min, STAT_RANGES.speed.max);
+  if (speedInternal.value === null) return null;
+  return normalizeStat(speedInternal.value, STAT_RANGES.speed.min, STAT_RANGES.speed.max);
 });
 
 const normalizedJump = computed(() => {
-  if (jump.value === null) return null;
-  return normalizeStat(jump.value, STAT_RANGES.jump.min, STAT_RANGES.jump.max);
+  if (jumpInternal.value === null) return null;
+  return normalizeStat(jumpInternal.value, STAT_RANGES.jump.min, STAT_RANGES.jump.max);
 });
 
 /**
@@ -102,14 +198,26 @@ function isValidStat(value: number | null, min: number, max: number): boolean {
   return value >= min && value <= max;
 }
 
+/**
+ * Check if jump conversion is valid
+ */
+const isValidJumpConversion = computed(() => {
+  if (jumpMeters.value === null) return true;
+  const internal = convertJumpMetersToInternal(jumpMeters.value);
+  return internal !== null && internal >= STAT_RANGES.jump.min && internal <= STAT_RANGES.jump.max;
+});
+
 const isValid = computed(() => {
   return (
     health.value !== null &&
-    speed.value !== null &&
-    jump.value !== null &&
+    speedMps.value !== null &&
+    jumpMeters.value !== null &&
     isValidStat(health.value, STAT_RANGES.health.min, STAT_RANGES.health.max) &&
-    isValidStat(speed.value, STAT_RANGES.speed.min, STAT_RANGES.speed.max) &&
-    isValidStat(jump.value, STAT_RANGES.jump.min, STAT_RANGES.jump.max)
+    isValidStat(speedMps.value, DISPLAY_RANGES.speed.min, DISPLAY_RANGES.speed.max) &&
+    isValidStat(jumpMeters.value, DISPLAY_RANGES.jump.min, DISPLAY_RANGES.jump.max) &&
+    isValidJumpConversion.value &&
+    speedInternal.value !== null &&
+    jumpInternal.value !== null
   );
 });
 </script>
@@ -128,9 +236,10 @@ const isValid = computed(() => {
           <v-card-title>Enter Horse Statistics</v-card-title>
           <v-card-text>
             <p class="text-body-2 mb-4">
-              Enter the horse's stats in internal game values. The scoring system uses a non-linear
-              scale that reflects breeding difficulty - it becomes exponentially harder to improve
-              as you approach perfect stats.
+              Enter the horse's stats using measured values from the game. The tool will convert
+              these to internal values and calculate a score using a non-linear scale that reflects
+              breeding difficulty - it becomes exponentially harder to improve as you approach
+              perfect stats.
             </p>
 
             <v-text-field
@@ -139,8 +248,8 @@ const isValid = computed(() => {
               label="Health"
               :min="STAT_RANGES.health.min"
               :max="STAT_RANGES.health.max"
-              step="0.5"
-              hint="Range: 15 - 30"
+              step="1"
+              hint="Range: 15 - 30 HP"
               :rules="[
                 (v) => v === null || v >= STAT_RANGES.health.min || 'Value too low',
                 (v) => v === null || v <= STAT_RANGES.health.max || 'Value too high',
@@ -154,38 +263,49 @@ const isValid = computed(() => {
             </v-text-field>
 
             <v-text-field
-              v-model.number="speed"
+              v-model.number="speedMps"
               type="number"
               label="Movement Speed"
-              :min="STAT_RANGES.speed.min"
-              :max="STAT_RANGES.speed.max"
-              step="0.0001"
-              hint="Range: 0.1125 - 0.3375 (internal units)"
+              :min="DISPLAY_RANGES.speed.min"
+              :max="DISPLAY_RANGES.speed.max"
+              step="0.001"
+              :hint="`Range: ${DISPLAY_RANGES.speed.min.toFixed(2)} - ${DISPLAY_RANGES.speed.max.toFixed(2)} m/s`"
               :rules="[
-                (v) => v === null || v >= STAT_RANGES.speed.min || 'Value too low',
-                (v) => v === null || v <= STAT_RANGES.speed.max || 'Value too high',
+                (v) => v === null || v >= DISPLAY_RANGES.speed.min || 'Value too low',
+                (v) => v === null || v <= DISPLAY_RANGES.speed.max || 'Value too high',
               ]"
               persistent-hint
               class="mb-3"
-            />
+            >
+              <template #append>
+                <span class="text-caption text-medium-emphasis">m/s</span>
+              </template>
+            </v-text-field>
 
             <v-text-field
-              v-model.number="jump"
+              v-model.number="jumpMeters"
               type="number"
-              label="Jump Strength"
-              :min="STAT_RANGES.jump.min"
-              :max="STAT_RANGES.jump.max"
-              step="0.0001"
-              hint="Range: 0.4 - 1.0 (internal units)"
+              label="Jump Height"
+              :min="DISPLAY_RANGES.jump.min"
+              :max="DISPLAY_RANGES.jump.max"
+              step="0.001"
+              :hint="`Range: ${DISPLAY_RANGES.jump.min.toFixed(3)} - ${DISPLAY_RANGES.jump.max.toFixed(3)} m`"
               :rules="[
-                (v) => v === null || v >= STAT_RANGES.jump.min || 'Value too low',
-                (v) => v === null || v <= STAT_RANGES.jump.max || 'Value too high',
+                (v) => v === null || v >= DISPLAY_RANGES.jump.min || 'Value too low',
+                (v) => v === null || v <= DISPLAY_RANGES.jump.max || 'Value too high',
+                () =>
+                  isValidJumpConversion ||
+                  'Invalid jump height - cannot convert to valid internal value',
               ]"
               persistent-hint
-            />
+            >
+              <template #append>
+                <span class="text-caption text-medium-emphasis">m</span>
+              </template>
+            </v-text-field>
 
             <v-alert
-              v-if="!isValid && (health !== null || speed !== null || jump !== null)"
+              v-if="!isValid && (health !== null || speedMps !== null || jumpMeters !== null)"
               type="warning"
               variant="tonal"
               class="mt-4"
@@ -202,7 +322,7 @@ const isValid = computed(() => {
           <v-card-text>
             <div v-if="overallScore === null" class="text-center py-8">
               <v-icon size="64" color="grey-lighten-1">mdi-horse</v-icon>
-              <p class="text-body-1 mt-4 text-medium-emphasis">
+              <p class="text-body-1 text-secondary mt-4 text-medium-emphasis">
                 Enter horse statistics to calculate the score
               </p>
             </div>
@@ -268,7 +388,9 @@ const isValid = computed(() => {
                   rounded
                 />
                 <div class="text-caption text-medium-emphasis mt-1">
-                  Value: {{ speed }} (Normalized: {{ normalizedSpeed?.toFixed(3) ?? "N/A" }})
+                  Measured: {{ speedMps?.toFixed(3) ?? "N/A" }} m/s | Internal:
+                  {{ speedInternal?.toFixed(4) ?? "N/A" }} | Normalized:
+                  {{ normalizedSpeed?.toFixed(3) ?? "N/A" }}
                 </div>
               </div>
 
@@ -289,7 +411,9 @@ const isValid = computed(() => {
                   rounded
                 />
                 <div class="text-caption text-medium-emphasis mt-1">
-                  Value: {{ jump }} (Normalized: {{ normalizedJump?.toFixed(3) ?? "N/A" }})
+                  Measured: {{ jumpMeters?.toFixed(3) ?? "N/A" }} m | Internal:
+                  {{ jumpInternal?.toFixed(4) ?? "N/A" }} | Normalized:
+                  {{ normalizedJump?.toFixed(3) ?? "N/A" }}
                 </div>
               </div>
             </div>
@@ -303,17 +427,23 @@ const isValid = computed(() => {
       <v-card-title>How the Scoring Works</v-card-title>
       <v-card-text>
         <p class="text-body-2 mb-2">
-          The scoring system uses a non-linear (power) function to reflect the difficulty of
-          breeding horses. As you get closer to perfect stats, improvements become exponentially
-          harder to achieve, which is reflected in the scoring:
+          The tool accepts measured values from the game (m/s for speed, meters for jump height) and
+          automatically converts them to internal game values for scoring. The scoring system uses a
+          non-linear (power) function to reflect the difficulty of breeding horses. As you get
+          closer to perfect stats, improvements become exponentially harder to achieve, which is
+          reflected in the scoring:
         </p>
         <ul class="text-body-2">
+          <li>
+            <strong>Measured values are converted</strong> to internal game values using the
+            formulas: Speed (m/s → internal) and Jump Height (m → internal)
+          </li>
           <li>
             <strong>Each stat is normalized</strong> to a 0-1 scale based on its min/max range
           </li>
           <li>
-            <strong>A power function</strong> (x^2.5) is applied to make high scores exponentially
-            harder to achieve
+            <strong>A power function</strong> (x^b, where b is the power function value) is applied
+            to make high scores exponentially harder to achieve
           </li>
           <li><strong>The overall score</strong> is the average of all three stat scores</li>
           <li>
@@ -333,5 +463,9 @@ const isValid = computed(() => {
 <style scoped>
 li {
   margin-left: 1rem;
+}
+
+.text-caption {
+  color: rgba(var(--v-theme-on-surface), var(--v-medium-emphasis-opacity)) !important;
 }
 </style>
