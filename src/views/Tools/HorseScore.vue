@@ -9,9 +9,9 @@ const STAT_RANGES = {
 } as const;
 
 const POWER_FUNCTIONS = {
-  health: 1.528,
-  speed: 44,
-  jump: 5.5,
+  health: 2.9,
+  speed: 4.75,
+  jump: 1.15,
 } as const;
 
 // Display ranges (measured values)
